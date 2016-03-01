@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Tesla.Base;
 
-namespace Tesla.ViewModel
+namespace Tesla.Base
 {
-    public class LoginViewModel: BaseViewModel
+    public class BaseModel
     {
     }
 }

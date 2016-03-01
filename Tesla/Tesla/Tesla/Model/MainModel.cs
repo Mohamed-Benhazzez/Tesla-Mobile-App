@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Tesla.Base;
 
-namespace Tesla.ViewModel
+namespace Tesla.Model
 {
-    public class LoginViewModel: BaseViewModel
+    public class MainModel: BaseModel
     {
     }
 }
