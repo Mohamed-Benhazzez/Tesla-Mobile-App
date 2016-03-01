@@ -42,11 +42,13 @@
     </Compile>
     <Compile Include="Base\BaseViewModel.cs" />
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Injection.cs" />
     <Compile Include="Model\LoginModel.cs" />
     <Compile Include="Model\MainModel.cs" />
     <Compile Include="Model\PinModel.cs" />
     <Compile Include="PageLocator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StackRunner.cs" />
     <Compile Include="Stack\AuthenticationStack.cs" />
     <Compile Include="Stack\MainStack.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
@@ -94,7 +96,12 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\..\TeslaDefinition\TeslaDefinition.csproj">
+      <Project>{1f7b8409-f72f-479c-8a3b-3923234dae42}</Project>
+      <Name>TeslaDefinition</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Base\BasePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>

@@ -11,6 +11,13 @@ namespace Tesla
     {
         public App()
         {
+
+            Bootstrapper.Init();
+
+            StackRunner.Init();
+
+            StackRunner.Run();
+
             // The root page of your application
             MainPage = new ContentPage
             {

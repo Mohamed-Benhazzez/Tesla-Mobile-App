@@ -5,49 +5,39 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Tesla.Stack;
+using TeslaDefinition;
+using Xamarin.Forms;
 
 namespace Tesla
 {
-    public class Bootstrapper
+    public static class Bootstrapper
     {
-        private static AsyncLock _lock = new AsyncLock();
-        private IDictionary<StackEnum, IStack> _stacks = null;
-        private StackEnum? _currentStack = null;
+        private readonly static AsyncLock _lock = new AsyncLock();
+   
 
-        public Bootstrapper()
+        public static void Init()
         {
 
             InitServices();
 
-            InitStacks();
-
         }
 
-        private void RegisterService<I, T>()
-        {
 
-        }
+
+       
 
         /// <summary>
         /// Will initialize the basic navigation and display services
         /// </summary>
-        private void InitServices()
+        private static void InitServices()
         {
-            RegisterService<IPageService, PageService>();
-            RegisterService<INavigationService, NavigationService>();
-            RegisterService<IDisplayService, DisplayService>();            
+            Injection.RegisterService<IPageService, PageService>();
+            Injection.RegisterService<INavigationService, NavigationService>();
+            Injection.RegisterService<IDisplayService, DisplayService>();
         }
 
 
-        private void InitStacks()
-        {
-            RegisterService<AuthenticationStack>();
-            RegisterOnce<MainStack>();
-
-            _stacks = new Dictionary<StackEnum, IStack>();
-            _stacks.Add(StackEnum.Authentication, ServiceLocator.Current.GetInstance<AuthenticationStack>());
-            _stacks.Add(StackEnum.Main, ServiceLocator.Current.GetInstance<MainStack>());
-        }
-
+       
     }
 }
