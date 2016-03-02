@@ -29,11 +29,14 @@ namespace Tesla
             _stacks.Add(Stacks.Main, Injection.Get<MainStack>());
         }
 
-        public static void Run()
+        public static void Run(Stacks stackChoice)
         {
-            // Get MainPage and switch it
+            var stack = _stacks[stackChoice];
 
-            // Application.Current.MainPage = 
+            stack.Init(); // Needs to switch current container in Dialog and Navigation Service
+            // Or stack switching calls throughout app?
+
+            Application.Current.MainPage = stack.Container.Page as Page;
         }
     }
 }
