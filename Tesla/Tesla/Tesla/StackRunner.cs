@@ -33,7 +33,8 @@ namespace Tesla
         {
             var stack = _stacks[stackChoice];
 
-            stack.Init(); // Needs to switch current container in Dialog and Navigation Service
+            stack.Init(); 
+            // Needs to switch current container in Dialog and Navigation Service
             // Or stack switching calls throughout app?
 
             Application.Current.MainPage = stack.Container.Page as Page;
