@@ -15,7 +15,6 @@ namespace Tesla
     public static class Bootstrapper
     {
         private readonly static AsyncLock _lock = new AsyncLock();
-   
 
         public static void Init()
         {

@@ -35,7 +35,7 @@ namespace Tesla
             _stacks.Add(Stacks.Main, Injection.Get<MainStack>());
         }
 
-        public void Run(Stacks stackChoice)
+        public void Run(Stacks stackChoice, object args = null)
         {
             // Don't change to the same stack
             if (_currentStack == stackChoice)
@@ -49,7 +49,11 @@ namespace Tesla
             _navigationService.Init(stack.Container);
             _displayService.Init(stack.Container);
 
+            if (stack.Status == StackStatus.Stopped)
+                Task.Run(async () => await stack.StartNavigation(args));
+
             Application.Current.MainPage = stack.Container.Page as Page;
+            
         }
     }
 }

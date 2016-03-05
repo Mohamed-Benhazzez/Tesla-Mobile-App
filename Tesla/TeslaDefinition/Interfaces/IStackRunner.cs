@@ -9,7 +9,7 @@ namespace TeslaDefinition.Interfaces
     public interface IStackRunner
     {
         
-        void Run(Stacks stackChoice);
+        void Run(Stacks stackChoice, object args = null);
 
     }
 }

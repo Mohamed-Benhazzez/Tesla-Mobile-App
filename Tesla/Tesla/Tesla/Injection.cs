@@ -27,21 +27,23 @@ namespace Tesla
 
         public static void Register<T>() where T : class
         {
-            _builder.RegisterType<T>();            
+            _builder.RegisterType<T>().SingleInstance();
         }
 
         public static void Register<I, T>() where T : class, I
                                              where I : class
         {
-            _builder.RegisterType<T>().As<I>();
+            _builder.RegisterType<T>().As<I>().SingleInstance();
         }
-        
+
+        /// <summary>
+        /// Use CAUTION. Only designed for very limited use
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
         public static T Get<T>() where T : class
         {
-            using (var scope = Container.BeginLifetimeScope())
-            {
-                return Container.Resolve<T>();
-            }
+            return Container.Resolve<T>();
         }
 
     }

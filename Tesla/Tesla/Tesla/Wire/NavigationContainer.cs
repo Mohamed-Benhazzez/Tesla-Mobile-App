@@ -32,12 +32,17 @@ namespace Tesla.Wire
 
         public async Task PushAsync(object page)
         {
-            var xamarinPage = page as Page;
+            //TODO: Implement and use Thread helper
+           
+            Device.BeginInvokeOnMainThread(async () =>
+            { 
+                var xamarinPage = page as Page;
 
-            if (xamarinPage == null)
-                throw new Exception("PushAsync can not push a non Xamarin Page");
+                if (xamarinPage == null)
+                    throw new Exception("PushAsync can not push a non Xamarin Page");
 
-            await _page.PushAsync(xamarinPage);
+                await _page.PushAsync(xamarinPage); // Must be run on the Main Thread
+            });     
         }
     }
 }

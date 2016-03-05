@@ -1,10 +1,5 @@
 ﻿using Exrin.Abstraction;
 using Exrin.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Tesla.View;
 using Tesla.ViewModel;
 using Tesla.Wire;
@@ -23,13 +18,11 @@ namespace Tesla.Stack
 
         protected override void MapPages()
         {
-            _navigationService.Map(nameof(PageLocator.Authentication.Login), typeof(LoginPage));
             _navigationService.Map(nameof(PageLocator.Authentication.Pin), typeof(PinPage));
         }
 
         protected override void MapViewModels()
         {
-            _pageService.Map(typeof(LoginPage), typeof(LoginViewModel));
             _pageService.Map(typeof(PinPage), typeof(PinViewModel));
         }
 
@@ -37,7 +30,7 @@ namespace Tesla.Stack
         {
             get
             {
-                return nameof(PageLocator.Authentication.Login);
+                return nameof(PageLocator.Authentication.Pin);
             }
         }
 

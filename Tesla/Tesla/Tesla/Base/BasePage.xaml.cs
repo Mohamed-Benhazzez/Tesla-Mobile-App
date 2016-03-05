@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Exrin.Abstraction;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,7 @@ using Xamarin.Forms;
 
 namespace Tesla.Base
 {
-    public partial class BasePage : ContentPage
+    public partial class BasePage : ContentPage, IPage
     {
         public BasePage()
         {

@@ -11,7 +11,6 @@ namespace Tesla
     {
         public App()
         {
-
             Bootstrapper.Init();
 
             Injection.Get<IStackRunner>().Run(TeslaDefinition.Stacks.Authentication);
