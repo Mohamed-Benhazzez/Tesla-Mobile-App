@@ -6,21 +6,27 @@ using System.Text;
 using System.Threading.Tasks;
 using Tesla.Stack;
 using TeslaDefinition;
+using TeslaDefinition.Interfaces;
 using Xamarin.Forms;
 
 namespace Tesla
 {
-    public static class StackRunner
+    public class StackRunner: IStackRunner
     {
-        private readonly static IDictionary<Stacks, IStack> _stacks = new Dictionary<Stacks, IStack>();
-        private static Stacks? _currentStack = null;
+        private readonly IDictionary<Stacks, IStack> _stacks = new Dictionary<Stacks, IStack>();
+        private Stacks? _currentStack = null;
+        private readonly INavigationService _navigationService;
+        private readonly IDisplayService _displayService;
 
-        public static void Init()
+        public StackRunner(INavigationService navigationService, IDisplayService displayService)
         {
+            _navigationService = navigationService;
+            _displayService = displayService;
+
             InitStacks();
         }
 
-        private static void InitStacks()
+        private void InitStacks()
         {
             Injection.Register<AuthenticationStack>();
             Injection.Register<MainStack>();
@@ -29,13 +35,19 @@ namespace Tesla
             _stacks.Add(Stacks.Main, Injection.Get<MainStack>());
         }
 
-        public static void Run(Stacks stackChoice)
+        public void Run(Stacks stackChoice)
         {
+            // Don't change to the same stack
+            if (_currentStack == stackChoice)
+                return;
+
             var stack = _stacks[stackChoice];
 
-            stack.Init(); 
-            // Needs to switch current container in Dialog and Navigation Service
-            // Or stack switching calls throughout app?
+            _currentStack = stackChoice;
+
+            // Switch over services
+            _navigationService.Init(stack.Container);
+            _displayService.Init(stack.Container);
 
             Application.Current.MainPage = stack.Container.Page as Page;
         }

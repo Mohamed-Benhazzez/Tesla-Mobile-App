@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using TeslaDefinition.Interfaces;
 using Xamarin.Forms;
 
 namespace Tesla
@@ -14,24 +14,7 @@ namespace Tesla
 
             Bootstrapper.Init();
 
-            StackRunner.Init();
-
-            StackRunner.Run();
-
-            // The root page of your application
-            MainPage = new ContentPage
-            {
-                Content = new StackLayout
-                {
-                    VerticalOptions = LayoutOptions.Center,
-                    Children = {
-                        new Label {
-                            XAlign = TextAlignment.Center,
-                            Text = "Welcome to Xamarin Forms!"
-                        }
-                    }
-                }
-            };
+            DependencyService.Get<IStackRunner>().Run(TeslaDefinition.Stacks.Authentication);
         }
 
         protected override void OnStart()

@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Tesla.Stack;
 using TeslaDefinition;
+using TeslaDefinition.Interfaces;
 using Xamarin.Forms;
 
 namespace Tesla
@@ -21,12 +22,10 @@ namespace Tesla
 
             InitServices();
 
+            InitRunners();
+
         }
-
-
-
-       
-
+        
         /// <summary>
         /// Will initialize the basic navigation and display services
         /// </summary>
@@ -37,7 +36,10 @@ namespace Tesla
             Injection.RegisterService<IDisplayService, DisplayService>();
         }
 
-
+        private static void InitRunners()
+        {
+            Injection.RegisterService<IStackRunner, StackRunner>();
+        }
        
     }
 }

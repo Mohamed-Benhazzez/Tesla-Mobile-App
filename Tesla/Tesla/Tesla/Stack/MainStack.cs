@@ -18,7 +18,7 @@ namespace Tesla.Stack
         public MainStack(INavigationService navigationService, IPageService pageService, IDisplayService displayService)
                                                                     : base(navigationService, displayService, pageService)
         {
-            _container = new NavigationContainer(new NavigationPage());
+            SetContainer(new NavigationContainer(new NavigationPage()));
         }
         
         protected override void MapPages()
