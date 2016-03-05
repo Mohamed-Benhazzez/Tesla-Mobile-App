@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Autofac;
+using Autofac.Core;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,20 +12,36 @@ namespace Tesla
     public static class Injection
     {
 
+        private static ContainerBuilder _builder = null;
+        private static IContainer Container { get; set; } = null;
+
+        public static void Init()
+        {
+            _builder = new ContainerBuilder();
+        }
+
+        public static void Complete()
+        {
+            Container = _builder.Build();
+        }
+
         public static void Register<T>() where T : class
         {
-            DependencyService.Register<T>();
+            _builder.RegisterType<T>();            
         }
 
-        public static void RegisterService<I, T>() where T : class, I
+        public static void Register<I, T>() where T : class, I
                                              where I : class
         {
-            DependencyService.Register<I, T>();
+            _builder.RegisterType<T>().As<I>();
         }
-
-        public static T Get<T>() where T: class
+        
+        public static T Get<T>() where T : class
         {
-            return DependencyService.Get<T>();
+            using (var scope = Container.BeginLifetimeScope())
+            {
+                return Container.Resolve<T>();
+            }
         }
 
     }

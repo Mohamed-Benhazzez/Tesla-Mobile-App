@@ -14,7 +14,7 @@ namespace Tesla
 
             Bootstrapper.Init();
 
-            DependencyService.Get<IStackRunner>().Run(TeslaDefinition.Stacks.Authentication);
+            Injection.Get<IStackRunner>().Run(TeslaDefinition.Stacks.Authentication);
         }
 
         protected override void OnStart()

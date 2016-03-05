@@ -20,9 +20,15 @@ namespace Tesla
         public static void Init()
         {
 
+            Injection.Init();
+
             InitServices();
 
+            InitStacks();
+
             InitRunners();
+
+            Injection.Complete();
 
         }
         
@@ -31,14 +37,20 @@ namespace Tesla
         /// </summary>
         private static void InitServices()
         {
-            Injection.RegisterService<IPageService, PageService>();
-            Injection.RegisterService<INavigationService, NavigationService>();
-            Injection.RegisterService<IDisplayService, DisplayService>();
+            Injection.Register<IPageService, PageService>();
+            Injection.Register<INavigationService, NavigationService>();
+            Injection.Register<IDisplayService, DisplayService>();
+        }
+
+        private static void InitStacks()
+        {
+            Injection.Register<AuthenticationStack>();
+            Injection.Register<MainStack>();
         }
 
         private static void InitRunners()
         {
-            Injection.RegisterService<IStackRunner, StackRunner>();
+            Injection.Register<IStackRunner, StackRunner>();
         }
        
     }
