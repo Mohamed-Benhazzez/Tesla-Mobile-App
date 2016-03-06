@@ -9,5 +9,6 @@ namespace Tesla.Model
 {
     public class MainModel: BaseModel
     {
+
     }
 }

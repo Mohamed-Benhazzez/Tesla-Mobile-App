@@ -14,10 +14,5 @@ namespace Tesla.View
         {
             InitializeComponent();
         }
-
-        protected override void OnAppearing()
-        {
-            base.OnAppearing();
-        }
     }
 }

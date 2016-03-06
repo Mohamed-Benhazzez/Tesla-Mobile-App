@@ -2,6 +2,17 @@
 <l:BasePage xmlns="http://xamarin.com/schemas/2014/forms"
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
             xmlns:l="clr-namespace:Tesla.Base"
-            x:Class="Tesla.View.PinPage">
-  <Label Text="PIN Page" VerticalOptions="Center" HorizontalOptions="Center" TextColor="Black" />
+            x:Class="Tesla.View.PinPage"
+            BackgroundColor="#2D2D2D">
+  <ScrollView HorizontalOptions="FillAndExpand">
+    <Grid>
+      <Grid.RowDefinitions>
+        <RowDefinition Height="*" />
+        <RowDefinition Height="50" />
+      </Grid.RowDefinitions>
+      
+      <Label Text="Enter Pin" HorizontalTextAlignment="Center" VerticalOptions="End" />
+      <Entry HorizontalOptions="FillAndExpand" VerticalOptions="End" Grid.Row="1" IsPassword="True" HeightRequest="50" HorizontalTextAlignment="Center" Keyboard="Numeric" />
+    </Grid>
+  </ScrollView>
 </l:BasePage>
