@@ -5,9 +5,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Tesla.Model;
 using Tesla.Stack;
+using Tesla.Wire;
 using TeslaDefinition;
 using TeslaDefinition.Interfaces;
+using TeslaDefinition.Interfaces.Model;
 using Xamarin.Forms;
 
 namespace Tesla
@@ -15,11 +18,13 @@ namespace Tesla
     public static class Bootstrapper
     {
         private readonly static AsyncLock _lock = new AsyncLock();
+        private readonly static IInjection _injection = new Injection();
 
-        public static void Init()
+
+        public static IInjection Init()
         {
 
-            Injection.Init();
+            _injection.Init();
 
             InitServices();
 
@@ -27,7 +32,11 @@ namespace Tesla
 
             InitRunners();
 
-            Injection.Complete();
+            InitModels();
+
+            _injection.Complete();
+
+            return _injection;
 
         }
         
@@ -36,20 +45,26 @@ namespace Tesla
         /// </summary>
         private static void InitServices()
         {
-            Injection.Register<IPageService, PageService>();
-            Injection.Register<INavigationService, NavigationService>();
-            Injection.Register<IDisplayService, DisplayService>();
+            
+            _injection.Register<IPageService, PageService>();
+            _injection.Register<INavigationService, NavigationService>();
+            _injection.Register<IDisplayService, DisplayService>();
         }
 
         private static void InitStacks()
         {
-            Injection.Register<AuthenticationStack>();
-            Injection.Register<MainStack>();
+            _injection.Register<AuthenticationStack>();
+            _injection.Register<MainStack>();
         }
 
         private static void InitRunners()
         {
-            Injection.Register<IStackRunner, StackRunner>();
+            _injection.Register<IStackRunner, StackRunner>();
+        }
+
+        private static void InitModels()
+        {
+            _injection.Register<IPinModel, PinModel>();
         }
        
     }

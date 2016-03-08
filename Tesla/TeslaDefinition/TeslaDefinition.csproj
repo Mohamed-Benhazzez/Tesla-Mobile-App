@@ -36,6 +36,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Interfaces\IStackRunner.cs" />
+    <Compile Include="Interfaces\Model\IPinModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Enums\Stacks.cs" />
   </ItemGroup>

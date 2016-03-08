@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Exrin.Abstraction;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,11 +10,10 @@ namespace Tesla
 {
     public class App : Application
     {
+
         public App()
         {
-            Bootstrapper.Init();
-
-            Injection.Get<IStackRunner>().Run(TeslaDefinition.Stacks.Authentication);
+            Bootstrapper.Init().Get<IStackRunner>().Run(TeslaDefinition.Stacks.Authentication);
         }
 
         protected override void OnStart()

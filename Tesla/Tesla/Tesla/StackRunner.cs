@@ -17,22 +17,24 @@ namespace Tesla
         private Stacks? _currentStack = null;
         private readonly INavigationService _navigationService;
         private readonly IDisplayService _displayService;
+        private readonly IInjection _injection;
 
-        public StackRunner(INavigationService navigationService, IDisplayService displayService)
+        public StackRunner(INavigationService navigationService, IDisplayService displayService, IInjection injection)
         {
             _navigationService = navigationService;
             _displayService = displayService;
+            _injection = injection;
 
             InitStacks();
         }
 
         private void InitStacks()
         {
-            Injection.Register<AuthenticationStack>();
-            Injection.Register<MainStack>();
+            _injection.Register<AuthenticationStack>();
+            _injection.Register<MainStack>();
 
-            _stacks.Add(Stacks.Authentication, Injection.Get<AuthenticationStack>());
-            _stacks.Add(Stacks.Main, Injection.Get<MainStack>());
+            _stacks.Add(Stacks.Authentication, _injection.Get<AuthenticationStack>());
+            _stacks.Add(Stacks.Main, _injection.Get<MainStack>());
         }
 
         public void Run(Stacks stackChoice, object args = null)
