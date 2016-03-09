@@ -43,6 +43,8 @@
     <Compile Include="Base\BaseViewModel.cs" />
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="Control\Keypad.cs" />
+    <Compile Include="Gestures\ReleasedGestureRecognizer.cs" />
+    <Compile Include="Gestures\PressedGestureRecognizer.cs" />
     <Compile Include="Wire\Injection.cs" />
     <Compile Include="Model\MainModel.cs" />
     <Compile Include="Model\PinModel.cs" />
