@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Exrin.Framework;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,5 +17,23 @@ namespace Tesla.ViewModel
         }
 
         public IPinModel Model { get; set; }
+
+
+        private RelayCommand _keyPressCommand = null;
+        private RelayCommand KeyPressCommand
+        {
+            get
+            {
+                if (_keyPressCommand == null)
+                    _keyPressCommand = new RelayCommand((parameter) =>
+                    {
+                        Model.Pin += parameter.ToString();
+                    });
+
+                return _keyPressCommand;
+            }
+
+        }
+
     }
 }

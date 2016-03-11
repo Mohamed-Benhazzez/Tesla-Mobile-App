@@ -19,7 +19,7 @@
           <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
        <Label Text="{Binding Model.Pin}" TextColor="White" HorizontalTextAlignment="Center" />
-      <control:Keypad HeightRequest="212" Grid.Row="1" />
+      <control:Keypad HeightRequest="212" Grid.Row="1" Command="{Binding KeyPressCommand}" />
       </Grid>
      
     </Grid>
