@@ -20,7 +20,7 @@ namespace Tesla.ViewModel
 
 
         private RelayCommand _keyPressCommand = null;
-        private RelayCommand KeyPressCommand
+        public RelayCommand KeyPressCommand
         {
             get
             {

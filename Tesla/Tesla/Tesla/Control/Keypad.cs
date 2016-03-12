@@ -44,10 +44,10 @@ namespace Tesla.Control
 
             for (int i = 0; i < 9; i++)
             {
-                var label = new Label() { HorizontalOptions= LayoutOptions.FillAndExpand, VerticalOptions=LayoutOptions.FillAndExpand, BackgroundColor = backgroundColor, TextColor = textColor, Text = (i + 1).ToString(), HorizontalTextAlignment = TextAlignment.Center, VerticalTextAlignment = TextAlignment.Center };
-                label.GestureRecognizers.Add(new TapGestureRecognizer() { Command = ButtonTap, CommandParameter = i.ToString() });
-                label.GestureRecognizers.Add(new PressedGestureRecognizer() { Command = PressedCommand, CommandParameter = label });
-                label.GestureRecognizers.Add(new ReleasedGestureRecognizer() { Command = ReleasedCommand, CommandParameter = label });
+                var label = new Label() { HorizontalOptions = LayoutOptions.FillAndExpand, VerticalOptions = LayoutOptions.FillAndExpand, BackgroundColor = backgroundColor, TextColor = textColor, Text = (i + 1).ToString(), HorizontalTextAlignment = TextAlignment.Center, VerticalTextAlignment = TextAlignment.Center };
+
+                label.GestureRecognizers.Add(new PressedGestureRecognizer() { Command = PressedCommand, CommandParameter = new GestureEventArgs() { Sender = label, Value = (i + 1) } });
+                label.GestureRecognizers.Add(new ReleasedGestureRecognizer() { Command = ReleasedCommand, CommandParameter = new GestureEventArgs() { Sender = label } });
                 this.Children.Add(label, i - ((i / 3) * 3), i / 3);
             }
 
@@ -56,22 +56,7 @@ namespace Tesla.Control
             this.Children.Add(new Label() { BackgroundColor = backgroundColor, TextColor = textColor, Text = "<", HorizontalTextAlignment = TextAlignment.Center, VerticalTextAlignment = TextAlignment.Center }, 2, 3);
         }
 
-        private RelayCommand _buttonTap = null;
-        private RelayCommand ButtonTap
-        {
-            get
-            {
-                if (_buttonTap == null)
-                    _buttonTap = new RelayCommand((parameter) =>
-                    {
-                        if (Command != null)
-                            Command.Execute(parameter);
-
-                    });
-
-                return _buttonTap;
-            }
-        }
+       
 
         private RelayCommand _pressedCommand = null;
         private RelayCommand PressedCommand
@@ -81,7 +66,13 @@ namespace Tesla.Control
                 if (_pressedCommand == null)
                     _pressedCommand = new RelayCommand((parameter) =>
                     {
-                        var label = parameter as Label;
+                       
+                        var args = parameter as GestureEventArgs;
+
+                        if (Command != null)
+                            Command.Execute(args.Value);
+
+                        var label = args.Sender as Label;
                         label.BackgroundColor = Color.Black;
                         label.TextColor = Color.White;
                     });
@@ -99,7 +90,10 @@ namespace Tesla.Control
                 if (_releasedCommand == null)
                     _releasedCommand = new RelayCommand((parameter) =>
                     {
-                        var label = parameter as Label;
+                        var args = parameter as GestureEventArgs;
+                        
+                        var label = args.Sender as Label;
+
                         label.BackgroundColor = Color.White;
                         label.TextColor = Color.Black;
                     });
@@ -109,9 +103,9 @@ namespace Tesla.Control
 
         }
 
-        public static readonly BindableProperty CommandProperty = BindableProperty.Create("Command", typeof(ICommand), typeof(TapGestureRecognizer), (object)null, BindingMode.OneWay, (BindableProperty.ValidateValueDelegate)null, (BindableProperty.BindingPropertyChangedDelegate)null, (BindableProperty.BindingPropertyChangingDelegate)null, (BindableProperty.CoerceValueDelegate)null, (BindableProperty.CreateDefaultValueDelegate)null);
+        public static readonly BindableProperty CommandProperty = BindableProperty.Create("Command", typeof(ICommand), typeof(Keypad), null, BindingMode.Default, null, null, null, null, null);
 
-        public static readonly BindableProperty CommandParameterProperty = BindableProperty.Create("CommandParameter", typeof(object), typeof(TapGestureRecognizer), (object)null, BindingMode.OneWay, (BindableProperty.ValidateValueDelegate)null, (BindableProperty.BindingPropertyChangedDelegate)null, (BindableProperty.BindingPropertyChangingDelegate)null, (BindableProperty.CoerceValueDelegate)null, (BindableProperty.CreateDefaultValueDelegate)null);
+        public static readonly BindableProperty CommandParameterProperty = BindableProperty.Create("CommandParameter", typeof(object), typeof(Keypad), null, BindingMode.Default, null, null, null, null, null);
 
         public ICommand Command
         {

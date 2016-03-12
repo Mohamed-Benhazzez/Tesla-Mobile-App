@@ -5,7 +5,9 @@ using System.Linq;
 using System.Text;
 using TeslaDefinition.Interfaces;
 using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
+[assembly: XamlCompilation (XamlCompilationOptions.Compile)]
 namespace Tesla
 {
     public class App : Application

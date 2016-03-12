@@ -10,9 +10,9 @@ namespace Tesla.Gestures
 {
     public class ReleasedGestureRecognizer: Element, IGestureRecognizer
     {
-        public static readonly BindableProperty CommandProperty = BindableProperty.Create("Command", typeof(ICommand), typeof(TapGestureRecognizer), (object)null, BindingMode.OneWay, null, null, null, null, null);
+        public static readonly BindableProperty CommandProperty = BindableProperty.Create("Command", typeof(ICommand), typeof(ReleasedGestureRecognizer), (object)null, BindingMode.OneWay, null, null, null, null, null);
       
-        public static readonly BindableProperty CommandParameterProperty = BindableProperty.Create("CommandParameter", typeof(object), typeof(TapGestureRecognizer), (object)null, BindingMode.OneWay, null, null, null, null, null);
+        public static readonly BindableProperty CommandParameterProperty = BindableProperty.Create("CommandParameter", typeof(object), typeof(ReleasedGestureRecognizer), (object)null, BindingMode.OneWay, null, null, null, null, null);
         
         public ICommand Command
         {

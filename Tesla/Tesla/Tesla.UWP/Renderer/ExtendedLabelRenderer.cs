@@ -7,6 +7,7 @@ using Tesla.Gestures;
 using Tesla.UWP.Renderer;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.UWP;
+using System.Reflection;
 
 [assembly: ExportRenderer(typeof(Label), typeof(ExtendedLabelRenderer))]
 namespace Tesla.UWP.Renderer
@@ -25,6 +26,8 @@ namespace Tesla.UWP.Renderer
             }
         }
 
+       
+
         private void Control_PointerReleased(object sender, Windows.UI.Xaml.Input.PointerRoutedEventArgs e)
         {
             foreach (var recognizer in this.Element.GestureRecognizers)
@@ -32,7 +35,7 @@ namespace Tesla.UWP.Renderer
                 var gesture = recognizer as PressedGestureRecognizer;
                 if (gesture != null)
                     if (gesture.Command != null)
-                        gesture.Command.Execute(this.Element);
+                        gesture.Command.Execute(gesture.CommandParameter);
             }
         }
 
@@ -43,7 +46,7 @@ namespace Tesla.UWP.Renderer
                 var gesture = recognizer as ReleasedGestureRecognizer;
                 if (gesture != null)
                     if (gesture.Command != null)
-                        gesture.Command.Execute(this.Element);
+                        gesture.Command.Execute(gesture.CommandParameter);
             }
         }
     }
