@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using Tesla.Gestures;
 using Xamarin.Forms;
 
@@ -11,10 +12,6 @@ namespace Tesla.Control
 {
     public class Keypad : Grid
     {
-
-        public delegate void PinEventHandler(string pin);
-
-        public event PinEventHandler PinEntered;
 
         public Keypad()
         {
@@ -47,33 +44,32 @@ namespace Tesla.Control
 
             for (int i = 0; i < 9; i++)
             {
-                var label = new Label() { HorizontalOptions= LayoutOptions.FillAndExpand, VerticalOptions=LayoutOptions.FillAndExpand, BackgroundColor = backgroundColor, TextColor = textColor, Text = (i + 1).ToString(), HorizontalTextAlignment = TextAlignment.Center, VerticalTextAlignment = TextAlignment.Center };
-                label.GestureRecognizers.Add(new TapGestureRecognizer() { Command = ButtonTap, CommandParameter = label });
-                label.GestureRecognizers.Add(new PressedGestureRecognizer() { Command = PressedCommand, CommandParameter = label });
-                label.GestureRecognizers.Add(new ReleasedGestureRecognizer() { Command = ReleasedCommand, CommandParameter = label });
+                var label = new Label() { HorizontalOptions = LayoutOptions.FillAndExpand, VerticalOptions = LayoutOptions.FillAndExpand, BackgroundColor = backgroundColor, TextColor = textColor, Text = (i + 1).ToString(), HorizontalTextAlignment = TextAlignment.Center, VerticalTextAlignment = TextAlignment.Center };
+
+                AttachGestures(label, i + 1);
+               
                 this.Children.Add(label, i - ((i / 3) * 3), i / 3);
             }
 
             this.Children.Add(new Label() { BackgroundColor = backgroundColor, TextColor = textColor, Text = "", HorizontalTextAlignment = TextAlignment.Center, VerticalTextAlignment = TextAlignment.Center }, 0, 3);
-            this.Children.Add(new Label() { BackgroundColor = backgroundColor, TextColor = textColor, Text = "0", HorizontalTextAlignment = TextAlignment.Center, VerticalTextAlignment = TextAlignment.Center }, 1, 3);
-            this.Children.Add(new Label() { BackgroundColor = backgroundColor, TextColor = textColor, Text = "<", HorizontalTextAlignment = TextAlignment.Center, VerticalTextAlignment = TextAlignment.Center }, 2, 3);
+
+            var zeroLabel = new Label() { BackgroundColor = backgroundColor, TextColor = textColor, Text = "0", HorizontalTextAlignment = TextAlignment.Center, VerticalTextAlignment = TextAlignment.Center };
+            AttachGestures(zeroLabel, 0);
+            this.Children.Add(zeroLabel, 1, 3);
+
+            var backLabel = new Label() { BackgroundColor = backgroundColor, TextColor = textColor, Text = BackCharacter, HorizontalTextAlignment = TextAlignment.Center, VerticalTextAlignment = TextAlignment.Center };
+            AttachGestures(backLabel, BackCharacter);
+            this.Children.Add(backLabel, 2, 3);
         }
 
-        private RelayCommand _buttonTap = null;
-        private RelayCommand ButtonTap
+
+        private void AttachGestures(Label label, object value)
         {
-            get
-            {
-                if (_buttonTap == null)
-                    _buttonTap = new RelayCommand((parameter) =>
-                    {
-                       
-
-                    });
-
-                return _buttonTap;
-            }
+            label.GestureRecognizers.Add(new PressedGestureRecognizer() { Command = PressedCommand, CommandParameter = new GestureEventArgs() { Sender = label, Value = value } });
+            label.GestureRecognizers.Add(new ReleasedGestureRecognizer() { Command = ReleasedCommand, CommandParameter = new GestureEventArgs() { Sender = label } });
         }
+
+        public const string BackCharacter = "<";
 
         private RelayCommand _pressedCommand = null;
         private RelayCommand PressedCommand
@@ -83,7 +79,13 @@ namespace Tesla.Control
                 if (_pressedCommand == null)
                     _pressedCommand = new RelayCommand((parameter) =>
                     {
-                        var label = parameter as Label;
+                       
+                        var args = parameter as GestureEventArgs;
+
+                        if (Command != null)
+                            Command.Execute(args.Value);
+
+                        var label = args.Sender as Label;
                         label.BackgroundColor = Color.Black;
                         label.TextColor = Color.White;
                     });
@@ -101,7 +103,10 @@ namespace Tesla.Control
                 if (_releasedCommand == null)
                     _releasedCommand = new RelayCommand((parameter) =>
                     {
-                        var label = parameter as Label;
+                        var args = parameter as GestureEventArgs;
+                        
+                        var label = args.Sender as Label;
+
                         label.BackgroundColor = Color.White;
                         label.TextColor = Color.Black;
                     });
@@ -111,6 +116,33 @@ namespace Tesla.Control
 
         }
 
-       
+        public static readonly BindableProperty CommandProperty = BindableProperty.Create("Command", typeof(ICommand), typeof(Keypad), null, BindingMode.Default, null, null, null, null, null);
+
+        public static readonly BindableProperty CommandParameterProperty = BindableProperty.Create("CommandParameter", typeof(object), typeof(Keypad), null, BindingMode.Default, null, null, null, null, null);
+
+        public ICommand Command
+        {
+            get
+            {
+                return (ICommand)this.GetValue(CommandProperty);
+            }
+            set
+            {
+                this.SetValue(CommandProperty, (object)value);
+            }
+        }
+
+        public object CommandParameter
+        {
+            get
+            {
+                return this.GetValue(CommandParameterProperty);
+            }
+            set
+            {
+                this.SetValue(CommandParameterProperty, value);
+            }
+        }
+
     }
 }
