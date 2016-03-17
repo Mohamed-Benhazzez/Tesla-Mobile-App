@@ -11,7 +11,7 @@ using System.Reflection;
 
 namespace Tesla.Wire
 {
-
+    // DO NOT USE: COMPLETELY UNTESTED
     public class EventCommand<T> : Behavior<T> where T : BindableObject
     {
 

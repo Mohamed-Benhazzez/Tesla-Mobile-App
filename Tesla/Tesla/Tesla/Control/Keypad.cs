@@ -13,6 +13,7 @@ namespace Tesla.Control
     public class Keypad : Grid
     {
 
+      
         public Keypad()
         {
             this.ColumnSpacing = 3;
@@ -61,7 +62,6 @@ namespace Tesla.Control
             AttachGestures(backLabel, BackCharacter);
             this.Children.Add(backLabel, 2, 3);
         }
-
 
         private void AttachGestures(Label label, object value)
         {
