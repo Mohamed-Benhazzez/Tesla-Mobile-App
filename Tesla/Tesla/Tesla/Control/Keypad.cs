@@ -12,6 +12,10 @@ namespace Tesla.Control
     public class Keypad : Grid
     {
 
+        public delegate void PinEventHandler(string pin);
+
+        public event PinEventHandler PinEntered;
+
         public Keypad()
         {
             this.ColumnSpacing = 3;
@@ -63,10 +67,6 @@ namespace Tesla.Control
                 if (_buttonTap == null)
                     _buttonTap = new RelayCommand((parameter) =>
                     {
-                        //var label = parameter as Label;
-
-                        //label.Animate("Tap", new Animation());
-
                        
 
                     });
