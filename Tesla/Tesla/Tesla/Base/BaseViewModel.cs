@@ -10,16 +10,20 @@ namespace Tesla.Base
 {
     public class BaseViewModel : IViewModel
     {
+        protected IExecution Execution { get; set; }
 
-        // Needs to implement an ICommand - with execute relayed
-
-        protected IExecution _execution = new Execution()
+        public BaseViewModel()
         {
-            HandleTimeout = timeoutHandle,
-            NotifyOfActivity = notifyActivity,
-            NotifyActivityFinished = notifyActivityFinished,
-            HandleResult = completed
-        };
+            Execution = new Execution()
+            {
+                HandleTimeout = timeoutHandle,
+                NotifyOfActivity = notifyActivity,
+                NotifyActivityFinished = notifyActivityFinished,
+                HandleResult = completed
+            };
+        }
+
+
 
         public Task OnNavigated(object args)
         {

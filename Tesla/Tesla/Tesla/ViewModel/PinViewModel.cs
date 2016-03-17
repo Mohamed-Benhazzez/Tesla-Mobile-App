@@ -1,4 +1,5 @@
-﻿using Exrin.Framework;
+﻿using Exrin.Abstraction;
+using Exrin.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Tesla.Base;
 using Tesla.Control;
+using Tesla.ViewModelExecute;
 using TeslaDefinition.Interfaces.Model;
 
 namespace Tesla.ViewModel
@@ -19,32 +21,13 @@ namespace Tesla.ViewModel
 
         public IPinModel Model { get; set; }
         
-        private RelayCommand _keyPressCommand = null;
-        public RelayCommand KeyPressCommand
+        private IRelayCommand _keyPressCommand = null;
+        public IRelayCommand KeyPressCommand
         {
             get
             {
-                if (_keyPressCommand == null)
-                    _keyPressCommand = new RelayCommand((parameter) =>
-                    {
-                        var character = Convert.ToString(parameter);
-                        var pin = Model.Pin;
-
-                        if (character != null)
-                            switch (character)
-                            {
-                                case Keypad.BackCharacter:
-                                    if (!String.IsNullOrEmpty(pin) && pin.Length > 0)
-                                        Model.Pin = pin.Substring(0, pin.Length - 1);
-                                    break;
-                                default:
-                                    Model.Pin = pin += character;
-                                    break;
-                            }
-                            
-                    });
-
-                return _keyPressCommand;
+                return _keyPressCommand ??
+                       (_execution.ViewModelExecute(new PinLoginViewModelExecute(Model, Keypad.BackCharacter)));
             }
 
         }
