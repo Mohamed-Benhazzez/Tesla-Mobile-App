@@ -12,6 +12,7 @@ namespace Tesla.Base
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
+        // TODO: Look at putting this in Exrin but might lock VM and Models rather than leave it open
         public void OnPropertyChanged([CallerMemberName] string name = "")
         {
             var handler = PropertyChanged;
