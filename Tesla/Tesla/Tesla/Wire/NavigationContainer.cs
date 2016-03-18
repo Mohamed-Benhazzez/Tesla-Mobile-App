@@ -35,11 +35,14 @@ namespace Tesla.Wire
         public async Task PopAsync()
         {
             await _page.PopAsync();
+            
         }
+
+        
 
         public async Task PushAsync(object page)
         {
-            //TODO: Implement and use Thread helper
+            //TODO: Implement and use Thread helper - with await capability
 
             Device.BeginInvokeOnMainThread(async () =>
             {

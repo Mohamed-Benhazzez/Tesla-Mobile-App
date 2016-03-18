@@ -7,6 +7,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using TeslaDefinition.Interfaces;
 
 namespace Tesla.Base
 {
@@ -14,8 +15,20 @@ namespace Tesla.Base
     {
         protected IExecution Execution { get; set; }
 
-        public BaseViewModel()
+        private IDisplayService _displayService = null;
+        private INavigationService _navigationService = null;
+        private IErrorHandlingService _errorHandlingService = null;
+        private IStackRunner _stackRunner = null;
+
+
+        public BaseViewModel(IDisplayService displayService, INavigationService navigationService, IErrorHandlingService errorHandlingService, IStackRunner stackRunner)
         {
+
+            _displayService = displayService;
+            _navigationService = navigationService;
+            _errorHandlingService = errorHandlingService;
+            _stackRunner = stackRunner;
+
             Execution = new Execution()
             {
                 HandleTimeout = TimeoutHandle,
@@ -77,8 +90,20 @@ namespace Tesla.Base
                     switch (result.ResultAction)
                     {
                         case ResultType.Navigation:
-                            await _navigationService.Navigate(result.Arguments as NavigationArgs);
-                            break;
+                            {
+
+                                var args = result.Arguments as NavigationArgs;
+
+                                
+                                
+                                // Determine Stack Change
+
+                                // Determine Page Load
+
+
+                                await _navigationService.Navigate(result.Arguments as NavigationArgs);
+                                break;
+                            }
                         case ResultType.Error:
                             await _errorHandlingService.ReportError(result.Arguments as Exception);
                             break;
@@ -104,10 +129,9 @@ namespace Tesla.Base
                 handler(this, new PropertyChangedEventArgs(name));
         }
         
-        public Task OnNavigated(object args)
+        public virtual Task OnNavigated(object args)
         {
             return Task.FromResult(0);
         }
     }
 }
-/

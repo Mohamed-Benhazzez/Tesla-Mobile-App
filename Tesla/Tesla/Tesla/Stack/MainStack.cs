@@ -14,10 +14,11 @@ namespace Tesla.Stack
 {
     public class MainStack: BaseStack
     {
-
-        public MainStack(INavigationService navigationService, IPageService pageService, IDisplayService displayService)
-                                                                    : base(navigationService, displayService, pageService)
+        private IPageService _pageService = null;
+        public MainStack(INavigationService navigationService, IPageService pageService)
+                                                                    : base(navigationService)
         {
+            _pageService = pageService;
             SetContainer(new NavigationContainer(new NavigationPage()));
             ShowNavigationBar = false;
         }

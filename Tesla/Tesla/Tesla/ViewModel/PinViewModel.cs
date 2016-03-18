@@ -27,7 +27,7 @@ namespace Tesla.ViewModel
             get
             {
                 return _keyPressCommand ??
-                       (_execution.ViewModelExecute(new PinLoginViewModelExecute(Model, Keypad.BackCharacter)));
+                       (Execution.ViewModelExecute(new PinLoginViewModelExecute(Model, Keypad.BackCharacter)));
             }
 
         }
