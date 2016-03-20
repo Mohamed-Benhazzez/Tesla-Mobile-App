@@ -15,5 +15,11 @@ namespace Tesla.Model
    
         private string _hiddenPin = "";
         public string HiddenPin { get { return String.IsNullOrEmpty(_hiddenPin) ? "enter pin" : new string('•', _hiddenPin.Length); } set { _hiddenPin = value; OnPropertyChanged(); } }
+        
+        public Task<bool> IsPinValid()
+        {
+            //TODO: Show example of moving down to the service layer
+            return Task.FromResult(true);
+        }
     }
 }

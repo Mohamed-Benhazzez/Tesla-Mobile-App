@@ -9,12 +9,14 @@ using Tesla.Base;
 using Tesla.Control;
 using Tesla.ViewModelExecute;
 using TeslaDefinition.Interfaces.Model;
+using TeslaDefinition.Interfaces;
 
 namespace Tesla.ViewModel
 {
     public class PinViewModel : BaseViewModel
     {
-        public PinViewModel(IPinModel model)
+        public PinViewModel(IPinModel model, IDisplayService displayService, INavigationService navigationService, IErrorHandlingService errorHandlingService, IStackRunner stackRunner):
+            base (displayService, navigationService, errorHandlingService, stackRunner)
         {
             Model = model;
         }

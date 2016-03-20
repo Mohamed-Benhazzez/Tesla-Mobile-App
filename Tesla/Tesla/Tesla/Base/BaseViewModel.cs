@@ -101,7 +101,7 @@ namespace Tesla.Base
                                 // Determine Page Load
 
 
-                                await _navigationService.Navigate(result.Arguments as NavigationArgs);
+                                //await _navigationService.Navigate(result.Arguments as NavigationArgs);
                                 break;
                             }
                         case ResultType.Error:

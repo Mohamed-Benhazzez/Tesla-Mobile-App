@@ -9,10 +9,12 @@ namespace Tesla.Stack
 {
     public class AuthenticationStack : BaseStack
     {
-
+        IPageService _pageService = null;
+        
         public AuthenticationStack(INavigationService navigationService, IPageService pageService, IDisplayService displayService)
-                                                                    : base(navigationService, displayService, pageService)
+                                                                    : base(navigationService)
         {
+            _pageService = pageService;
             SetContainer(new NavigationContainer(new NavigationPage()));
             ShowNavigationBar = false;
         }
