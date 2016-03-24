@@ -132,5 +132,16 @@ namespace Tesla.Base
         {
             return Task.FromResult(0);
         }
+
+        public virtual Task OnBackNavigated(object args)
+        {
+            return Task.FromResult(0);
+        }
+
+        public virtual void OnAppearing() { }
+
+        public virtual void OnDisappearing() { }
+
+        public virtual void OnPopped() { }
     }
 }

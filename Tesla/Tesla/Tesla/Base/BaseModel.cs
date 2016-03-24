@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Exrin.Abstraction;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Tesla.Base
 {
-    public class BaseModel: INotifyPropertyChanged
+    public class BaseModel: INotifyPropertyChanged, IModel
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
