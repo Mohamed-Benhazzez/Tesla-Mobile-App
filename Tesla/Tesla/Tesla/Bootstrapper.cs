@@ -20,7 +20,6 @@ namespace Tesla
         private readonly static AsyncLock _lock = new AsyncLock();
         private readonly static IInjection _injection = new Injection();
 
-
         public static IInjection Init()
         {
 
@@ -47,6 +46,7 @@ namespace Tesla
         {
             
             _injection.Register<IPageService, PageService>();
+            _injection.Register<IErrorHandlingService, ErrorHandlingService>(); //TODO: Should be Insights with Error Tracking Capability
             _injection.Register<INavigationService, NavigationService>();
             _injection.Register<IDisplayService, DisplayService>();
         }

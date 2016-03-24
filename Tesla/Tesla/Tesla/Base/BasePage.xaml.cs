@@ -15,5 +15,7 @@ namespace Tesla.Base
         {
             InitializeComponent();
         }
+
+       
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Exrin.Abstraction;
+using Exrin.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,16 +36,11 @@ namespace Tesla.Wire
         public async Task PopAsync()
         {
             await _page.PopAsync();
-            
         }
-
-        
 
         public async Task PushAsync(object page)
         {
-            //TODO: Implement and use Thread helper - with await capability
-
-            Device.BeginInvokeOnMainThread(async () =>
+            await ThreadHelper.RunOnUIThreadAsync(async () =>
             {
                 var xamarinPage = page as Page;
 

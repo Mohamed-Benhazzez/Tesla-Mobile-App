@@ -7,6 +7,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using TeslaDefinition;
 using TeslaDefinition.Interfaces;
 
 namespace Tesla.Base
@@ -19,7 +20,6 @@ namespace Tesla.Base
         private INavigationService _navigationService = null;
         private IErrorHandlingService _errorHandlingService = null;
         private IStackRunner _stackRunner = null;
-
 
         public BaseViewModel(IDisplayService displayService, INavigationService navigationService, IErrorHandlingService errorHandlingService, IStackRunner stackRunner)
         {
@@ -44,9 +44,7 @@ namespace Tesla.Base
             {
                 return async () =>
                 {
-
                     await _displayService.ShowDialog("Timeout Occurred");
-
                 };
             }
         }
@@ -86,27 +84,29 @@ namespace Tesla.Base
             {
                 return async (result) =>
                 {
+
+                    if (result == null)
+                        return;
+
                     // TODO: could have default added in Exrin
                     switch (result.ResultAction)
                     {
                         case ResultType.Navigation:
                             {
-
                                 var args = result.Arguments as NavigationArgs;
 
-                                
-                                
                                 // Determine Stack Change
-
+                                _stackRunner.Run((Stacks)args.StackType);
+                                                                
                                 // Determine Page Load
-
-
-                                //await _navigationService.Navigate(result.Arguments as NavigationArgs);
+                                await _navigationService.Navigate(Convert.ToString(args.PageIndicator), args.Parameter);
+                                
                                 break;
                             }
                         case ResultType.Error:
                             await _errorHandlingService.ReportError(result.Arguments as Exception);
                             break;
+
                         case ResultType.Display:
                             await _displayService.ShowDialog((result.Arguments as DisplayArgs).Message);
                             break;                           
@@ -118,8 +118,7 @@ namespace Tesla.Base
 
         private bool _isBusy = false;
         public bool IsBusy { get { return _isBusy; } set { _isBusy = value; OnPropertyChanged(); } }
-
-        // TODO: Look at putting this in Exrin but might lock VM and Models rather than leave it open
+        
         public event PropertyChangedEventHandler PropertyChanged;
 
         public void OnPropertyChanged([CallerMemberName] string name = "")

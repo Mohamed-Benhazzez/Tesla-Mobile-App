@@ -51,6 +51,7 @@
     <Compile Include="Gestures\PressedGestureRecognizer.cs" />
     <Compile Include="ViewModelExecute\PinLoginViewModelExecute.cs" />
     <Compile Include="ViewModelOperation\PinLoginOperation.cs" />
+    <Compile Include="ViewModel\ControlViewModel.cs" />
     <Compile Include="View\MainTabs\ControlPage.xaml.cs">
       <DependentUpon>ControlPage.xaml</DependentUpon>
     </Compile>

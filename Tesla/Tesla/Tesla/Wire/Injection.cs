@@ -21,6 +21,7 @@ namespace Tesla.Wire
             _builder = new ContainerBuilder();
 
             _builder.RegisterInstance<IInjection>(this).SingleInstance();
+
         }
 
         public void Complete()

@@ -1,8 +1,10 @@
 ﻿using Exrin.Abstraction;
+using Exrin.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Tesla.Stack;
 using TeslaDefinition;
@@ -11,7 +13,7 @@ using Xamarin.Forms;
 
 namespace Tesla
 {
-    public class StackRunner: IStackRunner
+    public class StackRunner : IStackRunner
     {
         private readonly IDictionary<Stacks, IStack> _stacks = new Dictionary<Stacks, IStack>();
         private Stacks? _currentStack = null;
@@ -53,9 +55,12 @@ namespace Tesla
 
             if (stack.Status == StackStatus.Stopped)
                 Task.Run(async () => await stack.StartNavigation(args));
-
-            Application.Current.MainPage = stack.Container.Page as Page;
             
+            ThreadHelper.RunOnUIThread(() =>
+             {
+                 Application.Current.MainPage = stack.Container.Page as Page;
+             });
+
         }
     }
 }

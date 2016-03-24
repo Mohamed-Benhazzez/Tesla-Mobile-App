@@ -19,7 +19,7 @@ namespace Tesla.ViewModelOperation
 
         public PinLoginOperation(IPinModel model, string backCharacter)
         {
-            model = _model;
+            _model = model;
             _backCharacter = backCharacter;
         }
 

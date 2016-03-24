@@ -17,6 +17,8 @@ namespace Tesla.Stack
             _pageService = pageService;
             SetContainer(new NavigationContainer(new NavigationPage()));
             ShowNavigationBar = false;
+
+            Init();
         }
 
         protected override void MapPages()

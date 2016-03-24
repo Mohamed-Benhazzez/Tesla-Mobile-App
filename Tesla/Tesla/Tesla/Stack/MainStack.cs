@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Tesla.View;
+using Tesla.View.MainTabs;
 using Tesla.ViewModel;
 using Tesla.Wire;
 using Xamarin.Forms;
@@ -21,6 +22,8 @@ namespace Tesla.Stack
             _pageService = pageService;
             SetContainer(new NavigationContainer(new NavigationPage()));
             ShowNavigationBar = false;
+
+            Init();
         }
         
         protected override void MapPages()
@@ -31,6 +34,7 @@ namespace Tesla.Stack
         protected override void MapViewModels()
         {
             _pageService.Map(typeof(MainPage), typeof(MainViewModel));
+            _pageService.Map(typeof(ControlPage), typeof(ControlViewModel));
         }
 
         protected override string NavigationStartPageKey
