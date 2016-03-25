@@ -15,57 +15,20 @@ using Xamarin.Forms;
 
 namespace Tesla
 {
-    public static class Bootstrapper
+    public class Bootstrapper : Exrin.Framework.Bootstrapper
     {
-        private readonly static AsyncLock _lock = new AsyncLock();
-        private readonly static IInjection _injection = new Injection();
+        public Bootstrapper() : base(new Injection(), (newPage) => { Application.Current.MainPage = newPage as Page; }) { }
 
-        public static IInjection Init()
-        {
-
-            _injection.Init();
-
-            InitServices();
-
-            InitStacks();
-
-            InitRunners();
-
-            InitModels();
-
-            _injection.Complete();
-
-            return _injection;
-
-        }
-        
-        /// <summary>
-        /// Will initialize the basic navigation and display services
-        /// </summary>
-        private static void InitServices()
-        {
-            
-            _injection.Register<IPageService, PageService>();
-            _injection.Register<IErrorHandlingService, ErrorHandlingService>(); //TODO: Should be Insights with Error Tracking Capability
-            _injection.Register<INavigationService, NavigationService>();
-            _injection.Register<IDisplayService, DisplayService>();
+        protected override void InitStacks()
+        {          
+            RegisterStack<AuthenticationStack>(Stacks.Authentication);
+            RegisterStack<MainStack>(Stacks.Main);
         }
 
-        private static void InitStacks()
-        {
-            _injection.Register<AuthenticationStack>();
-            _injection.Register<MainStack>();
-        }
-
-        private static void InitRunners()
-        {
-            _injection.Register<IStackRunner, StackRunner>();
-        }
-
-        private static void InitModels()
+        protected override void InitModels()
         {
             _injection.Register<IPinModel, PinModel>();
+            _injection.Register<IMainModel, MainModel>();
         }
-       
     }
 }

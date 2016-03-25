@@ -35,7 +35,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Interfaces\IStackRunner.cs" />
+    <Compile Include="Interfaces\Model\IMainModel.cs" />
     <Compile Include="Interfaces\Model\IPinModel.cs" />
     <Compile Include="Interfaces\Service\ILoginService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

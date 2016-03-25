@@ -15,7 +15,7 @@ namespace Tesla
 
         public App()
         {
-            Bootstrapper.Init().Get<IStackRunner>().Run(TeslaDefinition.Stacks.Authentication);
+           new Bootstrapper().Init().Get<IStackRunner>().Run(TeslaDefinition.Stacks.Authentication);
         }
 
         protected override void OnStart()
