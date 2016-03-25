@@ -11,14 +11,12 @@ namespace Tesla.Stack
     {
         IPageService _pageService = null;
         
-        public AuthenticationStack(INavigationService navigationService, IPageService pageService, IDisplayService displayService)
-                                                                    : base(navigationService)
+        public AuthenticationStack(INavigationService navigationService, IPageService pageService, 
+                                    IDisplayService displayService) : base(navigationService)
         {
             _pageService = pageService;
             SetContainer(new NavigationContainer(new NavigationPage()));
             ShowNavigationBar = false;
-
-            Init();
         }
 
         protected override void MapPages()
