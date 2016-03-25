@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Exrin.Abstraction;
+using Exrin.Framework;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,11 +20,8 @@ namespace Tesla.Model
 
         public Task<bool> IsPinValid()
         {
-            //TODO: Show example of moving down to the service layer
-            if (Pin.Length == 4)
-                return Task.FromResult(true);
-            else
-                return Task.FromResult(false);
+            return Execution.ModelExecute(new IsPinValidModelExecute(Pin));
         }
     }
+    
 }

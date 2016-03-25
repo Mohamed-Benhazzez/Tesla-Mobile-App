@@ -49,9 +49,16 @@
     <Compile Include="Gestures\GestureEventArgs.cs" />
     <Compile Include="Gestures\ReleasedGestureRecognizer.cs" />
     <Compile Include="Gestures\PressedGestureRecognizer.cs" />
-    <Compile Include="ViewModelExecute\PinLoginViewModelExecute.cs" />
-    <Compile Include="ViewModelOperation\PinLoginOperation.cs" />
+    <Compile Include="Model\IsPinValidModelExecute.cs">
+      <DependentUpon>PinModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewModel\ControlViewModel.cs" />
+    <Compile Include="ViewModel\PinLoginOperation.cs">
+      <DependentUpon>PinLoginViewModelExecute.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\PinLoginViewModelExecute.cs">
+      <DependentUpon>PinViewModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\MainTabs\ControlPage.xaml.cs">
       <DependentUpon>ControlPage.xaml</DependentUpon>
     </Compile>

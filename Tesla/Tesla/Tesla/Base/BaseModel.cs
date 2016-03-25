@@ -1,4 +1,5 @@
 ﻿using Exrin.Abstraction;
+using Exrin.Framework;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,6 +12,14 @@ namespace Tesla.Base
 {
     public class BaseModel: INotifyPropertyChanged, IModel
     {
+
+        public BaseModel()
+        {
+            Execution = new ModelExecution();
+        }
+
+        protected IModelExecution Execution { get; set; }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         // TODO: Look at putting this in Exrin but might lock VM and Models rather than leave it open
