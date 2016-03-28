@@ -10,7 +10,7 @@ namespace Tesla.Stack
     public class AuthenticationStack : BaseStack
     {
         IPageService _pageService = null;
-        
+
         public AuthenticationStack(INavigationService navigationService, IPageService pageService)
             : base(navigationService)
         {
@@ -36,6 +36,5 @@ namespace Tesla.Stack
                 return nameof(PageLocator.Authentication.Pin);
             }
         }
-
-}
+    }
 }

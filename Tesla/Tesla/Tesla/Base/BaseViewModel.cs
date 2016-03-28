@@ -13,23 +13,11 @@ using TeslaDefinition.Interfaces;
 namespace Tesla.Base
 {
     public class BaseViewModel : Exrin.Framework.ViewModel
-    {
-        
+    {        
         public BaseViewModel(IDisplayService displayService, INavigationService navigationService, 
             IErrorHandlingService errorHandlingService, IStackRunner stackRunner)
              : base(displayService, navigationService, errorHandlingService, stackRunner)
-        {
-                       
-            Execution = new Execution()
-            {
-                HandleTimeout = TimeoutHandle,
-                NotifyOfActivity = NotifyActivity,
-                NotifyActivityFinished = NotifyActivityFinished,
-                HandleResult = HandleResult
-            };
+        {  
         }
-
-
-      
     }
 }

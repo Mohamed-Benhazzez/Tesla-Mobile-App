@@ -9,7 +9,6 @@ namespace Tesla
 {
     public class Bootstrapper : Exrin.Framework.Bootstrapper
     {
-
         public Bootstrapper() : base(new Injection(), (newPage) => { Application.Current.MainPage = newPage as Page; }) { }
 
         protected override void InitStacks()

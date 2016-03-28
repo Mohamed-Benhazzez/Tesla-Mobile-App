@@ -8,9 +8,7 @@ namespace TeslaDefinition
 {
     public enum Stacks
     {
-
         Authentication = 0,
         Main = 1
-
     }
 }

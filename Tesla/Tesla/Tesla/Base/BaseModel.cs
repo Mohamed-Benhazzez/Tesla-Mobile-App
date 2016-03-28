@@ -17,7 +17,8 @@ namespace Tesla.Base
         {
             Execution = new ModelExecution()
             {
-                
+                HandleTimeout = ()=> { return Task.FromResult(0); },
+                HandleUnhandledException = (exception) => { return Task.FromResult(true); }
             };
         }
 
