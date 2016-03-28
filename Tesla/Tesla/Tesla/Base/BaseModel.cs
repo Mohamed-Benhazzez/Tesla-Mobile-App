@@ -13,13 +13,10 @@ namespace Tesla.Base
     public class BaseModel: Exrin.Framework.Model
     {
 
-        public BaseModel()
+        public BaseModel(IDisplayService displayService, IErrorHandlingService errorHandlingService)
+            :base(displayService, errorHandlingService)
         {
-            Execution = new ModelExecution()
-            {
-                HandleTimeout = ()=> { return Task.FromResult(0); },
-                HandleUnhandledException = (exception) => { return Task.FromResult(true); }
-            };
+           
         }
 
     }
