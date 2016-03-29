@@ -12,6 +12,10 @@ namespace Tesla.Model
 {
     public class PinModel : BaseModel, IPinModel
     {
+        public PinModel(IDisplayService displayService, IErrorHandlingService errorHandlingService)
+            : base(displayService, errorHandlingService)
+        { }
+
         private string _pin = "";
         public string Pin { get { return _pin; } set { _pin = value; HiddenPin = value; OnPropertyChanged(); } }
 

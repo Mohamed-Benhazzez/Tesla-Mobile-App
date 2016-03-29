@@ -130,6 +130,14 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\exrin\Exrin\Exrin.Abstraction\Exrin.Abstraction.csproj">
+      <Project>{f7d56290-97b4-4636-abca-8323c886a7e0}</Project>
+      <Name>Exrin.Abstraction</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\exrin\Exrin\Exrin.Framework\Exrin.Framework.csproj">
+      <Project>{8947ad64-e787-4a00-9d6b-8e514133ad63}</Project>
+      <Name>Exrin.Framework</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Tesla\Tesla.csproj">
       <Name>Tesla</Name>
     </ProjectReference>
