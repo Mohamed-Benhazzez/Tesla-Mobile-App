@@ -26,6 +26,13 @@ namespace Tesla.Model
                 {
                     Function = () =>
                     {
+                        if (_pin == null)
+                            return Task.FromResult(false);
+
+                        var result = 0;
+                        if (!Int32.TryParse(_pin, out result))
+                            return Task.FromResult(false);
+
                         if (_pin.Length == 4)
                             return Task.FromResult(true);
                         else

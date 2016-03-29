@@ -4,12 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Tesla.Tests.PinModel
+namespace Tesla.Tests
 {
-    public class IsPinValidTest
+    public class BusinessRules
     {
-
-
+        public const int PinLength = 4;
 
     }
 }
