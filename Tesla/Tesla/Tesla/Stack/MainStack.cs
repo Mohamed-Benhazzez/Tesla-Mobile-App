@@ -33,6 +33,8 @@ namespace Tesla.Stack
         {
             _pageService.Map(typeof(MainPage), typeof(MainViewModel));
             _pageService.Map(typeof(ControlPage), typeof(ControlViewModel));
+            _pageService.Map(typeof(ClimatePage), typeof(ClimateViewModel));
+
         }
 
         protected override string NavigationStartPageKey

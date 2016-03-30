@@ -21,6 +21,8 @@ namespace Tesla
         {
             _injection.Register<IPinModel, PinModel>();
             _injection.Register<IMainModel, MainModel>();
+            _injection.Register<IControlModel, ControlModel>();
+            _injection.Register<IClimateModel, ClimateModel>();
         }
     }
 }
