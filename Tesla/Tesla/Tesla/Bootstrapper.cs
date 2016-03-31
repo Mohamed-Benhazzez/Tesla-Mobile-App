@@ -13,12 +13,14 @@ namespace Tesla
 
         protected override void InitStacks()
         {          
+            // TODO: convention - register in namespace (have defaults, can be overriden here)
             RegisterStack<AuthenticationStack>(Stacks.Authentication);
             RegisterStack<MainStack>(Stacks.Main);
         }
 
         protected override void InitModels()
         {
+            // TODO: convention - register in namespace
             _injection.Register<IPinModel, PinModel>();
             _injection.Register<IMainModel, MainModel>();
             _injection.Register<IControlModel, ControlModel>();

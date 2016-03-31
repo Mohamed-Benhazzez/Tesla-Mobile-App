@@ -15,21 +15,22 @@ namespace Tesla.ViewModel
 {
     public class PinViewModel : BaseViewModel
     {
-        public PinViewModel(IPinModel model, IDisplayService displayService, INavigationService navigationService, IErrorHandlingService errorHandlingService, IStackRunner stackRunner):
-            base (displayService, navigationService, errorHandlingService, stackRunner)
+        public PinViewModel(IPinModel model, IDisplayService displayService, INavigationService navigationService, IErrorHandlingService errorHandlingService, IStackRunner stackRunner) :
+            base(displayService, navigationService, errorHandlingService, stackRunner)
         {
             Model = model;
         }
 
         public IPinModel Model { get; set; }
-        
-        private IRelayCommand _keyPressCommand = null;
+
         public IRelayCommand KeyPressCommand
         {
             get
             {
-                return _keyPressCommand ??
-                       (Execution.ViewModelExecute(new PinLoginViewModelExecute(Model, Keypad.BackCharacter)));
+                return GetCommand(() =>
+                {
+                    return Execution.ViewModelExecute(new PinLoginViewModelExecute(Model, Keypad.BackCharacter));
+                });
             }
         }
 
