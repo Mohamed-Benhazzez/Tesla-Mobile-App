@@ -20,18 +20,7 @@ namespace Tesla.ViewModel
         public string ProximityLocationStatus { get { return Get<string>(); } private set { Set(value); } }
         public string SummonStatus { get { return Get<string>(); } private set { Set(value); } }
 
-        public override IVisualState VisualState
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
+      
 
         // View Commands      
         //public IRelayCommand HonkCommand

@@ -15,7 +15,6 @@ namespace Tesla.ViewModel
             base (displayService, navigationService, errorHandlingService, stackRunner)
         {
         }
-
-        public override IVisualState VisualState { get; set; }
+        
     }
 }

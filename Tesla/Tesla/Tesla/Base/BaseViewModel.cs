@@ -19,7 +19,6 @@ namespace Tesla.Base
              : base(displayService, navigationService, errorHandlingService, stackRunner)
         {  
         }
-
-        public abstract override IVisualState VisualState { get; set; }
+        
     }
 }

@@ -54,6 +54,9 @@
     <Compile Include="Model\IsPinValidModelExecute.cs">
       <DependentUpon>PinModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\KeyPress.cs">
+      <DependentUpon>ViewModelExecute.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewModel\MainTabs\ClimateViewModel.cs" />
     <Compile Include="ViewModel\MainTabs\ControlViewModel.cs" />
     <Compile Include="ViewModel\MainTabs\HonkOperation.cs">
@@ -62,13 +65,10 @@
     <Compile Include="ViewModel\MainTabs\HonkViewModelExecute.cs">
       <DependentUpon>ControlViewModel.cs</DependentUpon>
     </Compile>
-    <Compile Include="ViewModel\PinLoginOperation.cs">
-      <DependentUpon>PinLoginViewModelExecute.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ViewModel\PinLoginViewModelExecute.cs">
+    <Compile Include="ViewModel\ViewModelExecute.cs">
       <DependentUpon>PinViewModel.cs</DependentUpon>
     </Compile>
-    <Compile Include="ViewModel\PinViewModel.VisualState.cs">
+    <Compile Include="ViewModel\VisualState.cs">
       <DependentUpon>PinViewModel.cs</DependentUpon>
     </Compile>
     <Compile Include="View\MainTabs\ClimatePage.xaml.cs">

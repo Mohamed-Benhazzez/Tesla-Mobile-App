@@ -15,17 +15,5 @@ namespace Tesla.ViewModel
         {
         }
 
-        public override IVisualState VisualState
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
     }
 }
