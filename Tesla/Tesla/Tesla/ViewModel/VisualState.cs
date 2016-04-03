@@ -13,12 +13,13 @@ namespace Tesla.ViewModel
     public class PinVisualState : VisualState
     {
       
-        public PinVisualState(IPinModel model) : base(model) { }
+        public PinVisualState(IAuthModel model) : base(model) { }
 
+        //TODO: not liking this wire up, see if there is a better way
         protected override void OnModelStatePropertyChanged(string propertyName)
         {
-            if (propertyName == nameof(IPinModelState.Pin))
-            { HiddenPin = (Model as IPinModel).PinModelState.Pin; }
+            if (propertyName == nameof(IAuthModelState.Pin))
+            { HiddenPin = (Model as IAuthModel).AuthModelState.Pin; }
         }      
                 
         public string HiddenPin

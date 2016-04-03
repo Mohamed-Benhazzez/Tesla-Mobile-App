@@ -10,7 +10,7 @@ namespace Tesla.ViewModel
     {
 
         public ControlViewModel(IControlModel model, IDisplayService displayService, INavigationService navigationService, IErrorHandlingService errorHandlingService, IStackRunner stackRunner) :
-            base(displayService, navigationService, errorHandlingService, stackRunner)
+            base(displayService, navigationService, errorHandlingService, stackRunner, null)
         { }
        
         // Model

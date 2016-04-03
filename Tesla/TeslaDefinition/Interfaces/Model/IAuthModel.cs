@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace TeslaDefinition.Interfaces.Model
 {
-    public interface IPinModel: IBaseModel
+    public interface IAuthModel: IBaseModel
     {
         // State
-        IPinModelState PinModelState { get; }
+        IAuthModelState AuthModelState { get; }
         
         // State Validation
-        Task<bool> IsPinValid();
+        Task<bool> IsAuthenticated();
     }
 }

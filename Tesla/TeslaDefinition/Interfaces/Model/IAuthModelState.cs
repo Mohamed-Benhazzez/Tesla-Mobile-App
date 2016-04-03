@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace TeslaDefinition.Interfaces.Model
 {
-    public interface IPinModelState: IModelState
+    public interface IAuthModelState: IModelState
     {
         string Pin { get; set; }
     }

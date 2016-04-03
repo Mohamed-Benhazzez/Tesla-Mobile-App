@@ -21,7 +21,7 @@ namespace Tesla
         protected override void InitModels()
         {
             // TODO: convention - register in namespace
-            _injection.Register<IPinModel, PinModel>();
+            _injection.Register<IAuthModel, AuthModel>();
             _injection.Register<IMainModel, MainModel>();
             _injection.Register<IControlModel, ControlModel>();
             _injection.Register<IClimateModel, ClimateModel>();

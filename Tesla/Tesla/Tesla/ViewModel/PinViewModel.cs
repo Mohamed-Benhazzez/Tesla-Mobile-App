@@ -15,14 +15,13 @@ namespace Tesla.ViewModel
 {
     public class PinViewModel : BaseViewModel
     {
-        public PinViewModel(IPinModel model, IDisplayService displayService, INavigationService navigationService, IErrorHandlingService errorHandlingService, IStackRunner stackRunner) :
-            base(displayService, navigationService, errorHandlingService, stackRunner)
+        public PinViewModel(IAuthModel model, IDisplayService displayService, INavigationService navigationService, IErrorHandlingService errorHandlingService, IStackRunner stackRunner) :
+            base(displayService, navigationService, errorHandlingService, stackRunner, new PinVisualState(model))
         {
             Model = model;
-            VisualState = new PinVisualState(model);
         }
 
-        private IPinModel Model { get; set; }
+        private IAuthModel Model { get; set; }
 
         public IRelayCommand KeyPressCommand
         {

@@ -7,21 +7,21 @@ using System.Threading.Tasks;
 using Tesla.Model;
 using Xunit;
 
-namespace Tesla.Tests.PinModel
+namespace Tesla.Tests.AuthModel
 {
-    public class IsPinValidTest
+    public class IsAuthenticatedTest
     {
 
         public IOperation<bool> GetOperation(string pin)
         {
-            return new IsPinValid(pin).Operation;
+            return new IsAuthenticated(pin).Operation;
         }
 
         [Theory]
         [InlineData("1234")]
         [InlineData("123")]
         [InlineData("12345")]
-        public async Task PinLengthTest(string pin)
+        public async Task AuthenticateOnPinLengthTest(string pin)
         {
             Assert.Equal(pin?.Length == BusinessRules.PinLength, await GetOperation(pin).Function());
         }

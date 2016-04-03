@@ -14,10 +14,10 @@ namespace Tesla.ViewModelOperation
 {
     public class PinLoginOperation : IOperation
     {
-        IPinModel _model = null;
+        IAuthModel _model = null;
         string _backCharacter = "";
 
-        public PinLoginOperation(IPinModel model, string backCharacter)
+        public PinLoginOperation(IAuthModel model, string backCharacter)
         {
             _model = model;
             _backCharacter = backCharacter;
@@ -31,7 +31,7 @@ namespace Tesla.ViewModelOperation
                 {
 
                     var character = Convert.ToString(result.Parameter);
-                    var pin = _model.PinModelState.Pin;
+                    var pin = _model.AuthModelState.Pin;
 
                     if (pin == null) pin = string.Empty;
 
@@ -39,15 +39,15 @@ namespace Tesla.ViewModelOperation
                         if (character == _backCharacter)
                         {
                             if (!String.IsNullOrEmpty(pin) && pin.Length > 0)
-                                _model.PinModelState.Pin = pin.Substring(0, pin.Length - 1);
+                                _model.AuthModelState.Pin = pin.Substring(0, pin.Length - 1);
                         }
                         else
                         {
-                            _model.PinModelState.Pin = pin += character;
+                            _model.AuthModelState.Pin = pin += character;
                         }
 
                     
-                    if (await _model.IsPinValid())
+                    if (await _model.IsAuthenticated())
                     {
                         result.ResultAction = ResultType.Navigation;
                         result.Arguments = new NavigationArgs() { PageIndicator = PageLocator.Main.Main, StackType = Stacks.Main };

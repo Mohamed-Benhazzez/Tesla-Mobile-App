@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace Tesla.Model
 {
-    public class IsPinValid : IModelExecute<bool>
+    public class IsAuthenticated : IModelExecute<bool>
     {
 
         private readonly string _pin = "";
 
-        public IsPinValid(string pin)
+        public IsAuthenticated(string pin)
         {
             _pin = pin;
         }

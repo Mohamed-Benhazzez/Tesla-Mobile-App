@@ -12,7 +12,7 @@ namespace Tesla.ViewModelExecute
 {
     public class PinLoginViewModelExecute : BaseViewModelExecute 
     {
-        public PinLoginViewModelExecute(IPinModel model, string backCharacter)
+        public PinLoginViewModelExecute(IAuthModel model, string backCharacter)
         {
             TimeoutMilliseconds = 10000;
             Operations.Add(new PinLoginOperation(model, backCharacter));

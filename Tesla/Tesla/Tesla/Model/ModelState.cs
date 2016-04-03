@@ -8,7 +8,7 @@ using TeslaDefinition.Interfaces.Model;
 
 namespace Tesla.Model
 {
-    public class PinModelState: ModelState, IPinModelState
+    public class AuthModelState: ModelState, IAuthModelState
     {
         public string Pin { get { return Get<string>(); } set { Set(value); } }
 

@@ -51,11 +51,11 @@
     <Compile Include="Gestures\PressedGestureRecognizer.cs" />
     <Compile Include="Model\ClimateModel.cs" />
     <Compile Include="Model\ControlModel.cs" />
-    <Compile Include="Model\IsPinValid.cs">
-      <DependentUpon>PinModel.cs</DependentUpon>
+    <Compile Include="Model\IsAuthenticated.cs">
+      <DependentUpon>AuthModel.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\ModelState.cs">
-      <DependentUpon>PinModel.cs</DependentUpon>
+      <DependentUpon>AuthModel.cs</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\KeyPress.cs">
       <DependentUpon>ViewModelExecute.cs</DependentUpon>
@@ -83,7 +83,7 @@
     <Compile Include="Wire\EventCommand.cs" />
     <Compile Include="Wire\Injection.cs" />
     <Compile Include="Model\MainModel.cs" />
-    <Compile Include="Model\PinModel.cs" />
+    <Compile Include="Model\AuthModel.cs" />
     <Compile Include="PageLocator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Stack\AuthenticationStack.cs" />
