@@ -12,26 +12,19 @@ namespace Tesla.ViewModel
 {
     public class PinVisualState : VisualState
     {
-        private readonly IPinModel _model = null;
+        protected override IBaseModel Model { get; set; } = null;
         public PinVisualState(IPinModel model)
         {
-            _model = model;
-            model.PropertyChanged += OnPropertyChanged;
+            Model = model;
+            HookEvents();           
         }
-       
-        void OnPropertyChanged(object sender, PropertyChangedEventArgs e)
+
+        protected override void OnModelPropertyChanged(string propertyName)
         {
-            if (e.PropertyName == nameof(_model.Pin))
-            { HiddenPin = _model.Pin; }
-        }
-
-        public override void Dispose()
-        {
-            _model.PropertyChanged -= OnPropertyChanged;
-
-            base.Dispose();
-        }
-
+            if (propertyName == nameof(IPinModel.Pin))
+            { HiddenPin = (Model as IPinModel).Pin; }
+        }      
+                
         public string HiddenPin
         {
             get

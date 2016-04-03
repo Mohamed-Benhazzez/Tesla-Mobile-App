@@ -23,8 +23,6 @@ namespace Tesla.ViewModelOperation
             _backCharacter = backCharacter;
         }
 
-        public bool ChainedRollback { get; private set; } = false;
-
         public Func<IResult, Task> Function
         {
             get
@@ -62,6 +60,8 @@ namespace Tesla.ViewModelOperation
                 };
             }
         }
+        
+        public bool ChainedRollback { get; private set; } = false;
 
         public Func<IResult, Task> Rollback { get { return null; } }
     }

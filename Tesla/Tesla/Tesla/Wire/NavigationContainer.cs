@@ -31,6 +31,7 @@ namespace Tesla.Wire
                 var currentPage = _page.CurrentPage as IPage;
                 var parameter = _argQueue.Count > 0 ? _argQueue.Dequeue() : null;
                 OnPopped(this, new PageNavigationArgs() { Parameter = parameter, CurrentPage = currentPage, PoppedPage = poppedPage });
+
             }
         }
 
