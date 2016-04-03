@@ -39,6 +39,7 @@
     <Compile Include="Interfaces\Model\IControlModel.cs" />
     <Compile Include="Interfaces\Model\IMainModel.cs" />
     <Compile Include="Interfaces\Model\IPinModel.cs" />
+    <Compile Include="Interfaces\Model\IPinModelState.cs" />
     <Compile Include="Interfaces\Service\ILoginService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Enums\Stacks.cs" />

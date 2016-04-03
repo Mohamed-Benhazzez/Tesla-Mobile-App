@@ -13,15 +13,14 @@ namespace Tesla.Model
     public class PinModel : BaseModel, IPinModel
     {
         public PinModel(IDisplayService displayService, IErrorHandlingService errorHandlingService)
-            : base(displayService, errorHandlingService)
+            : base(displayService, errorHandlingService, new PinModelState())
         { }
-        
-        public string Pin { get { return Get<string>(); } set { Set(value); } }
-
+             
+        public IPinModelState PinModelState { get { return ModelState as IPinModelState; } }
        
         public Task<bool> IsPinValid()
         {
-            return Execution.ModelExecute(new IsPinValidModelExecute(Pin));
+            return Execution.ModelExecute(new IsPinValid(PinModelState.Pin));
         }
     }
     

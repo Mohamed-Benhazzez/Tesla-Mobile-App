@@ -12,7 +12,7 @@ namespace Tesla.Model
     public class ClimateModel: BaseModel, IClimateModel
     {
         public ClimateModel(IDisplayService displayService, IErrorHandlingService errorHandlingService)
-            : base(displayService, errorHandlingService)
+            : base(displayService, errorHandlingService, null)
         { }
 
     }

@@ -20,7 +20,7 @@ namespace Tesla.Model
     //<Label Text = "{Binding SummonStatus}" />
 
         public ControlModel(IDisplayService displayService, IErrorHandlingService errorHandlingService)
-            : base(displayService, errorHandlingService)
+            : base(displayService, errorHandlingService, null)
         {
             
         }

@@ -14,7 +14,7 @@ namespace Tesla.Tests.PinModel
 
         public IOperation<bool> GetOperation(string pin)
         {
-            return new IsPinValidModelExecute(pin).Operation;
+            return new IsPinValid(pin).Operation;
         }
 
         [Theory]

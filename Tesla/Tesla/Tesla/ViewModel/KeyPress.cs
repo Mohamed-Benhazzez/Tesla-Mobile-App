@@ -31,7 +31,7 @@ namespace Tesla.ViewModelOperation
                 {
 
                     var character = Convert.ToString(result.Parameter);
-                    var pin = _model.Pin;
+                    var pin = _model.PinModelState.Pin;
 
                     if (pin == null) pin = string.Empty;
 
@@ -39,11 +39,11 @@ namespace Tesla.ViewModelOperation
                         if (character == _backCharacter)
                         {
                             if (!String.IsNullOrEmpty(pin) && pin.Length > 0)
-                                _model.Pin = pin.Substring(0, pin.Length - 1);
+                                _model.PinModelState.Pin = pin.Substring(0, pin.Length - 1);
                         }
                         else
                         {
-                            _model.Pin = pin += character;
+                            _model.PinModelState.Pin = pin += character;
                         }
 
                     

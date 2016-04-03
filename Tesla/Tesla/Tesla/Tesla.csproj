@@ -51,7 +51,10 @@
     <Compile Include="Gestures\PressedGestureRecognizer.cs" />
     <Compile Include="Model\ClimateModel.cs" />
     <Compile Include="Model\ControlModel.cs" />
-    <Compile Include="Model\IsPinValidModelExecute.cs">
+    <Compile Include="Model\IsPinValid.cs">
+      <DependentUpon>PinModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ModelState.cs">
       <DependentUpon>PinModel.cs</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\KeyPress.cs">

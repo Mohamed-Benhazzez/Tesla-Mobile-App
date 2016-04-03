@@ -12,7 +12,7 @@ namespace Tesla.Model
     public class MainModel: BaseModel, IMainModel
     {
         public MainModel(IDisplayService displayService, IErrorHandlingService errorHandlingService)
-            : base(displayService, errorHandlingService)
+            : base(displayService, errorHandlingService, null)
         { }
     }
 }

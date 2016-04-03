@@ -11,7 +11,7 @@ namespace TeslaDefinition.Interfaces.Model
     public interface IPinModel: IBaseModel
     {
         // State
-        string Pin { get; set; }
+        IPinModelState PinModelState { get; }
         
         // State Validation
         Task<bool> IsPinValid();

@@ -13,11 +13,13 @@ namespace Tesla.Base
     public class BaseModel: Exrin.Framework.Model
     {
 
-        public BaseModel(IDisplayService displayService, IErrorHandlingService errorHandlingService)
+        public BaseModel(IDisplayService displayService, IErrorHandlingService errorHandlingService, IModelState modelState)
             :base(displayService, errorHandlingService)
         {
-           
+            ModelState = modelState;
         }
+
+        public IModelState ModelState { get; set; }
 
     }
 }
