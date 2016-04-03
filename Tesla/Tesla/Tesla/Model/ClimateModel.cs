@@ -11,7 +11,7 @@ namespace Tesla.Model
 {
     public class ClimateModel: BaseModel, IClimateModel
     {
-        public ClimateModel(IDisplayService displayService, IErrorHandlingService errorHandlingService)
+        public ClimateModel(IDisplayService displayService, IErrorHandlingService errorHandlingService, IAuthModel authModel)
             : base(displayService, errorHandlingService, null)
         { }
 

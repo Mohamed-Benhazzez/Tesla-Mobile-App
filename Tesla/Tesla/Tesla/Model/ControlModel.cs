@@ -19,10 +19,9 @@ namespace Tesla.Model
     //< Button Text="Summon" Command="{Binding SummonCommand}" />
     //<Label Text = "{Binding SummonStatus}" />
 
-        public ControlModel(IDisplayService displayService, IErrorHandlingService errorHandlingService)
+        public ControlModel(IDisplayService displayService, IErrorHandlingService errorHandlingService, IAuthModel authModel)
             : base(displayService, errorHandlingService, null)
         {
-            
         }
     }
 }

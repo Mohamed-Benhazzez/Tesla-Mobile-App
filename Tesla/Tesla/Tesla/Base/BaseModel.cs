@@ -14,12 +14,11 @@ namespace Tesla.Base
     {
 
         public BaseModel(IDisplayService displayService, IErrorHandlingService errorHandlingService, IModelState modelState)
-            :base(displayService, errorHandlingService)
+            :base(displayService, errorHandlingService, modelState)
         {
-            ModelState = modelState;
+           
         }
 
-        public IModelState ModelState { get; set; }
 
     }
 }

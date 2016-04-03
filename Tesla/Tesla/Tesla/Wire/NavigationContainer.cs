@@ -16,6 +16,7 @@ namespace Tesla.Wire
         public event EventHandler<IPageNavigationArgs> OnPopped;
         private Queue<object> _argQueue = new Queue<object>();
         private AsyncLock _lock = new AsyncLock();
+        public string CurrentPageKey { get; set; }
 
         public NavigationContainer(NavigationPage page)
         {
