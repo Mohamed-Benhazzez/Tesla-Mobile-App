@@ -16,6 +16,6 @@ namespace Tesla.ViewModel
         {
         }
 
-
+        public override IVisualState VisualState { get; set; }
     }
 }

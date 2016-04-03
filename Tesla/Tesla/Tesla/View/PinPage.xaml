@@ -18,7 +18,7 @@
           <RowDefinition Height="Auto"></RowDefinition>
           <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
-        <Label Text="{Binding Model.HiddenPin}" TextColor="White" HorizontalTextAlignment="Center" />
+        <Label Text="{Binding VisualState.HiddenPin}" TextColor="White" HorizontalTextAlignment="Center" />
         <control:Keypad HeightRequest="212" Grid.Row="1" Command="{Binding KeyPressCommand}" />
       </Grid>
 

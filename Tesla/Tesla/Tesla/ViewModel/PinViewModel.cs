@@ -19,9 +19,10 @@ namespace Tesla.ViewModel
             base(displayService, navigationService, errorHandlingService, stackRunner)
         {
             Model = model;
+            VisualState = new PinVisualState(model);
         }
 
-        public IPinModel Model { get; set; }
+        private IPinModel Model { get; set; }
 
         public IRelayCommand KeyPressCommand
         {
@@ -34,5 +35,6 @@ namespace Tesla.ViewModel
             }
         }
 
+        public override IVisualState VisualState { get; set; } 
     }
 }

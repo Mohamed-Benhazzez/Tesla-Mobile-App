@@ -35,7 +35,9 @@ namespace Tesla.ViewModelOperation
                     var character = Convert.ToString(result.Parameter);
                     var pin = _model.Pin;
 
-                    if (character != null && pin != null)
+                    if (pin == null) pin = string.Empty;
+
+                    if (character != null)
                         if (character == _backCharacter)
                         {
                             if (!String.IsNullOrEmpty(pin) && pin.Length > 0)
