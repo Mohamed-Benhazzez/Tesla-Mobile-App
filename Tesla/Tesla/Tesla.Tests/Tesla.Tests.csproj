@@ -40,6 +40,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Exrin.Abstraction, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Exrin.0.2.0\lib\portable-net45+wp8+win8+wpa81+netcore451+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Exrin.Abstraction.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Exrin.Framework, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Exrin.0.2.0\lib\portable-net45+wp8+win8+wpa81+netcore451+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Exrin.Framework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.Pex.Framework">
       <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\Pex\Microsoft.Pex.Framework.dll</HintPath>
     </Reference>
@@ -62,14 +70,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\exrin\Exrin\Exrin.Abstraction\Exrin.Abstraction.csproj">
-      <Project>{f7d56290-97b4-4636-abca-8323c886a7e0}</Project>
-      <Name>Exrin.Abstraction</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\exrin\Exrin\Exrin.Framework\Exrin.Framework.csproj">
-      <Project>{8947ad64-e787-4a00-9d6b-8e514133ad63}</Project>
-      <Name>Exrin.Framework</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\TeslaDefinition\TeslaDefinition.csproj">
       <Project>{1F7B8409-F72F-479C-8A3B-3923234DAE42}</Project>
       <Name>TeslaDefinition</Name>
