@@ -26,6 +26,15 @@ namespace Tesla.Model
         {
             return Execution.ModelExecute(new IsAuthenticated(AuthModelState.Pin));
         }
+
+        public Task<bool> IsPinComplete()
+        {
+            return Execution.ModelExecute(new IsPinValid(AuthModelState.Pin));
+        }
+
+        //TODO: Get Token for API based call, or current status of login.
+        //Move back to Pin screen if authentication currently invalidated and can't revalidate
+        //Would have to push back to the ViewModel - common ReAuth navigation
     }
     
 }

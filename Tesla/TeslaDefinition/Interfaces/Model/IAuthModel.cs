@@ -15,5 +15,6 @@ namespace TeslaDefinition.Interfaces.Model
         
         // State Validation
         Task<bool> IsAuthenticated();
+        Task<bool> IsPinComplete();
     }
 }

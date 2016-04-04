@@ -8,17 +8,16 @@ using System.Threading.Tasks;
 
 namespace Tesla.Model
 {
-    public class IsAuthenticated : IModelExecute<bool>
+    public class IsPinValid : IModelExecute<bool>
     {
 
         private readonly string _pin = "";
 
-        public IsAuthenticated(string pin)
+        public IsPinValid(string pin)
         {
             _pin = pin;
         }
 
-        //TODO: Change to actually call the AuthenticationService to validate the PIN
         public IOperation<bool> Operation
         {
             get

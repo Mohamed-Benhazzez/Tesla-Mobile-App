@@ -23,14 +23,14 @@ namespace Tesla.ViewModelOperation
             _backCharacter = backCharacter;
         }
 
-        public Func<IResult, Task> Function
+        public Func<IList<IResult>, object, Task> Function
         {
             get
             {
-                return async (result) =>
+                return async (results, parameter) =>
                 {
-
-                    var character = Convert.ToString(result.Parameter);
+                    var result = new Result();
+                    var character = Convert.ToString(parameter);
                     var pin = _model.AuthModelState.Pin;
 
                     if (pin == null) pin = string.Empty;
@@ -46,23 +46,29 @@ namespace Tesla.ViewModelOperation
                             _model.AuthModelState.Pin = pin += character;
                         }
 
-                    
-                    if (await _model.IsAuthenticated())
+
+                    if (!await _model.IsPinComplete())
+                    {
+                        result.ResultAction = ResultType.None;
+                    }
+                    else if (await _model.IsAuthenticated())
                     {
                         result.ResultAction = ResultType.Navigation;
                         result.Arguments = new NavigationArgs() { PageIndicator = PageLocator.Main.Main, StackType = Stacks.Main };
-                    }
+                    }                   
                     else
                     {
                         result.ResultAction = ResultType.Display;
                         result.Arguments = new DisplayArgs() { Message = "Invalid Pin Entered. Please try again." };
                     }
+
+                    results.Add(result);
                 };
             }
         }
         
         public bool ChainedRollback { get; private set; } = false;
 
-        public Func<IResult, Task> Rollback { get { return null; } }
+        public Func<Task> Rollback { get { return null; } }
     }
 }

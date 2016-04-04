@@ -54,6 +54,9 @@
     <Compile Include="Model\IsAuthenticated.cs">
       <DependentUpon>AuthModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\IsPinValid.cs">
+      <DependentUpon>AuthModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\ModelState.cs">
       <DependentUpon>AuthModel.cs</DependentUpon>
     </Compile>

@@ -19,11 +19,11 @@ namespace Tesla.ViewModel.MainTabs
 
         public bool ChainedRollback { get; private set; } = false;
 
-        public Func<IResult, Task> Function
+        public Func<IList<IResult>, object, Task> Function
         {
             get
             {
-                return async (result) =>
+                return async (result, parameter) =>
                 {
 
                    
@@ -31,6 +31,6 @@ namespace Tesla.ViewModel.MainTabs
             }
         }
 
-        public Func<IResult, Task> Rollback { get { return null; } }
+        public Func<Task> Rollback { get { return null; } }
     }
 }
