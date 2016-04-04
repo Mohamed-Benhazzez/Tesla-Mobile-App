@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using Autofac.Builder;
 using Autofac.Core;
 using Exrin.Abstraction;
 using System;
@@ -21,23 +22,36 @@ namespace Tesla.Wire
             _builder = new ContainerBuilder();
 
             _builder.RegisterInstance<IInjection>(this).SingleInstance();
-
         }
-
         public void Complete()
         {
             Container = _builder.Build();
         }
-
-        public void Register<T>() where T : class
+        private void Register<T>(IRegistrationBuilder<T, ConcreteReflectionActivatorData, SingleRegistrationStyle> register, InstanceType type)
         {
-            _builder.RegisterType<T>().SingleInstance();
+            switch (type)
+            {
+                case InstanceType.EachResolve:
+                    register.InstancePerDependency();
+                    break;
+                case InstanceType.SingleInstance:
+                    register.SingleInstance();
+                    break;
+                default:
+                    register.InstancePerDependency();
+                    break;
+            }
+        }
+        public void Register<T>(InstanceType type) where T : class
+        {
+            Register(_builder.RegisterType<T>(), type);
         }
 
-        public void Register<I, T>() where T : class, I
+        public void Register<I, T>(InstanceType type) where T : class, I
                                              where I : class
         {
-            _builder.RegisterType<T>().As<I>().SingleInstance();
+
+            Register(_builder.RegisterType<T>().As<I>(), type);           
         }
         
         public T Get<T>() where T : class

@@ -1,4 +1,5 @@
-﻿using Tesla.Model;
+﻿using Exrin.Abstraction;
+using Tesla.Model;
 using Tesla.Stack;
 using Tesla.Wire;
 using TeslaDefinition;
@@ -21,10 +22,10 @@ namespace Tesla
         protected override void InitModels()
         {
             // TODO: convention - register in namespace
-            _injection.Register<IAuthModel, AuthModel>();
-            _injection.Register<IMainModel, MainModel>();
-            _injection.Register<IControlModel, ControlModel>();
-            _injection.Register<IClimateModel, ClimateModel>();
+            _injection.Register<IAuthModel, AuthModel>(InstanceType.SingleInstance);
+            _injection.Register<IMainModel, MainModel>(InstanceType.SingleInstance);
+            _injection.Register<IControlModel, ControlModel>(InstanceType.SingleInstance);
+            _injection.Register<IClimateModel, ClimateModel>(InstanceType.SingleInstance);
         }
     }
 }
