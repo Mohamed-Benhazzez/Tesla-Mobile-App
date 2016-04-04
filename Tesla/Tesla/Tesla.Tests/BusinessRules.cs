@@ -9,7 +9,6 @@ namespace Tesla.Tests
 {
     /// <summary>
     /// Business Rules for the application. If values change, change them here, then run unit tests and see what fails. 
-    /// Then go and fix it. Its the TDD way.
     /// </summary>
     public class BusinessRules
     {

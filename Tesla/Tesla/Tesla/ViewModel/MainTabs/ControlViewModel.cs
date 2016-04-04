@@ -3,6 +3,7 @@ using Exrin.Abstraction;
 using Exrin.Framework;
 using Tesla.Base;
 using TeslaDefinition.Interfaces.Model;
+using Tesla.ViewModel.MainTabs;
 
 namespace Tesla.ViewModel
 {
@@ -10,7 +11,7 @@ namespace Tesla.ViewModel
     {
 
         public ControlViewModel(IControlModel model, IDisplayService displayService, INavigationService navigationService, IErrorHandlingService errorHandlingService, IStackRunner stackRunner) :
-            base(displayService, navigationService, errorHandlingService, stackRunner, null)
+            base(displayService, navigationService, errorHandlingService, stackRunner, new ControlVisualState(model))
         { }
        
         // Model

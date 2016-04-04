@@ -71,6 +71,9 @@
     <Compile Include="ViewModel\MainTabs\HonkViewModelExecute.cs">
       <DependentUpon>ControlViewModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\MainTabs\VisualState.cs">
+      <DependentUpon>ControlViewModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewModel\ViewModelExecute.cs">
       <DependentUpon>PinViewModel.cs</DependentUpon>
     </Compile>

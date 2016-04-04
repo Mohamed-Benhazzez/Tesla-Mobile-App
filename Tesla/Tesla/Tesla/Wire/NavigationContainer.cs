@@ -32,7 +32,6 @@ namespace Tesla.Wire
                 var currentPage = _page.CurrentPage as IPage;
                 var parameter = _argQueue.Count > 0 ? _argQueue.Dequeue() : null;
                 OnPopped(this, new PageNavigationArgs() { Parameter = parameter, CurrentPage = currentPage, PoppedPage = poppedPage });
-
             }
         }
 
@@ -69,15 +68,18 @@ namespace Tesla.Wire
 
         public async Task PushAsync(object page)
         {
-            await ThreadHelper.RunOnUIThreadAsync(async () =>
+            using (var releaser = await _lock.LockAsync())
             {
-                var xamarinPage = page as Page;
+                await ThreadHelper.RunOnUIThreadAsync(async () =>
+                {
+                    var xamarinPage = page as Page;
 
-                if (xamarinPage == null)
-                    throw new Exception("PushAsync can not push a non Xamarin Page");
+                    if (xamarinPage == null)
+                        throw new Exception("PushAsync can not push a non Xamarin Page");
 
-                await _page.PushAsync(xamarinPage); // Must be run on the Main Thread
-            });
+                    await _page.PushAsync(xamarinPage); // Must be run on the Main Thread
+                });
+            }
         }
     }
 }
