@@ -7,6 +7,7 @@ using Tesla.ViewModel;
 using TeslaDefinition.Interfaces.Model;
 using Xunit;
 
+
 namespace Tesla.Tests.ViewModel.PinViewModel
 {
     public class PinVisualStateTest
