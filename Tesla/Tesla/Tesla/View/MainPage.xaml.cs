@@ -12,8 +12,8 @@ namespace Tesla.View
 	{
 		public MainPage ()
 		{
-			InitializeComponent ();
-           
+			InitializeComponent();
+         
 		}
 	}
 }

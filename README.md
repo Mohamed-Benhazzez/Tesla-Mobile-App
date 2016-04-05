@@ -1,5 +1,5 @@
 # Tesla Mobile App
-An example app replicating some of the functionality of the official Tesla Mobile App. The example is Xamarin Forms but for the moment I have only chosen to develop for Windows 10 Mobile (Univeral Windows Platform).
+An example app replicating some of the functionality of the official Tesla Mobile App. The example is Xamarin Forms but for the moment I have only chosen to implement the Windows 10 Mobile (Univeral Windows Platform) project.
 
 <img src="https://raw.githubusercontent.com/exrin/Tesla-Mobile-App/master/Tesla/Screenshots/TeslaPinLock.png" height="250" />
 

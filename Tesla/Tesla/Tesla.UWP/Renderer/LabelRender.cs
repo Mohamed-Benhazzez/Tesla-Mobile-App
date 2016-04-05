@@ -9,11 +9,11 @@ using Xamarin.Forms;
 using Xamarin.Forms.Platform.UWP;
 using System.Reflection;
 
-[assembly: ExportRenderer(typeof(Label), typeof(ExtendedLabelRenderer))]
+[assembly: ExportRenderer(typeof(Label), typeof(LabelRender))]
 namespace Tesla.UWP.Renderer
 {
 
-    public class ExtendedLabelRenderer : LabelRenderer
+    public class LabelRender : LabelRenderer
     {
         protected override void OnElementChanged(ElementChangedEventArgs<Label> e)
         {

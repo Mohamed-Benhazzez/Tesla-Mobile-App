@@ -2,19 +2,29 @@
 <l:BasePage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:l="clr-namespace:Tesla.Base"
-             x:Class="Tesla.View.MainTabs.ControlPage">
+             x:Class="Tesla.View.MainTabs.ControlPage"
+             BackgroundColor="Transparent">
   <!-- Basic, unpolished screen just to get user actions needed -->
-  <StackLayout>
+
+  <!-- Find Car -->
+
+
+  <!-- Lock Car -->
+  <Grid Padding="0,20,0,0" Opacity="0.6" BackgroundColor="#2D2D2D">
+<StackLayout>
     <Button Text="Lock-Unlock" Command="{Binding LockCommand}" />
     <Button Text="Honk" Command="{Binding HonkCommand}" />
     <Button Text="Flash" Command="{Binding FlashCommand}" />
     <Label Text="{Binding ProximityLocationStatus}" />
     <Button Text="Summon" Command="{Binding SummonCommand}" />
     <Label Text="{Binding SummonStatus}" />
-  </StackLayout>  
+  </StackLayout>
+  </Grid>
+
   
+
   <!-- Should be Find My Car - make sure in proximity (or override) -->
   <!-- Within X Meters or at Address -->
-  
+
   <!-- Summon Function - Within private property, obstructed (open garage door) -->
 </l:BasePage>
