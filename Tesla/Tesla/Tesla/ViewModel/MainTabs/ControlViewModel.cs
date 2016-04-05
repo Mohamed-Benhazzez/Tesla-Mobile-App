@@ -12,28 +12,28 @@ namespace Tesla.ViewModel
 
         public ControlViewModel(IControlModel model, IDisplayService displayService, INavigationService navigationService, IErrorHandlingService errorHandlingService, IStackRunner stackRunner) :
             base(displayService, navigationService, errorHandlingService, stackRunner, new ControlVisualState(model))
-        { }
+        {
+            Model = model;
+        }
        
         // Model
         public IControlModel Model { get; set; }
 
-        // View Status
-        public string ProximityLocationStatus { get { return Get<string>(); } private set { Set(value); } }
-        public string SummonStatus { get { return Get<string>(); } private set { Set(value); } }
-
-      
+        // TODO: took a little while to find out that the model wasn't been set, look to enforce it.
+        // TODO: Wire up the Honk to status on Control screen
+        // Failed Status (Dialog or screen?) - prob dialog because its an action we expect an immediate result
 
         // View Commands      
-        //public IRelayCommand HonkCommand
-        //{
-        //    get
-        //    {
-        //        return GetCommand(() =>
-        //        {
-        //            return Execution.ViewModelExecute();
-        //        });
-        //    }
-        //}
+        public IRelayCommand HonkCommand
+        {
+            get
+            {
+                return GetCommand(() =>
+                {
+                    return Execution.ViewModelExecute(new HonkViewModelExecute(Model));
+                });
+            }
+        }
 
         //public IRelayCommand LockCommand
         //{

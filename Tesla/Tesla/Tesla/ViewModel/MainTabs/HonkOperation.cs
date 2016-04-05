@@ -1,9 +1,8 @@
 ﻿using Exrin.Abstraction;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
+using TeslaDefinition.Enums;
 using TeslaDefinition.Interfaces.Model;
 
 namespace Tesla.ViewModel.MainTabs
@@ -26,6 +25,7 @@ namespace Tesla.ViewModel.MainTabs
                 return async (result, parameter) =>
                 {
 
+                    await _model.IssueCommand(CommandType.Honk);
                    
                 };
             }

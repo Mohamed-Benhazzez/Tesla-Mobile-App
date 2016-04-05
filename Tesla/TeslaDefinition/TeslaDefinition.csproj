@@ -35,6 +35,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Enums\CommandType.cs" />
     <Compile Include="Interfaces\Model\IClimateModel.cs" />
     <Compile Include="Interfaces\Model\IControlModel.cs" />
     <Compile Include="Interfaces\Model\IMainModel.cs" />

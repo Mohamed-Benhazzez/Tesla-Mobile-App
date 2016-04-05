@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Tesla.Base;
 using TeslaDefinition.Interfaces.Model;
+using TeslaDefinition.Enums;
 
 namespace Tesla.Model
 {
@@ -27,5 +28,9 @@ namespace Tesla.Model
             _authModel = authModel;
         }
 
+        public Task<bool> IssueCommand(CommandType type)
+        {
+            return Task.FromResult(true);
+        }
     }
 }
