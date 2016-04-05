@@ -10,18 +10,18 @@
 
 
   <!-- Lock Car -->
-  <Grid Padding="0,20,0,0" Opacity="0.6" BackgroundColor="#2D2D2D">
-<StackLayout>
-    <Button Text="Lock-Unlock" Command="{Binding LockCommand}" />
-    <Button Text="Honk" Command="{Binding HonkCommand}" />
-    <Button Text="Flash" Command="{Binding FlashCommand}" />
-    <Label Text="{Binding ProximityLocationStatus}" />
-    <Button Text="Summon" Command="{Binding SummonCommand}" />
-    <Label Text="{Binding SummonStatus}" />
-  </StackLayout>
+  <Grid Margin="0,20,0,0" Opacity="0.6" BackgroundColor="#2D2D2D">
+    <StackLayout>
+      <Button Text="Lock-Unlock" Command="{Binding LockCommand}" />
+      <Button Text="Honk" Command="{Binding HonkCommand}" />
+      <Button Text="Flash" Command="{Binding FlashCommand}" />
+      <Label Text="{Binding ProximityLocationStatus}" />
+      <Button Text="Summon" Command="{Binding SummonCommand}" />
+      <Label Text="{Binding SummonStatus}" />
+    </StackLayout>
   </Grid>
 
-  
+
 
   <!-- Should be Find My Car - make sure in proximity (or override) -->
   <!-- Within X Meters or at Address -->
