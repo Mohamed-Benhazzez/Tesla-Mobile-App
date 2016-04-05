@@ -28,13 +28,16 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tesla.Tests", "Tesla\Tesla.Tests\Tesla.Tests.csproj", "{4FD0A79C-A3E7-4CD4-8ABD-3AD3DAE3C25E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{908BDE98-1864-43C2-BC64-54DF5D14AC3C}"
-	ProjectSection(SolutionItems) = preProject
-		TeslaPinLock.png = TeslaPinLock.png
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exrin.Abstraction", "..\..\Exrin\Exrin\Exrin.Abstraction\Exrin.Abstraction.csproj", "{F7D56290-97B4-4636-ABCA-8323C886A7E0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exrin.Framework", "..\..\Exrin\Exrin\Exrin.Framework\Exrin.Framework.csproj", "{8947AD64-E787-4A00-9D6B-8E514133AD63}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Screenshots", "Screenshots", "{637F858C-FBA7-4CCB-AE9E-6B7013D6DB9C}"
+	ProjectSection(SolutionItems) = preProject
+		Screenshots\TeslaPinLock.png = Screenshots\TeslaPinLock.png
+		Screenshots\TeslaSplashscreen.png = Screenshots\TeslaSplashscreen.png
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -473,5 +476,6 @@ Global
 		{B44B4BF7-6D1A-4859-BEB6-5C26B685C3CD} = {8FFDD509-8164-474F-9EFA-AFEABE43809C}
 		{1F7B8409-F72F-479C-8A3B-3923234DAE42} = {A662C401-3A92-49A2-B3B4-5CC17E1E4F5B}
 		{4FD0A79C-A3E7-4CD4-8ABD-3AD3DAE3C25E} = {EF6186D9-C840-44E6-9B2A-6D29CF602408}
+		{637F858C-FBA7-4CCB-AE9E-6B7013D6DB9C} = {908BDE98-1864-43C2-BC64-54DF5D14AC3C}
 	EndGlobalSection
 EndGlobal
