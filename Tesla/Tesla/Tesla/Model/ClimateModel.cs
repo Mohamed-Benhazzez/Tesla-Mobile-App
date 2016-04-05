@@ -9,10 +9,10 @@ using TeslaDefinition.Interfaces.Model;
 
 namespace Tesla.Model
 {
-    public class ClimateModel: BaseModel, IClimateModel
+    public class ClimateModel : BaseModel, IClimateModel
     {
         public ClimateModel(IDisplayService displayService, IErrorHandlingService errorHandlingService, IAuthModel authModel)
-            : base(displayService, errorHandlingService, null)
+            : base(displayService, errorHandlingService, new ClimateModelState())
         { }
 
     }

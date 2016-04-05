@@ -12,20 +12,11 @@ namespace Tesla
     {
         public Bootstrapper() : base(new Injection(), (newPage) => { Application.Current.MainPage = newPage as Page; }) { }
 
-        protected override void InitStacks()
-        {          
-            // TODO: convention - register in namespace (have defaults, can be overriden here)
-            RegisterStack<AuthenticationStack>(Stacks.Authentication);
-            RegisterStack<MainStack>(Stacks.Main);
-        }
+        // Any interface that implements IBaseModel will be loaded in InitModels() with its concrete implementation
+        // Override InitModels() to define yourself
 
-        protected override void InitModels()
-        {
-            // TODO: convention - register in namespace
-            _injection.Register<IAuthModel, AuthModel>(InstanceType.SingleInstance);
-            _injection.Register<IMainModel, MainModel>(InstanceType.SingleInstance);
-            _injection.Register<IControlModel, ControlModel>(InstanceType.SingleInstance);
-            _injection.Register<IClimateModel, ClimateModel>(InstanceType.SingleInstance);
-        }
+        // Any interface that implements IStack will be loaded in the InitStacks().
+        // Override InitStacks() and use RegisterStack<T>() to register stacks manually
+
     }
 }

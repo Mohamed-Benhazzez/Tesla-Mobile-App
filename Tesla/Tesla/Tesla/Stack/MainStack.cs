@@ -9,6 +9,7 @@ using Tesla.View;
 using Tesla.View.MainTabs;
 using Tesla.ViewModel;
 using Tesla.Wire;
+using TeslaDefinition;
 using Xamarin.Forms;
 
 namespace Tesla.Stack
@@ -17,10 +18,9 @@ namespace Tesla.Stack
     {
         private IPageService _pageService = null;
         public MainStack(INavigationService navigationService, IPageService pageService)
-                                                                    : base(navigationService)
+               : base(navigationService, new NavigationContainer(new NavigationPage()), Stacks.Main)
         {
             _pageService = pageService;
-            SetContainer(new NavigationContainer(new NavigationPage()));
             ShowNavigationBar = false;
         }
         

@@ -9,5 +9,6 @@ namespace TeslaDefinition.Interfaces.Model
 {
     public interface IControlModel: IBaseModel
     {
+
     }
 }

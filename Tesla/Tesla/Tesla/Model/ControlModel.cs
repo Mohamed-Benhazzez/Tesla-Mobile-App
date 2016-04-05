@@ -12,17 +12,17 @@ namespace Tesla.Model
     public class ControlModel : BaseModel, IControlModel
     {
 
-        //     <Button Text = "Lock-Unlock" Command="{Binding LockCommand}" />
+        //<Button Text = "Lock-Unlock" Command="{Binding LockCommand}" />
         //<Button Text = "Honk" Command="{Binding HonkCommand}" />
         //<Button Text = "Flash" Command="{Binding FlashCommand}" />
         //<Label Text = "{Binding ProximityLocationStatus}" />
-        //< Button Text="Summon" Command="{Binding SummonCommand}" />
+        //<Button Text="Summon" Command="{Binding SummonCommand}" />
         //<Label Text = "{Binding SummonStatus}" />
 
         private readonly IAuthModel _authModel = null;
 
         public ControlModel(IDisplayService displayService, IErrorHandlingService errorHandlingService, IAuthModel authModel)
-            : base(displayService, errorHandlingService, null)
+            : base(displayService, errorHandlingService, new ControlModelState())
         {
             _authModel = authModel;
         }

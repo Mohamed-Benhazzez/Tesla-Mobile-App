@@ -3,6 +3,7 @@ using Exrin.Framework;
 using Tesla.View;
 using Tesla.ViewModel;
 using Tesla.Wire;
+using TeslaDefinition;
 using Xamarin.Forms;
 
 namespace Tesla.Stack
@@ -12,10 +13,9 @@ namespace Tesla.Stack
         IPageService _pageService = null;
 
         public AuthenticationStack(INavigationService navigationService, IPageService pageService)
-            : base(navigationService)
+            : base(navigationService, new NavigationContainer(new NavigationPage()), Stacks.Authentication)
         {
             _pageService = pageService;
-            SetContainer(new NavigationContainer(new NavigationPage()));
             ShowNavigationBar = false;
         }
 

@@ -47,7 +47,7 @@ namespace Tesla.Wire
             Register(_builder.RegisterType<T>(), type);
         }
 
-        public void Register<I, T>(InstanceType type) where T : class, I
+        public void RegisterInterface<I, T>(InstanceType type) where T : class, I
                                              where I : class
         {
             Register(_builder.RegisterType<T>().As<I>(), type);           
