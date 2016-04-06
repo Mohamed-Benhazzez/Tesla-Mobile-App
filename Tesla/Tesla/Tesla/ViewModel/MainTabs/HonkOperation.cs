@@ -24,9 +24,7 @@ namespace Tesla.ViewModel.MainTabs
             {
                 return async (result, parameter) =>
                 {
-
                     await _model.IssueCommand(CommandType.Honk);
-                   
                 };
             }
         }

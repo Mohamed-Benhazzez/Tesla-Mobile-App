@@ -21,16 +21,22 @@ namespace Tesla.UWP.Renderer
 
             if (e.OldElement == null)
             {
-                Control.PointerPressed += Control_PointerPressed;
-                Control.PointerReleased += Control_PointerReleased;
+                if (!e.NewElement.GestureRecognizers.Any())
+                    return;
+
+                if (e.NewElement.GestureRecognizers.Any(x => x.GetType() == typeof(PressedGestureRecognizer)))
+                    Control.PointerPressed += Control_PointerPressed;
+
+                if (e.NewElement.GestureRecognizers.Any(x => x.GetType() == typeof(ReleasedGestureRecognizer)))
+                    Control.PointerReleased += Control_PointerReleased;
             }
         }
 
-       
+
 
         private void Control_PointerReleased(object sender, Windows.UI.Xaml.Input.PointerRoutedEventArgs e)
         {
-            foreach (var recognizer in this.Element.GestureRecognizers)
+            foreach (var recognizer in this.Element.GestureRecognizers.Where(x=>x.GetType() == typeof(PressedGestureRecognizer)))
             {
                 var gesture = recognizer as PressedGestureRecognizer;
                 if (gesture != null)
@@ -41,7 +47,7 @@ namespace Tesla.UWP.Renderer
 
         private void Control_PointerPressed(object sender, Windows.UI.Xaml.Input.PointerRoutedEventArgs e)
         {
-            foreach (var recognizer in this.Element.GestureRecognizers)
+            foreach (var recognizer in this.Element.GestureRecognizers.Where(x => x.GetType() == typeof(ReleasedGestureRecognizer)))
             {
                 var gesture = recognizer as ReleasedGestureRecognizer;
                 if (gesture != null)

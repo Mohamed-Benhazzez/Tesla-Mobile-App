@@ -28,9 +28,10 @@ namespace Tesla.Model
             _authModel = authModel;
         }
 
-        public Task<bool> IssueCommand(CommandType type)
+        public async Task<bool> IssueCommand(CommandType type)
         {
-            return Task.FromResult(true);
+            await Task.Delay(5000);
+            return true;
         }
     }
 }

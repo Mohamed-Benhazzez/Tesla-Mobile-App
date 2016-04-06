@@ -46,6 +46,7 @@
     <Compile Include="Base\BaseViewModel.cs" />
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="Control\Keypad.cs" />
+    <Compile Include="Control\StatusBar.cs" />
     <Compile Include="Gestures\GestureEventArgs.cs" />
     <Compile Include="Gestures\ReleasedGestureRecognizer.cs" />
     <Compile Include="Gestures\PressedGestureRecognizer.cs" />

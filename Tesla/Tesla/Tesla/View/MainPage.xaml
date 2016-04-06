@@ -6,7 +6,7 @@
             x:Class="Tesla.View.MainPage">
 
   <TabbedPage.Children>
-    <t:ControlPage Title="Control" />
+    <t:ControlPage Title="Find Car" />
     <t:ClimatePage Title="Climate" />
   </TabbedPage.Children>
   

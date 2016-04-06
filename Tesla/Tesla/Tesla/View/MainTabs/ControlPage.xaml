@@ -4,22 +4,63 @@
              xmlns:l="clr-namespace:Tesla.Base"
              x:Class="Tesla.View.MainTabs.ControlPage"
              BackgroundColor="Transparent">
+  <Grid>
+    <Grid Opacity="0.6" Margin="0,20,0,0" BackgroundColor="#2D2D2D" VerticalOptions="FillAndExpand">
+    </Grid>
+    <Grid BackgroundColor="Transparent" Margin="0,20,0,0">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="*" />
+      </Grid.RowDefinitions>
+    
+    <ActivityIndicator Grid.Row="0" Color="#E31919" VerticalOptions="Start" HorizontalOptions="FillAndExpand" IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" IsEnabled="{Binding IsBusy}" />
+
+    <!--Commands/Proximity-->
+    <Grid Grid.Row="1" ColumnSpacing="0">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="*" />
+      </Grid.ColumnDefinitions>
+      <Grid.RowDefinitions>
+        <RowDefinition Height="50" />
+      </Grid.RowDefinitions>
+
+      <Label Text="Locate" Grid.Column="0" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="White" BackgroundColor="#E31919" HeightRequest="50" />
+      <Label Text="Honk" Grid.Column="1" BackgroundColor="#2D2D2D" HorizontalTextAlignment="Center" VerticalTextAlignment="Center">
+        <Label.GestureRecognizers>
+          <TapGestureRecognizer Command="{Binding HonkCommand}" />
+        </Label.GestureRecognizers>
+      </Label>
+      <Label Text="Flash" Grid.Column="2" BackgroundColor="#2D2D2D" HorizontalTextAlignment="Center" VerticalTextAlignment="Center">
+        <Label.GestureRecognizers>
+          <TapGestureRecognizer Command="{Binding FlashCommand}" />
+        </Label.GestureRecognizers>
+      </Label>
+    </Grid>
+
+    </Grid>
+  </Grid>
   <!-- Basic, unpolished screen just to get user actions needed -->
 
   <!-- Find Car -->
-
-
   <!-- Lock Car -->
-  <Grid Margin="0,20,0,0" Opacity="0.6" BackgroundColor="#2D2D2D">
-    <StackLayout>
+  <!---->
+  <!---->
+  <!---->
+  <!--<StackLayout>
       <Button Text="Lock-Unlock" Command="{Binding LockCommand}" />
       <Button Text="Honk" Command="{Binding HonkCommand}" />
       <Button Text="Flash" Command="{Binding FlashCommand}" />
       <Label Text="{Binding ProximityLocationStatus}" />
       <Button Text="Summon" Command="{Binding SummonCommand}" />
       <Label Text="{Binding SummonStatus}" />
-    </StackLayout>
-  </Grid>
+    </StackLayout>-->
+
+
+
+
+  <!--</Grid>-->
 
 
 
@@ -27,4 +68,5 @@
   <!-- Within X Meters or at Address -->
 
   <!-- Summon Function - Within private property, obstructed (open garage door) -->
+
 </l:BasePage>
