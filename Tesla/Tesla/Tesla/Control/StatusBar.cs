@@ -21,6 +21,7 @@ namespace Tesla.Control
 
         private static void OnIsRunningChanged(BindableObject bindable, object oldvalue, object newvalue)
         {
+            var newValue = newvalue as bool;
 
         }
 
