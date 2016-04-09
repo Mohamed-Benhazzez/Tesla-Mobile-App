@@ -34,7 +34,7 @@ namespace Tesla.UWP.Renderer
 
 
 
-        private void Control_PointerReleased(object sender, Windows.UI.Xaml.Input.PointerRoutedEventArgs e)
+        private void Control_PointerPressed(object sender, Windows.UI.Xaml.Input.PointerRoutedEventArgs e)
         {
             foreach (var recognizer in this.Element.GestureRecognizers.Where(x=>x.GetType() == typeof(PressedGestureRecognizer)))
             {
@@ -45,7 +45,7 @@ namespace Tesla.UWP.Renderer
             }
         }
 
-        private void Control_PointerPressed(object sender, Windows.UI.Xaml.Input.PointerRoutedEventArgs e)
+        private void Control_PointerReleased(object sender, Windows.UI.Xaml.Input.PointerRoutedEventArgs e)
         {
             foreach (var recognizer in this.Element.GestureRecognizers.Where(x => x.GetType() == typeof(ReleasedGestureRecognizer)))
             {
