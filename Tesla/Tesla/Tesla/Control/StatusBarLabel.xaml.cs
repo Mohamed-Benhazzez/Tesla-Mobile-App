@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using System.Reflection;
 using System.Windows.Input;
+using Exrin.Abstraction;
+using Exrin.Framework;
 
 namespace Tesla.Control
 {
@@ -24,18 +26,28 @@ namespace Tesla.Control
             var grid = b as StatusBarLabel;
 
             grid.MainLabel.GestureRecognizers.Clear();
-            var cmd = n as ICommand;
+            var cmd = n as IRelayCommand;
+
 
             Action action = () =>
             {
                 grid.InProgress(); // Start Bar
+                cmd.FinishedCallback = () =>
+                {
+                    //TODO: not cancelling
+                    ThreadHelper.RunOnUIThread(() => ViewExtensions.CancelAnimations(grid));
+                };
                 cmd.Execute(null);
+
+
 
             };
             var run = new RunCommand(action);
 
             grid.MainLabel.GestureRecognizers.Add(new TapGestureRecognizer() { Command = run });
         });
+
+
         private class RunCommand : ICommand
         {
             private Action _action = null;
@@ -53,6 +65,7 @@ namespace Tesla.Control
             public void Execute(object parameter)
             {
                 _action();
+
             }
         }
 
@@ -115,12 +128,13 @@ namespace Tesla.Control
                                       start: 0,
                                       end: grid.Width,
                                       easing: Easing.Linear);
+
                 animation.Commit(grid, "Move", rate: Convert.ToUInt32(jumpCount), length: Convert.ToUInt32(Timeout), finished: (length, result) =>
                 {
                     grid.StatusBar.BackgroundColor = Color.Red;
 
                     var anim = new Animation(callback: d => grid.StatusBar.Opacity = d, start: 1, end: 0, easing: Easing.Linear);
-                anim.Commit(grid, "Fade", rate: 10, length: 3000, finished: (l, r) => { grid.StatusBar.IsVisible = false; });
+                    anim.Commit(grid, "Fade", rate: 10, length: 3000, finished: (l, r) => { grid.StatusBar.IsVisible = false; });
                 });
 
             }
@@ -133,7 +147,7 @@ namespace Tesla.Control
             }
         }
 
-        public int Timeout = 5000;
+        public int Timeout = 10000;
         private static void OnIsRunningChanged(BindableObject bindable, object oldvalue, object newvalue)
         {
 
