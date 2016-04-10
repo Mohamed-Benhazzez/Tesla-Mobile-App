@@ -1,11 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Grid xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Tesla.Control.StatusBarLabel" VerticalOptions="FillAndExpand">
+             x:Class="Tesla.Control.StatusBarLabel" VerticalOptions="FillAndExpand"
+             RowSpacing="0" ColumnSpacing="0">
   <Grid.RowDefinitions>
     <RowDefinition Height="*" />
     <RowDefinition Height="Auto" />
   </Grid.RowDefinitions>
   <Label x:Name="MainLabel" Grid.Row="0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" VerticalOptions="FillAndExpand" />
-  <Label x:Name="StatusBar" Grid.Row="1" BackgroundColor="#0173C7" HeightRequest="5" IsVisible="False" />
+  <Label x:Name="StatusBar" Grid.Row="1" HeightRequest="5" IsVisible="False" />
 </Grid>
