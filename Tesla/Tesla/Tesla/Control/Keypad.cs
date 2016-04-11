@@ -86,8 +86,9 @@ namespace Tesla.Control
                             Command.Execute(args.Value);
 
                         var label = args.Sender as Label;
-                        label.BackgroundColor = Color.Black;
-                        label.TextColor = Color.White;
+                        label.BackgroundColor = Color.White;
+                        label.TextColor = Color.Black;
+
                     });
 
                 return _pressedCommand;
@@ -106,9 +107,8 @@ namespace Tesla.Control
                         var args = parameter as GestureEventArgs;
                         
                         var label = args.Sender as Label;
-
-                        label.BackgroundColor = Color.White;
-                        label.TextColor = Color.Black;
+                        label.BackgroundColor = Color.Black;
+                        label.TextColor = Color.White;
                     });
 
                 return _releasedCommand;

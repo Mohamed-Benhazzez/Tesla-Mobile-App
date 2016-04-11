@@ -73,12 +73,27 @@
       <DependentUpon>ViewModelExecute.cs</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\MainTabs\ClimateViewModel.cs" />
+    <Compile Include="ViewModel\MainTabs\ClimateVisualState.cs">
+      <DependentUpon>ClimateViewModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewModel\MainTabs\ControlViewModel.cs" />
+    <Compile Include="ViewModel\MainTabs\FlashOperation.cs">
+      <DependentUpon>FlashViewModelExecute.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\MainTabs\FlashViewModelExecute.cs">
+      <DependentUpon>ControlViewModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewModel\MainTabs\HonkOperation.cs">
       <DependentUpon>HonkViewModelExecute.cs</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\MainTabs\HonkViewModelExecute.cs">
       <DependentUpon>ControlViewModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\MainTabs\TemperatureOperation.cs">
+      <DependentUpon>TemperatureViewModelExecute.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\MainTabs\TemperatureViewModelExecute.cs">
+      <DependentUpon>ClimateViewModel.cs</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\MainTabs\VisualState.cs">
       <DependentUpon>ControlViewModel.cs</DependentUpon>

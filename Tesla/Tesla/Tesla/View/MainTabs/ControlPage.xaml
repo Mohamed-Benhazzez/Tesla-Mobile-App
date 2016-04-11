@@ -13,9 +13,7 @@
         <RowDefinition Height="Auto" />
         <RowDefinition Height="*" />
       </Grid.RowDefinitions>
-    
-    <ActivityIndicator Grid.Row="0" Color="#E31919" VerticalOptions="Start" HorizontalOptions="FillAndExpand" IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" IsEnabled="{Binding IsBusy}" />
-
+   
     <!--Commands/Proximity-->
     <Grid Grid.Row="1" ColumnSpacing="0">
       <Grid.ColumnDefinitions>
@@ -29,7 +27,7 @@
 
       <Label Text="Locate" Grid.Column="0" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="White" BackgroundColor="#E31919" HeightRequest="50" />
       <c:StatusBarLabel Grid.Column="1" Text="Honk" BackgroundColor="#2D2D2D" Command="{Binding HonkCommand}" />
-      <c:StatusBarLabel Grid.Column="1" Text="Flash" BackgroundColor="#2D2D2D" Command="{Binding FlashCommand}" />     
+      <c:StatusBarLabel Grid.Column="2" Text="Flash" BackgroundColor="#2D2D2D" Command="{Binding FlashCommand}" />     
     </Grid>
 
     </Grid>

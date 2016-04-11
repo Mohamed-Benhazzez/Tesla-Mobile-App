@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace TeslaDefinition.Enums
 {
+    [Flags]
     public enum CommandType
     {
-        Honk = 0
+        Honk = 1,
+        Flash = 2
     }
 }

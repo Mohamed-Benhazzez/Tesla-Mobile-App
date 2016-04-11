@@ -38,6 +38,17 @@ namespace Tesla.ViewModel
             }
         }
 
+        public IRelayCommand FlashCommand
+        {
+            get
+            {
+                return GetCommand(() =>
+                {
+                    return Execution.ViewModelExecute(new FlashViewModelExecute(Model));
+                });
+            }
+        }
+
         //public IRelayCommand LockCommand
         //{
         //    get

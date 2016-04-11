@@ -3,6 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:l="clr-namespace:Tesla.Base"
              x:Class="Tesla.View.MainTabs.ClimatePage">
+
+  <Grid>
+
+    <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+      <Label Text="24" />
+      <Label Text="'C" /> 
+    </StackLayout>
+    
+  </Grid>
+  
   
   <!--
   
