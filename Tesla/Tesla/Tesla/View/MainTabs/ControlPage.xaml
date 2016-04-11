@@ -29,11 +29,7 @@
 
       <Label Text="Locate" Grid.Column="0" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="White" BackgroundColor="#E31919" HeightRequest="50" />
       <c:StatusBarLabel Grid.Column="1" Text="Honk" BackgroundColor="#2D2D2D" Command="{Binding HonkCommand}" />
-      <Label Text="Flash" Grid.Column="2" BackgroundColor="#2D2D2D" HorizontalTextAlignment="Center" VerticalTextAlignment="Center">
-        <Label.GestureRecognizers>
-          <TapGestureRecognizer Command="{Binding FlashCommand}" />
-        </Label.GestureRecognizers>
-      </Label>
+      <c:StatusBarLabel Grid.Column="1" Text="Flash" BackgroundColor="#2D2D2D" Command="{Binding FlashCommand}" />     
     </Grid>
 
     </Grid>
