@@ -8,7 +8,7 @@ using Xamarin.Forms;
 
 namespace Tesla.View.MainTabs
 {
-    public partial class ControlPage : BasePage
+    public partial class ControlPage : BaseView
     {
         public ControlPage()
         {

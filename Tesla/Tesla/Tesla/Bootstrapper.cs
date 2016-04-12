@@ -10,7 +10,7 @@ namespace Tesla
 {
     public class Bootstrapper : Exrin.Framework.Bootstrapper
     {
-        public Bootstrapper() : base(new Injection(), (newPage) => { Application.Current.MainPage = newPage as Page; }) { }
+        public Bootstrapper() : base(new Injection(), (newView) => { Application.Current.MainPage = newView as Page; }) { }
 
         // Any interface that implements IBaseModel will be loaded in InitModels() with its concrete implementation
         // Override InitModels() to define yourself

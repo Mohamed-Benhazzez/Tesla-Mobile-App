@@ -12,7 +12,7 @@ using TeslaDefinition.Interfaces;
 
 namespace Tesla.Base
 {
-    public abstract class BaseViewModel : Exrin.Framework.ViewModel
+    public class BaseViewModel : Exrin.Framework.ViewModel
     {        
         public BaseViewModel(IDisplayService displayService, INavigationService navigationService, 
             IErrorHandlingService errorHandlingService, IStackRunner stackRunner, IVisualState visualState)

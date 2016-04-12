@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<l:BasePage xmlns="http://xamarin.com/schemas/2014/forms"
+<l:BaseView xmlns="http://xamarin.com/schemas/2014/forms"
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
             xmlns:l="clr-namespace:Tesla.Base"
             xmlns:control="clr-namespace:Tesla.Control"
@@ -24,4 +24,4 @@
 
     </Grid>
   </Grid>
-</l:BasePage>
+</l:BaseView>

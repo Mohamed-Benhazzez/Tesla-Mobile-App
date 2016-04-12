@@ -9,9 +9,9 @@ using Xamarin.Forms;
 
 namespace Tesla.Base
 {
-    public partial class BasePage : ContentPage, IPage
+    public partial class BaseView : ContentPage, IView
     {
-        public BasePage()
+        public BaseView()
         {
             InitializeComponent();
         }

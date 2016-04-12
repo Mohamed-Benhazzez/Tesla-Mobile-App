@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Tesla.Control;
+using Tesla.Definition.ViewLocator;
 using TeslaDefinition;
 using TeslaDefinition.Interfaces.Model;
 using TeslaDefinition.Interfaces.Service;
@@ -54,7 +55,7 @@ namespace Tesla.ViewModelOperation
                     else if (await _model.IsAuthenticated())
                     {
                         result.ResultAction = ResultType.Navigation;
-                        result.Arguments = new NavigationArgs() { PageIndicator = PageLocator.Main.Main, StackType = Stacks.Main };
+                        result.Arguments = new NavigationArgs() { Key = Main.Main, StackType = Stacks.Main };
                     }                   
                     else
                     {

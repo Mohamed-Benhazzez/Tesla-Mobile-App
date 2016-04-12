@@ -8,22 +8,22 @@ using Xamarin.Forms;
 
 namespace Tesla.Base
 {
-    public partial class BaseTabbedPage : TabbedPage, IMultiPage
+    public partial class BaseTabbedView : TabbedPage, IMultiView
     {
-        public BaseTabbedPage()
+        public BaseTabbedView()
         {
             InitializeComponent();
         }
 
-        public IList<IPage> Pages
+        public IList<IView> Views
         {
             get
             {
-                var children = new List<IPage>();
+                var children = new List<IView>();
 
                 foreach (var page in this.Children)
-                    if (page is IPage)
-                        children.Add(page as IPage);
+                    if (page is IView)
+                        children.Add(page as IView);
 
                 return children;
 

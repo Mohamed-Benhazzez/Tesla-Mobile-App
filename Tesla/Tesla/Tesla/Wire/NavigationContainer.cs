@@ -9,14 +9,14 @@ using Xamarin.Forms;
 
 namespace Tesla.Wire
 {
-    public class NavigationContainer : INavigationPage
+    public class NavigationContainer : INavigationContainer
     {
 
         private readonly NavigationPage _page = null;
-        public event EventHandler<IPageNavigationArgs> OnPopped;
+        public event EventHandler<IViewNavigationArgs> OnPopped;
         private Queue<object> _argQueue = new Queue<object>();
         private AsyncLock _lock = new AsyncLock();
-        public string CurrentPageKey { get; set; }
+        public string CurrentViewKey { get; set; }
 
         public NavigationContainer(NavigationPage page)
         {
@@ -28,10 +28,10 @@ namespace Tesla.Wire
         {
             if (OnPopped != null)
             {
-                var poppedPage = e.Page as IPage;
-                var currentPage = _page.CurrentPage as IPage;
+                var poppedPage = e.Page as IView;
+                var currentPage = _page.CurrentPage as IView;
                 var parameter = _argQueue.Count > 0 ? _argQueue.Dequeue() : null;
-                OnPopped(this, new PageNavigationArgs() { Parameter = parameter, CurrentPage = currentPage, PoppedPage = poppedPage });
+                OnPopped(this, new ViewNavigationArgs() { Parameter = parameter, CurrentView = currentPage, PoppedView = poppedPage });
             }
         }
 
@@ -42,7 +42,7 @@ namespace Tesla.Wire
                 NavigationPage.SetHasNavigationBar(bindableObject, isVisible);
         }
 
-        public object Page { get { return _page; } }
+        public object View { get { return _page; } }
 
         public bool CanGoBack()
         {

@@ -2,7 +2,7 @@
 
 namespace Tesla.View
 {
-    public partial class PinPage : BasePage
+    public partial class PinPage : BaseView
     {
         public PinPage()
         {
