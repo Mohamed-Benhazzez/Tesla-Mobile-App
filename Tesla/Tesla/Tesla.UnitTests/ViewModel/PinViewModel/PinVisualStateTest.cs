@@ -15,7 +15,7 @@ namespace Tesla.Tests.ViewModel.PinViewModel
 
         public static TheoryData<Tuple<IAuthModel, string>> GetPinModel(string pin)
         {
-            return new TheoryData<Tuple<IAuthModel, string>>() { new Tuple<IAuthModel, string>(new Tesla.Model.AuthModel(CommonService.DisplayService, CommonService.ErrorHandlingService), pin) };
+            return new TheoryData<Tuple<IAuthModel, string>>() { new Tuple<IAuthModel, string>(new Tesla.Model.AuthModel(CommonService.DisplayService, CommonService.ApplicationInsights, CommonService.ErrorHandlingService), pin) };
         }
         
         [Theory]

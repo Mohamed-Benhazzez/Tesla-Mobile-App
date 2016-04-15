@@ -12,8 +12,8 @@ namespace Tesla.Base
 {
     public class BaseModel: Exrin.Framework.Model
     {
-        public BaseModel(IDisplayService displayService, IErrorHandlingService errorHandlingService, IModelState modelState)
-            :base(displayService, errorHandlingService, modelState)
+        public BaseModel(IDisplayService displayService, IApplicationInsights applicationInsights, IErrorHandlingService errorHandlingService, IModelState modelState)
+            :base(displayService, applicationInsights, errorHandlingService, modelState)
         {           
         }
     }

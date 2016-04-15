@@ -16,11 +16,13 @@ namespace Tesla.Wire
 
         private static ContainerBuilder _builder = null;
         private static IContainer Container { get; set; } = null;
+       
+        private static IList<Type> _registered = new List<Type>();
 
         public void Init()
         {
             _builder = new ContainerBuilder();
-
+            
             _builder.RegisterInstance<IInjection>(this).SingleInstance();
         }
         public void Complete()
@@ -45,12 +47,14 @@ namespace Tesla.Wire
         public void Register<T>(InstanceType type) where T : class
         {
             Register(_builder.RegisterType<T>(), type);
+            _registered.Add(typeof(T));
         }
 
         public void RegisterInterface<I, T>(InstanceType type) where T : class, I
                                              where I : class
         {
-            Register(_builder.RegisterType<T>().As<I>(), type);           
+            Register(_builder.RegisterType<T>().As<I>(), type);
+            _registered.Add(typeof(I));
         }
         
         public T Get<T>() where T : class
@@ -61,6 +65,11 @@ namespace Tesla.Wire
         public object Get(Type type)
         {
             return Container.Resolve(type);
+        }
+
+        public bool IsRegistered<T>()
+        {          
+            return _registered.Contains(typeof(T));
         }
     }
 }

@@ -11,8 +11,8 @@ namespace Tesla.Model
 {
     public class MainModel: BaseModel, IMainModel
     {
-        public MainModel(IDisplayService displayService, IErrorHandlingService errorHandlingService, IAuthModel authModel)
-            : base(displayService, errorHandlingService, null)
+        public MainModel(IDisplayService displayService, IApplicationInsights applicationInsights, IErrorHandlingService errorHandlingService, IAuthModel authModel)
+            : base(displayService, applicationInsights, errorHandlingService, null)
         { }
     }
 }

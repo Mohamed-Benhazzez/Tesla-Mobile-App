@@ -1,4 +1,5 @@
 ﻿using Exrin.Abstraction;
+using System.Collections.Generic;
 using Tesla.Model;
 using Tesla.Stack;
 using Tesla.Wire;
@@ -18,5 +19,12 @@ namespace Tesla
         // Any interface that implements IStack will be loaded in the InitStacks().
         // Override InitStacks() and use RegisterStack<T>() to register stacks manually
 
+        protected override void StartInsights(IList<IInsightsProvider> providers)
+        {
+            providers = new List<IInsightsProvider>();
+            providers.Add(new InsightProvider());
+
+            base.StartInsights(providers);
+        }
     }
 }

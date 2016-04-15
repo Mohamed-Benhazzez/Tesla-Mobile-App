@@ -12,7 +12,7 @@ namespace Tesla.Base
     {
         public BaseTabbedView()
         {
-            InitializeComponent();
+            InitializeComponent();          
         }
 
         public IList<IView> Views

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Tesla.Base;
 using TeslaDefinition.Interfaces.Model;
 using TeslaDefinition.Enums;
+using Exrin.Framework;
 
 namespace Tesla.Model
 {
@@ -22,16 +23,15 @@ namespace Tesla.Model
 
         private readonly IAuthModel _authModel = null;
 
-        public ControlModel(IDisplayService displayService, IErrorHandlingService errorHandlingService, IAuthModel authModel)
-            : base(displayService, errorHandlingService, new ControlModelState())
+        public ControlModel(IDisplayService displayService, IApplicationInsights applicationInsights, IErrorHandlingService errorHandlingService, IAuthModel authModel)
+            : base(displayService, applicationInsights, errorHandlingService, new ControlModelState())
         {
             _authModel = authModel;
         }
 
-        public async Task<bool> IssueCommand(CommandType type)
+        public Task<bool> IssueCommand(CommandType type)
         {
-            await Task.Delay(5000);
-            return true;
+            return Execution.ModelExecute(new IssueControlCommand(type));          
         }
     }
 }

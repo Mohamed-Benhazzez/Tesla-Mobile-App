@@ -15,8 +15,8 @@ namespace Tesla.Model
     /// </summary>
     public class AuthModel : BaseModel, IAuthModel
     {
-        public AuthModel(IDisplayService displayService, IErrorHandlingService errorHandlingService)
-            : base(displayService, errorHandlingService, new AuthModelState())
+        public AuthModel(IDisplayService displayService, IApplicationInsights applicationInsights, IErrorHandlingService errorHandlingService)
+            : base(displayService, applicationInsights, errorHandlingService, new AuthModelState())
         { }
              
         public IAuthModelState AuthModelState { get { return ModelState as IAuthModelState; } }

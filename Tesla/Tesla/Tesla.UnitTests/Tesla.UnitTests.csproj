@@ -70,6 +70,10 @@
       <Project>{8947ad64-e787-4a00-9d6b-8e514133ad63}</Project>
       <Name>Exrin.Framework</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Exrin\Exrin\Exrin.Insights\Exrin.Insights.csproj">
+      <Project>{91CF9504-601C-4F74-B200-9300C72E409C}</Project>
+      <Name>Exrin.Insights</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\TeslaDefinition\TeslaDefinition.csproj">
       <Project>{1F7B8409-F72F-479C-8A3B-3923234DAE42}</Project>
       <Name>TeslaDefinition</Name>
