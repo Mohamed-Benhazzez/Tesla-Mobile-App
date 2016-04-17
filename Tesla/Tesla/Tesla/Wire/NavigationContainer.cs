@@ -81,5 +81,10 @@ namespace Tesla.Wire
                 });
             }
         }
+
+        public async Task ShowDialog(IDialogOptions dialogOptions)
+        {
+            await _page.DisplayAlert(dialogOptions.Title, dialogOptions.Message, "OK");
+        }
     }
 }
