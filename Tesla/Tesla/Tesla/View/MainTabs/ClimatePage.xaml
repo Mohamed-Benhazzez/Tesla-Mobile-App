@@ -4,11 +4,13 @@
              xmlns:l="clr-namespace:Tesla.Base"
              x:Class="Tesla.View.MainTabs.ClimatePage">
 
-  <Grid>
+  <Grid Padding="0,20,0,0">
 
     <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+      <Image Source="Images/Down.png" />
       <Label Text="24" />
-      <Label Text="'C" /> 
+      <Label Text="'C" />
+      <Image Source="Images/Up.png" />
     </StackLayout>
     
   </Grid>

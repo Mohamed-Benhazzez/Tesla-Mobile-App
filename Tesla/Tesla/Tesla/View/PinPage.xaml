@@ -9,19 +9,12 @@
     <Grid.RowDefinitions>
       <RowDefinition Height="Auto" />
       <RowDefinition Height="*" />
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="Auto" />
     </Grid.RowDefinitions>
     <Image Source="Images/logo.png" VerticalOptions="Start" Grid.Row="0" />
+    <Label Text="{Binding VisualState.HiddenPin}" Grid.Row="2" TextColor="White" HorizontalTextAlignment="Center" />
+    <control:Keypad HeightRequest="212" Grid.Row="3" Command="{Binding KeyPressCommand}" />
 
-    <Grid Grid.Row="1">
-      <Grid VerticalOptions="EndAndExpand">
-        <Grid.RowDefinitions>
-          <RowDefinition Height="Auto"></RowDefinition>
-          <RowDefinition Height="Auto"></RowDefinition>
-        </Grid.RowDefinitions>
-        <Label Text="{Binding VisualState.HiddenPin}" TextColor="White" HorizontalTextAlignment="Center" />
-        <control:Keypad HeightRequest="212" Grid.Row="1" Command="{Binding KeyPressCommand}" />
-      </Grid>
-
-    </Grid>
   </Grid>
 </l:BaseView>

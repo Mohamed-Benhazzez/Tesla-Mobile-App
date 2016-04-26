@@ -1,4 +1,5 @@
 ﻿using Exrin.Abstraction;
+using Exrin.Common;
 using Exrin.Framework;
 using System;
 using System.Collections.Generic;
@@ -80,6 +81,11 @@ namespace Tesla.Wire
                     await _page.PushAsync(xamarinPage); // Must be run on the Main Thread
                 });
             }
+        }
+
+        public async Task ShowDialog(IDialogOptions dialogOptions)
+        {
+            await _page.DisplayAlert(dialogOptions.Title, dialogOptions.Message, "OK");
         }
     }
 }

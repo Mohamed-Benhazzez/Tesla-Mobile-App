@@ -3,6 +3,7 @@ using Xamarin.Forms;
 using System.Windows.Input;
 using Exrin.Abstraction;
 using Exrin.Framework;
+using Exrin.Common;
 
 namespace Tesla.Control
 {
