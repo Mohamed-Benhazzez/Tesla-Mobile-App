@@ -20,8 +20,7 @@ namespace Tesla.Model
         { }
              
         public IAuthModelState AuthModelState { get { return ModelState as IAuthModelState; } }
-
-
+        
         public Task<bool> IsAuthenticated()
         {
             return Execution.ModelExecute(new IsAuthenticated(AuthModelState.Pin));

@@ -85,7 +85,10 @@ namespace Tesla.Wire
 
         public async Task ShowDialog(IDialogOptions dialogOptions)
         {
-            await _page.DisplayAlert(dialogOptions.Title, dialogOptions.Message, "OK");
+            await ThreadHelper.RunOnUIThreadAsync(async () =>
+            {
+                await _page.DisplayAlert(dialogOptions.Title, dialogOptions.Message, "OK");
+            });
         }
     }
 }
