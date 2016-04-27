@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Tesla.WinRT.Renderer;
+using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Imaging;
+using Xamarin.Forms;
+using Xamarin.Forms.Platform.WinRT;
 
 [assembly: ExportRenderer(typeof(TabbedPage), typeof(TabbedPageRender))]
 namespace Tesla.WinRT.Renderer

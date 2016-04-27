@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Tesla.Gestures;
+using Tesla.WinRT.Renderer;
+using Xamarin.Forms;
+using Xamarin.Forms.Platform.WinRT;
 
 [assembly: ExportRenderer(typeof(Label), typeof(LabelRender))]
 namespace Tesla.WinRT.Renderer
