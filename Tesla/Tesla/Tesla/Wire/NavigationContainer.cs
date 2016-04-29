@@ -3,8 +3,7 @@ using Exrin.Common;
 using Exrin.Framework;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.Diagnostics;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
@@ -22,7 +21,7 @@ namespace Tesla.Wire
         public NavigationContainer(NavigationPage page)
         {
             _page = page;
-            _page.Popped += _page_Popped;
+            _page.Popped += _page_Popped;            
         }
 
         private void _page_Popped(object sender, NavigationEventArgs e)
@@ -87,7 +86,14 @@ namespace Tesla.Wire
         {
             await ThreadHelper.RunOnUIThreadAsync(async () =>
             {
-                await _page.DisplayAlert(dialogOptions.Title, dialogOptions.Message, "OK");
+                try
+                {
+                    await _page.DisplayAlert(dialogOptions.Title, dialogOptions.Message, "OK");
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex.Message); // TODO: Change to application insights
+                }
             });
         }
     }

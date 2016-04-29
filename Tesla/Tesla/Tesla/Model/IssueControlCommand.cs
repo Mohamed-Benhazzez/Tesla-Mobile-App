@@ -23,7 +23,7 @@ namespace Tesla.Model
             {
                 return new Operation<bool>()
                 {
-                    Function = async () =>
+                    Function = async (token) =>
                     {
                         await Task.Delay(1000);
                         return true;

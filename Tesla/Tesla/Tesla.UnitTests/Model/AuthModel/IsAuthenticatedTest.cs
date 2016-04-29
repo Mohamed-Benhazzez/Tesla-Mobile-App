@@ -23,7 +23,7 @@ namespace Tesla.Tests.AuthModel
         [InlineData("12345")]
         public async Task AuthenticateOnPinLengthTest(string pin)
         {
-            Assert.Equal(pin?.Length == BusinessRules.PinLength, await GetOperation(pin).Function());
+            Assert.Equal(pin?.Length == BusinessRules.PinLength, await GetOperation(pin).Function(new System.Threading.CancellationToken()));
         }
 
         [Theory]
@@ -34,7 +34,7 @@ namespace Tesla.Tests.AuthModel
         [InlineData(null)]
         public async Task InvalidCharactersTest(string pin)
         {
-            Assert.Equal(false, await GetOperation(pin).Function());
+            Assert.Equal(false, await GetOperation(pin).Function(new System.Threading.CancellationToken()));
         }
     }
 }

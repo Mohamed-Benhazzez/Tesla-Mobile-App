@@ -48,39 +48,6 @@ namespace Tesla.ViewModel
                 });
             }
         }
-
-        //public IRelayCommand LockCommand
-        //{
-        //    get
-        //    {
-        //        return GetCommand(() =>
-        //        {
-        //            return Execution.ViewModelExecute();
-        //        });
-        //    }
-        //}
-
-        //public IRelayCommand FlashCommand
-        //{
-        //    get
-        //    {
-        //        return GetCommand(() =>
-        //        {
-        //            return Execution.ViewModelExecute();
-        //        });
-        //    }
-        //}
-
-        //public IRelayCommand SummonCommand
-        //{
-        //    get
-        //    {
-        //        return GetCommand(() =>
-        //        {
-        //            return Execution.ViewModelExecute();
-        //        });
-        //    }
-        //}
-
+        
     }
 }

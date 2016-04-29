@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using TeslaDefinition.Enums;
 using TeslaDefinition.Interfaces.Model;
@@ -21,11 +22,11 @@ namespace Tesla.ViewModel.MainTabs
 
         public bool ChainedRollback { get; private set; } = false;
 
-        public Func<IList<IResult>, object, Task> Function
+        public Func<IList<IResult>, object, CancellationToken, Task> Function
         {
             get
             {
-                return async (result, parameter) =>
+                return async (result, parameter, token) =>
                 {
                     await _model.IssueCommand(CommandType.Flash);
                 };

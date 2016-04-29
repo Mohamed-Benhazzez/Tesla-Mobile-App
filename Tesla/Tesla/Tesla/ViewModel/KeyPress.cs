@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Tesla.Control;
 using Tesla.Definition.ViewLocator;
@@ -24,11 +25,11 @@ namespace Tesla.ViewModelOperation
             _backCharacter = backCharacter;
         }
 
-        public Func<IList<IResult>, object, Task> Function
+        public Func<IList<IResult>, object, CancellationToken, Task> Function
         {
             get
             {
-                return async (results, parameter) =>
+                return async (results, parameter, token) =>
                 {
                     var result = new Result();
                     var character = Convert.ToString(parameter);

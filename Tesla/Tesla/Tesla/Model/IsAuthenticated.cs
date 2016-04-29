@@ -25,7 +25,7 @@ namespace Tesla.Model
             {
                 return new Operation<bool>()
                 {
-                    Function = () =>
+                    Function = (token) =>
                     {
                         if (_pin == null)
                             return Task.FromResult(false);

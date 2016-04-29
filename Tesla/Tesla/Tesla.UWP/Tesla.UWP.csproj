@@ -111,6 +111,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\SplashScreen.scale-150.png" />
+    <Content Include="Images\arrow_down.png" />
+    <Content Include="Images\arrow_up.png" />
     <Content Include="Images\background.png" />
     <Content Include="Images\logo.png" />
     <Content Include="Properties\Default.rd.xml" />
