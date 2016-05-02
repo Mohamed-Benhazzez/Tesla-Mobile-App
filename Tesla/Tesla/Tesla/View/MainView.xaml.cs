@@ -8,9 +8,9 @@ using Xamarin.Forms;
 
 namespace Tesla.View
 {
-	public partial class MainPage : BaseTabbedView
+	public partial class MainView : BaseTabbedView
 	{
-		public MainPage ()
+		public MainView ()
 		{
 			InitializeComponent();
          

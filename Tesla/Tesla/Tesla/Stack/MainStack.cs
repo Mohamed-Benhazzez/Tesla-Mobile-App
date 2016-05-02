@@ -27,9 +27,9 @@ namespace Tesla.Stack
         
         protected override void Map()
         {
-            _navigationService.Map(nameof(Main.Main), typeof(MainPage), typeof(MainViewModel));
-            _navigationService.Map(string.Empty, typeof(ControlPage), typeof(ControlViewModel));
-            _navigationService.Map(string.Empty, typeof(ClimatePage), typeof(ClimateViewModel));
+            _navigationService.Map(nameof(Main.Main), typeof(MainView), typeof(MainViewModel));
+            _navigationService.Map(string.Empty, typeof(ControlView), typeof(ControlViewModel));
+            _navigationService.Map(string.Empty, typeof(ClimateView), typeof(ClimateViewModel));
         }
 
         protected override string NavigationStartKey

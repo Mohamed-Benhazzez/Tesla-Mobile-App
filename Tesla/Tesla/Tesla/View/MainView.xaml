@@ -3,11 +3,11 @@
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
             xmlns:l="clr-namespace:Tesla.Base"
             xmlns:t="clr-namespace:Tesla.View.MainTabs"
-            x:Class="Tesla.View.MainPage">
+            x:Class="Tesla.View.MainView">
 
-  <TabbedPage.Children>
-    <t:ControlPage Title="Find Car" />
-    <t:ClimatePage Title="Climate" />
-  </TabbedPage.Children>
+  <l:BaseTabbedView.Children>
+    <t:ControlView Title="Find Car" />
+    <t:ClimateView Title="Climate" />
+  </l:BaseTabbedView.Children>
   
 </l:BaseTabbedView>

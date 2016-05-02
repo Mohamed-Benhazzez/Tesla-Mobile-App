@@ -1,15 +1,9 @@
 ﻿using Exrin.Abstraction;
 using Exrin.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Tesla.Base;
 using Tesla.Control;
 using Tesla.ViewModelExecute;
 using TeslaDefinition.Interfaces.Model;
-using TeslaDefinition.Interfaces;
 
 namespace Tesla.ViewModel
 {

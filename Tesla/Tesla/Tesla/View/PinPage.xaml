@@ -3,7 +3,7 @@
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
             xmlns:l="clr-namespace:Tesla.Base"
             xmlns:control="clr-namespace:Tesla.Control"
-            x:Class="Tesla.View.PinPage"
+            x:Class="Tesla.View.PinView"
             BackgroundColor="#2D2D2D">
   <Grid>
     <Grid.RowDefinitions>
@@ -13,8 +13,7 @@
       <RowDefinition Height="Auto" />
     </Grid.RowDefinitions>
     <Image Source="Images/logo.png" VerticalOptions="Start" Grid.Row="0" />
-    <Label Text="{Binding VisualState.HiddenPin}" Grid.Row="2" TextColor="White" HorizontalTextAlignment="Center" />
+    <Label Text="{Binding VisualState.HiddenPin}" Grid.Row="2" TextColor="White" HorizontalTextAlignment="Center" FontSize="24" />
     <control:Keypad HeightRequest="212" Grid.Row="3" Command="{Binding KeyPressCommand}" />
-
   </Grid>
 </l:BaseView>

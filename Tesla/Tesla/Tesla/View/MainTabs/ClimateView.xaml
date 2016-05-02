@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<l:BaseView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:l="clr-namespace:Tesla.Base"
+             x:Class="Tesla.View.MainTabs.ClimateView">
+
+  <Grid>
+    <Grid Opacity="0.6" Margin="0,20,0,0" BackgroundColor="#2D2D2D" VerticalOptions="FillAndExpand">
+    </Grid>
+    <Grid BackgroundColor="Transparent" Margin="0,20,0,0">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="*" />
+      </Grid.RowDefinitions>
+
+      <!--Commands/Proximity-->
+      <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+        <Image Source="Images/arrow_down.png" HeightRequest="36">
+          <Image.GestureRecognizers>
+            <TapGestureRecognizer Command="{Binding DownCommand}" />
+          </Image.GestureRecognizers>
+        </Image>
+        <Label Text="24 °C" FontSize="20" />
+        <Image Source="Images/arrow_up.png" HeightRequest="36">
+          <Image.GestureRecognizers>
+            <TapGestureRecognizer Command="{Binding UpCommand}" />
+          </Image.GestureRecognizers>
+        </Image>
+      </StackLayout>
+
+    </Grid>
+  </Grid>
+
+  
+  <!--
+  
+  Current Temperature
+  
+  Set Temperature (single digit after decimal)
+  
+  -->
+  
+  
+</l:BaseView>

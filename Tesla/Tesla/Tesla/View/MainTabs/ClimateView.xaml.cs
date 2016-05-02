@@ -8,9 +8,9 @@ using Xamarin.Forms;
 
 namespace Tesla.View.MainTabs
 {
-    public partial class ControlPage : BaseView
+    public partial class ClimateView : BaseView
     {
-        public ControlPage()
+        public ClimateView()
         {
             InitializeComponent();
         }

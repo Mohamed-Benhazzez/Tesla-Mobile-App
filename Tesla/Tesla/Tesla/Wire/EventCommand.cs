@@ -12,7 +12,7 @@ using System.Reflection;
 namespace Tesla.Wire
 {
     // DO NOT USE: COMPLETELY UNTESTED
-    public class EventCommand<T> : Behavior<T> where T : Xamarin.Forms.BindableObject
+    public class EventCommand<T> : Behavior<T> where T : BindableObject
     {
 
         public static readonly BindableProperty EventNameProperty = BindableProperty.Create("EventName", typeof(string), typeof(EventCommand<T>), null);
