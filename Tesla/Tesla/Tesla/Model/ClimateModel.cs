@@ -15,5 +15,9 @@ namespace Tesla.Model
             : base(displayService, applicationInsights, errorHandlingService, new ClimateModelState())
         { }
 
-    }
+		public Task<bool> SetTemperature(double degrees)
+		{
+			throw new NotImplementedException();
+		}
+	}
 }

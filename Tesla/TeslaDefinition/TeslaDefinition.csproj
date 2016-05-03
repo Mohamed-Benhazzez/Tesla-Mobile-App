@@ -36,6 +36,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Enums\CommandType.cs" />
+    <Compile Include="Enums\Temperature.cs" />
     <Compile Include="Enums\ViewLocator.cs" />
     <Compile Include="Interfaces\Model\IClimateModel.cs" />
     <Compile Include="Interfaces\Model\IControlModel.cs" />

@@ -9,5 +9,10 @@ namespace TeslaDefinition.Interfaces.Model
 {
     public interface IClimateModel: IBaseModel
     {
-    }
+		Task<bool> SetTemperature(double temperature);
+
+		Task<bool> ChangeTemperature(double movement);
+
+		Task<double> GetTemperature();
+	}
 }

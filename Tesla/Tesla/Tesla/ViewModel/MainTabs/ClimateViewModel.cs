@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Tesla.Base;
 using Tesla.ViewModel.MainTabs;
+using TeslaDefinition.Enums;
 using TeslaDefinition.Interfaces.Model;
 
 namespace Tesla.ViewModel
@@ -35,7 +36,7 @@ namespace Tesla.ViewModel
 			{
 				return GetCommand(() =>
 				{
-					return Execution.ViewModelExecute(new TemperatureViewModelExecute(Model));
+					return Execution.ViewModelExecute(new TemperatureViewModelExecute(Model, Temperature.Up));
 				});
 			}
 		}
@@ -46,7 +47,7 @@ namespace Tesla.ViewModel
 			{
 				return GetCommand(() =>
 				{
-					return Execution.ViewModelExecute(new TemperatureViewModelExecute(Model));
+					return Execution.ViewModelExecute(new TemperatureViewModelExecute(Model, Temperature.Down));
 				});
 			}
 		}
