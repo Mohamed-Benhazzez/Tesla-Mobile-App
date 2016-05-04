@@ -14,9 +14,9 @@ namespace Tesla.Base
 {
     public class BaseViewModel : Exrin.Framework.ViewModel
     {        
-        public BaseViewModel(IDisplayService displayService, INavigationService navigationService, 
-            IErrorHandlingService errorHandlingService, IStackRunner stackRunner, IVisualState visualState)
-             : base(displayService, navigationService, errorHandlingService, stackRunner, visualState)
+        public BaseViewModel(IApplicationInsights applicationInsights, IDisplayService displayService, INavigationService navigationService, 
+            IErrorHandlingService errorHandlingService, IStackRunner stackRunner, IVisualState visualState, [CallerFilePath] string caller = nameof(BaseViewModel))
+             : base(applicationInsights, displayService, navigationService, errorHandlingService, stackRunner, visualState, caller)
         {  
         }
         

@@ -70,6 +70,9 @@
     <Compile Include="Model\ModelState.cs">
       <DependentUpon>AuthModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\SetTemperature.cs">
+      <DependentUpon>ClimateModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewLocator.cs" />
     <Compile Include="ViewModel\KeyPress.cs">
       <DependentUpon>ViewModelExecute.cs</DependentUpon>

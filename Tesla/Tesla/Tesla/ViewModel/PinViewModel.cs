@@ -9,8 +9,8 @@ namespace Tesla.ViewModel
 {
     public class PinViewModel : BaseViewModel
     {
-        public PinViewModel(IAuthModel model, IDisplayService displayService, INavigationService navigationService, IErrorHandlingService errorHandlingService, IStackRunner stackRunner) :
-            base(displayService, navigationService, errorHandlingService, stackRunner, new PinVisualState(model))
+        public PinViewModel(IAuthModel model, IApplicationInsights applicationInsights, IDisplayService displayService, INavigationService navigationService, IErrorHandlingService errorHandlingService, IStackRunner stackRunner) :
+            base(applicationInsights, displayService, navigationService, errorHandlingService, stackRunner, new PinVisualState(model))
         {
             Model = model;
         }

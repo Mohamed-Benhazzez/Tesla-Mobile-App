@@ -11,8 +11,8 @@ namespace Tesla.ViewModel
 {
     public class MainViewModel: BaseViewModel
     {
-        public MainViewModel(IDisplayService displayService, INavigationService navigationService, IErrorHandlingService errorHandlingService, IStackRunner stackRunner):
-            base (displayService, navigationService, errorHandlingService, stackRunner, null)
+        public MainViewModel(IApplicationInsights applicationInsights, IDisplayService displayService, INavigationService navigationService, IErrorHandlingService errorHandlingService, IStackRunner stackRunner):
+            base (applicationInsights, displayService, navigationService, errorHandlingService, stackRunner, null)
         {
         }
         

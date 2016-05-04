@@ -20,7 +20,7 @@
             <TapGestureRecognizer Command="{Binding DownCommand}" />
           </Image.GestureRecognizers>
         </Image>
-        <Label Text="24 °C" FontSize="20" />
+        <Label Text="{Binding VisualState.Temperature}" FontSize="20" /><!--°C-->
         <Image Source="Images/arrow_up.png" HeightRequest="36">
           <Image.GestureRecognizers>
             <TapGestureRecognizer Command="{Binding UpCommand}" />

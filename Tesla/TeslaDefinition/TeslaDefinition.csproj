@@ -38,6 +38,7 @@
     <Compile Include="Enums\CommandType.cs" />
     <Compile Include="Enums\Temperature.cs" />
     <Compile Include="Enums\ViewLocator.cs" />
+    <Compile Include="Interfaces\Model\IClientModelState.cs" />
     <Compile Include="Interfaces\Model\IClimateModel.cs" />
     <Compile Include="Interfaces\Model\IControlModel.cs" />
     <Compile Include="Interfaces\Model\IMainModel.cs" />
