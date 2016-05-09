@@ -192,6 +192,10 @@
       <Project>{1f7b8409-f72f-479c-8a3b-3923234dae42}</Project>
       <Name>TeslaDefinition</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\TeslaService\TeslaService.csproj">
+      <Project>{b44b4bf7-6d1a-4859-beb6-5c26b685c3cd}</Project>
+      <Name>TeslaService</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Base\BaseTabbedView.xaml">

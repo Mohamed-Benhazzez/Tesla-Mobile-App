@@ -41,6 +41,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Exrin\Exrin\Exrin.Abstraction\Exrin.Abstraction.csproj">
+      <Project>{F7D56290-97B4-4636-ABCA-8323C886A7E0}</Project>
+      <Name>Exrin.Abstraction</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TeslaDefinition\TeslaDefinition.csproj">
       <Project>{1f7b8409-f72f-479c-8a3b-3923234dae42}</Project>
       <Name>TeslaDefinition</Name>
