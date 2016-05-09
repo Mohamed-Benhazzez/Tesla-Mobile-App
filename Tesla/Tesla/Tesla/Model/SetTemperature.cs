@@ -26,6 +26,7 @@ namespace Tesla.Model
 				{
 					Function = (token) =>
 					{
+
 						return Task.FromResult(true);
 					}
 				};

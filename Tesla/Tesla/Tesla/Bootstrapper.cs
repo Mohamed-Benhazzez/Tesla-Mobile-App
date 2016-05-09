@@ -13,13 +13,19 @@ namespace Tesla
     {
         public Bootstrapper() : base(new Injection(), (newView) => { Application.Current.MainPage = newView as Page; }) { }
 
-        // Any interface that implements IBaseModel will be loaded in InitModels() with its concrete implementation
-        // Override InitModels() to define yourself
+		// Any interface that implements IBaseModel will be loaded in InitModels() with its concrete implementation
+		// Override InitModels() to define yourself
 
-        // Any interface that implements IStack will be loaded in the InitStacks().
-        // Override InitStacks() and use RegisterStack<T>() to register stacks manually
+		// Any interface that implements IStack will be loaded in the InitStacks().
+		// Override InitStacks() and use RegisterStack<T>() to register stacks manually
 
-        protected override void StartInsights(IList<IInsightsProvider> providers)
+		protected override void InitServices()
+		{
+			base.InitCustom();
+			//TODO: Auto wireup by name convention
+		}
+
+		protected override void StartInsights(IList<IInsightsProvider> providers)
         {
             providers = new List<IInsightsProvider>();
             providers.Add(new InsightProvider());

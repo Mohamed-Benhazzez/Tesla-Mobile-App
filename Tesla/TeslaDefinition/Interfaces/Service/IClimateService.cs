@@ -7,10 +7,7 @@ using System.Threading.Tasks;
 
 namespace TeslaDefinition.Interfaces.Service
 {
-    public interface IAuthenticationService: IService
+	public interface IClimateService : IService
     {
-
-        Task<bool> PinAuthenticate(string pin);
-
-    }
+	}
 }

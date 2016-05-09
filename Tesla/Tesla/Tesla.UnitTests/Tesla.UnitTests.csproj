@@ -78,6 +78,10 @@
       <Project>{1F7B8409-F72F-479C-8A3B-3923234DAE42}</Project>
       <Name>TeslaDefinition</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\TeslaService\TeslaService.csproj">
+      <Project>{B44B4BF7-6D1A-4859-BEB6-5C26B685C3CD}</Project>
+      <Name>TeslaService</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Tesla\Tesla.csproj">
       <Project>{4F95AD27-F77B-4B50-BFE9-F5FA014AAF39}</Project>
       <Name>Tesla</Name>

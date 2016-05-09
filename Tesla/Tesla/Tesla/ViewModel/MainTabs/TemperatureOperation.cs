@@ -7,6 +7,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using TeslaDefinition.Enums;
 using TeslaDefinition.Interfaces.Model;
+using TeslaDefinition.Interfaces.Service;
 
 namespace Tesla.ViewModel.MainTabs
 {

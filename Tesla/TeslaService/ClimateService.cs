@@ -7,11 +7,8 @@ using TeslaDefinition.Interfaces.Service;
 
 namespace TeslaService
 {
-    public class LoginService : ILoginService
-    {
-        public Task<bool> PinAuthenticate(string pin)
-        {
-            return Task.FromResult(true);
-        }
-    }
+	public class ClimateService: IClimateService
+	{
+
+	}
 }

@@ -14,7 +14,7 @@
       </Grid.RowDefinitions>
 
       <!--Commands/Proximity-->
-      <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+      <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Padding="0,20,0,0">
         <Image Source="Images/arrow_down.png" HeightRequest="36">
           <Image.GestureRecognizers>
             <TapGestureRecognizer Command="{Binding DownCommand}" />

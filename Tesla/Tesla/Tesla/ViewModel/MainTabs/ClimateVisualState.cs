@@ -17,11 +17,12 @@ namespace Tesla.ViewModel.MainTabs
 		{
 			Task.Run(async () =>
 			{
-				await ClimateModel.GetTemperature();
+				Temperature = await ClimateModel.GetTemperature();
 			});
 		}
 
-		//TODO: not liking this wire up, see if there is a better way
+		// TODO: not liking this wire up, see if there is a better way
+		// Convention based wire-up could be possible here
 		protected override void OnModelStatePropertyChanged(string propertyName)
 		{
 			if (propertyName == nameof(IClimateModelState.Temperature))
@@ -36,18 +37,10 @@ namespace Tesla.ViewModel.MainTabs
 			}
 		}
 
-		private double _temperature = 0;
 		public double Temperature
 		{
-			get
-			{
-				return _temperature;
-			}
-			set
-			{
-				_temperature = value;
-				OnPropertyChanged();
-			}
+			get { return Get<double>(); }
+			set { Set(value); }
 		}
 	}
 }

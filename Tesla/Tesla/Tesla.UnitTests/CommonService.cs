@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TeslaDefinition.Interfaces.Service;
+using TeslaService;
 
 namespace Tesla.Tests
 {
@@ -20,7 +22,16 @@ namespace Tesla.Tests
             }
         }
 
-        private static IApplicationInsights _applicationInsights = new ApplicationInsights(new MemoryInsightStorage(), new DeviceInfo());
+		private static IAuthenticationService _authenticationService = new AuthenticationService();
+		public static IAuthenticationService AuthenticationService
+		{
+			get
+			{
+				return _authenticationService;
+			}
+		}
+
+		private static IApplicationInsights _applicationInsights = new ApplicationInsights(new MemoryInsightStorage(), new DeviceInfo());
         public static IApplicationInsights ApplicationInsights
         {
             get

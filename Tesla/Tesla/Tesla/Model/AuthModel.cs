@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Tesla.Base;
 using TeslaDefinition.Interfaces.Model;
+using TeslaDefinition.Interfaces.Service;
 
 namespace Tesla.Model
 {
@@ -15,9 +16,10 @@ namespace Tesla.Model
     /// </summary>
     public class AuthModel : BaseModel, IAuthModel
     {
-        public AuthModel(IDisplayService displayService, IApplicationInsights applicationInsights, IErrorHandlingService errorHandlingService)
+		private readonly IAuthenticationService _service = null;
+        public AuthModel(IDisplayService displayService, IApplicationInsights applicationInsights, IErrorHandlingService errorHandlingService, IAuthenticationService service)
             : base(displayService, applicationInsights, errorHandlingService, new AuthModelState())
-        { }
+        { _service = service; }
              
         public IAuthModelState AuthModelState { get { return ModelState as IAuthModelState; } }
         

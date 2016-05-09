@@ -10,6 +10,11 @@ namespace Tesla.Model
 {
     public class ClimateModelState: ModelState, IClimateModelState
     {
+		public ClimateModelState()
+		{
+			Temperature = 24;
+		}
+
 		public double Temperature { get { return Get<double>(); } set { Set(value); } }
 	}
 }
