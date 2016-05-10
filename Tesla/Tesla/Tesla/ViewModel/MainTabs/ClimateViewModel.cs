@@ -10,8 +10,8 @@ namespace Tesla.ViewModel
 	public class ClimateViewModel : BaseViewModel
     {
 		private readonly IClimateModel _model = null;
-        public ClimateViewModel(IClimateModel model, IApplicationInsights applicationInsights, IDisplayService displayService, INavigationService navigationService, IErrorHandlingService errorHandlingService, IStackRunner stackRunner):
-            base (applicationInsights, displayService, navigationService, errorHandlingService, stackRunner, new ClimateVisualState(model))
+        public ClimateViewModel(IAuthModel authModel, IClimateModel model, IApplicationInsights applicationInsights, IDisplayService displayService, INavigationService navigationService, IErrorHandlingService errorHandlingService, IStackRunner stackRunner):
+            base (authModel, applicationInsights, displayService, navigationService, errorHandlingService, stackRunner, new ClimateVisualState(model))
         {
 			_model = model;
         }

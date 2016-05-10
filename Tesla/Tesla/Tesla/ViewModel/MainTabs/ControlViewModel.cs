@@ -10,8 +10,8 @@ namespace Tesla.ViewModel
     public class ControlViewModel : BaseViewModel
     {
 
-        public ControlViewModel(IControlModel model, IApplicationInsights applicationInsights, IDisplayService displayService, INavigationService navigationService, IErrorHandlingService errorHandlingService, IStackRunner stackRunner) :
-            base(applicationInsights, displayService, navigationService, errorHandlingService, stackRunner, new ControlVisualState(model))
+        public ControlViewModel(IAuthModel authModel, IControlModel model, IApplicationInsights applicationInsights, IDisplayService displayService, INavigationService navigationService, IErrorHandlingService errorHandlingService, IStackRunner stackRunner) :
+            base(authModel, applicationInsights, displayService, navigationService, errorHandlingService, stackRunner, new ControlVisualState(model))
         {
             Model = model;
         }

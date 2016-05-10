@@ -12,5 +12,7 @@ namespace Tesla.Model
     {
         public string Pin { get { return Get<string>(); } set { Set(value); } }
 
+        public bool IsAuthenticated { get { return Get<bool>(); } set { Set(value); } }
+
     }
 }

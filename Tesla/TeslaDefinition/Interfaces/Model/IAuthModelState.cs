@@ -10,5 +10,7 @@ namespace TeslaDefinition.Interfaces.Model
     public interface IAuthModelState: IModelState
     {
         string Pin { get; set; }
+
+        bool IsAuthenticated { get; set; }
     }
 }

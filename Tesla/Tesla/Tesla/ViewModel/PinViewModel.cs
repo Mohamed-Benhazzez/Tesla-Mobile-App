@@ -10,20 +10,19 @@ namespace Tesla.ViewModel
     public class PinViewModel : BaseViewModel
     {
         public PinViewModel(IAuthModel model, IApplicationInsights applicationInsights, IDisplayService displayService, INavigationService navigationService, IErrorHandlingService errorHandlingService, IStackRunner stackRunner) :
-            base(applicationInsights, displayService, navigationService, errorHandlingService, stackRunner, new PinVisualState(model))
+            base(model, applicationInsights, displayService, navigationService, errorHandlingService, stackRunner, new PinVisualState(model))
         {
-            Model = model;
+           
         }
 
-        private IAuthModel Model { get; set; }
-
+      
         public IRelayCommand KeyPressCommand
         {
             get
             {
                 return GetCommand(() =>
                 {
-                    return Execution.ViewModelExecute(new PinLoginViewModelExecute(Model, Keypad.BackCharacter));
+                    return Execution.ViewModelExecute(new PinLoginViewModelExecute(base.AuthModel, Keypad.BackCharacter));
                 });
             }
         }

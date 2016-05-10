@@ -1,9 +1,5 @@
 ﻿using Exrin.Abstraction;
 using Exrin.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Tesla.Base;
 using TeslaDefinition.Interfaces.Model;
@@ -22,10 +18,19 @@ namespace Tesla.Model
         { _service = service; }
              
         public IAuthModelState AuthModelState { get { return ModelState as IAuthModelState; } }
-        
-        public Task<bool> IsAuthenticated()
+
+        public Task AuthenticatedExpired()
         {
-            return Execution.ModelExecute(new IsAuthenticated(AuthModelState.Pin));
+            AuthModelState.IsAuthenticated = false;
+
+            // TODO: What needs to hook on here to force the UI to go back to login? and display a dialog.
+
+            return Task.FromResult(true);
+        }
+
+        public async Task<bool> IsAuthenticated()
+        {
+            return AuthModelState.IsAuthenticated = await Execution.ModelExecute(new IsAuthenticated(AuthModelState.Pin));
         }
 
         public Task<bool> IsPinComplete()
