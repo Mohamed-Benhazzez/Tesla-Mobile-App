@@ -1,9 +1,5 @@
 ﻿using Exrin.Framework;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using Tesla.Gestures;
 using Xamarin.Forms;
@@ -12,8 +8,6 @@ namespace Tesla.Control
 {
     public class Keypad : Grid
     {
-
-      
         public Keypad()
         {
             this.ColumnSpacing = 3;
@@ -48,7 +42,7 @@ namespace Tesla.Control
                 var label = new Label() { HorizontalOptions = LayoutOptions.FillAndExpand, VerticalOptions = LayoutOptions.FillAndExpand, BackgroundColor = backgroundColor, TextColor = textColor, Text = (i + 1).ToString(), HorizontalTextAlignment = TextAlignment.Center, VerticalTextAlignment = TextAlignment.Center };
 
                 AttachGestures(label, i + 1);
-               
+
                 this.Children.Add(label, i - ((i / 3) * 3), i / 3);
             }
 
@@ -66,7 +60,6 @@ namespace Tesla.Control
         private void AttachGestures(Label label, object value)
         {
             label.GestureRecognizers.Add(new PressedGestureRecognizer() { Command = PressedCommand, CommandParameter = new GestureEventArgs() { Sender = label, Value = value } });
-            label.GestureRecognizers.Add(new ReleasedGestureRecognizer() { Command = ReleasedCommand, CommandParameter = new GestureEventArgs() { Sender = label } });
         }
 
         public const string BackCharacter = "<";
@@ -79,7 +72,7 @@ namespace Tesla.Control
                 if (_pressedCommand == null)
                     _pressedCommand = new RelayCommand((parameter) =>
                     {
-                       
+
                         var args = parameter as GestureEventArgs;
 
                         if (Command != null)
@@ -89,6 +82,14 @@ namespace Tesla.Control
                         label.BackgroundColor = Color.White;
                         label.TextColor = Color.Black;
 
+                        Device.StartTimer(TimeSpan.FromMilliseconds(250), () =>
+                        {
+                            label.BackgroundColor = Color.Black;
+                            label.TextColor = Color.White;
+
+                            return false;
+                        });
+
                     });
 
                 return _pressedCommand;
@@ -96,25 +97,7 @@ namespace Tesla.Control
 
         }
 
-        private RelayCommand _releasedCommand = null;
-        private RelayCommand ReleasedCommand
-        {
-            get
-            {
-                if (_releasedCommand == null)
-                    _releasedCommand = new RelayCommand((parameter) =>
-                    {
-                        var args = parameter as GestureEventArgs;
-                        
-                        var label = args.Sender as Label;
-                        label.BackgroundColor = Color.Black;
-                        label.TextColor = Color.White;
-                    });
 
-                return _releasedCommand;
-            }
-
-        }
 
         public static readonly BindableProperty CommandProperty = BindableProperty.Create("Command", typeof(ICommand), typeof(Keypad), null, BindingMode.Default, null, null, null, null, null);
 

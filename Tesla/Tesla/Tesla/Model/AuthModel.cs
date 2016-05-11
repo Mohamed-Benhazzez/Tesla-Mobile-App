@@ -21,17 +21,19 @@ namespace Tesla.Model
         {
             _service = service;
 
+            // TEMP: Just to demonstrate the login function if AuthenticationExpired is called
             ThreadHelper.RunOnUIThread(() =>
             {
-                Device.StartTimer(TimeSpan.FromSeconds(10), () => { AuthenticatedExpired(); return false; });
+                Device.StartTimer(TimeSpan.FromSeconds(10), () => { AuthenticationExpired(); return false; });
             });
         }
 
         public IAuthModelState AuthModelState { get { return ModelState as IAuthModelState; } }
 
-        public Task AuthenticatedExpired()
+        public Task AuthenticationExpired()
         {
             AuthModelState.IsAuthenticated = false;
+            AuthModelState.Pin = "";
 
             return Task.FromResult(true);
         }
