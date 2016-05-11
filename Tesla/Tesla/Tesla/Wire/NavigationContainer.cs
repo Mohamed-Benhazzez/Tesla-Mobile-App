@@ -17,11 +17,12 @@ namespace Tesla.Wire
         private Queue<object> _argQueue = new Queue<object>();
         private AsyncLock _lock = new AsyncLock();
         public string CurrentViewKey { get; set; }
+        public VisualStatus ViewStatus { get; set; } = VisualStatus.Unseen;
 
         public NavigationContainer(NavigationPage page)
         {
             _page = page;
-            _page.Popped += _page_Popped;            
+            _page.Popped += _page_Popped;
         }
 
         private void _page_Popped(object sender, NavigationEventArgs e)
@@ -88,7 +89,10 @@ namespace Tesla.Wire
             {
                 try
                 {
-                    await _page.DisplayAlert(dialogOptions.Title, dialogOptions.Message, "OK");
+                    if (ViewStatus == VisualStatus.Visible)
+                        await _page.DisplayAlert(dialogOptions.Title, dialogOptions.Message, "OK");
+                    else
+                        await Task.Delay(0); //TODO: Should log to insights. Should never be calling a DisplayAlert on a non-viewable stack
                 }
                 catch (Exception ex)
                 {

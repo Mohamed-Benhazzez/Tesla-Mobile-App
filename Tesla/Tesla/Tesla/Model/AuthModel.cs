@@ -1,9 +1,12 @@
 ﻿using Exrin.Abstraction;
+using Exrin.Common;
 using Exrin.Framework;
+using System;
 using System.Threading.Tasks;
 using Tesla.Base;
 using TeslaDefinition.Interfaces.Model;
 using TeslaDefinition.Interfaces.Service;
+using Xamarin.Forms;
 
 namespace Tesla.Model
 {
@@ -12,18 +15,23 @@ namespace Tesla.Model
     /// </summary>
     public class AuthModel : BaseModel, IAuthModel
     {
-		private readonly IAuthenticationService _service = null;
+        private readonly IAuthenticationService _service = null;
         public AuthModel(IDisplayService displayService, IApplicationInsights applicationInsights, IErrorHandlingService errorHandlingService, IAuthenticationService service)
             : base(displayService, applicationInsights, errorHandlingService, new AuthModelState())
-        { _service = service; }
-             
+        {
+            _service = service;
+
+            ThreadHelper.RunOnUIThread(() =>
+            {
+                Device.StartTimer(TimeSpan.FromSeconds(10), () => { AuthenticatedExpired(); return false; });
+            });
+        }
+
         public IAuthModelState AuthModelState { get { return ModelState as IAuthModelState; } }
 
         public Task AuthenticatedExpired()
         {
             AuthModelState.IsAuthenticated = false;
-
-            // TODO: What needs to hook on here to force the UI to go back to login? and display a dialog.
 
             return Task.FromResult(true);
         }
@@ -42,5 +50,5 @@ namespace Tesla.Model
         //Move back to Pin screen if authentication currently invalidated and can't revalidate
         //Would have to push back to the ViewModel - common ReAuth navigation
     }
-    
+
 }

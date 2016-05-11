@@ -34,11 +34,16 @@ namespace Tesla.Base
             {
                 var values = e as PropertyValueChangedEventArgs;
                 if (values != null)
-                    if (values.OldValue != values.NewValue && (bool)values.NewValue == false) // Changed to unauthenticated
+                    if (ViewStatus == VisualStatus.Visible && values.OldValue != values.NewValue && (bool)values.NewValue == false) // Changed to unauthenticated
                     {
+                       
                         // Show Dialog / Move to Auth Stack
+                        Exrin.Common.ThreadHelper.RunOnUIThread(async () =>
+                        {
+                            await _displayService.ShowDialog("Authentication", "Authentication is no longer valid. Please login again"); //TODO: Set resources, allow for localization
+                            _stackRunner.Run(Stacks.Authentication);
+                        });
                     }
-
             }
         }
 
