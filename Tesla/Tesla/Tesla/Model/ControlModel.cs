@@ -23,8 +23,8 @@ namespace Tesla.Model
 
         private readonly IAuthModel _authModel = null;
 
-        public ControlModel(IDisplayService displayService, IApplicationInsights applicationInsights, IErrorHandlingService errorHandlingService, IAuthModel authModel)
-            : base(displayService, applicationInsights, errorHandlingService, new ControlModelState())
+        public ControlModel(IExrinContainer exrinContainer, IAuthModel authModel)
+            : base(exrinContainer, new ControlModelState())
         {
             _authModel = authModel;
         }

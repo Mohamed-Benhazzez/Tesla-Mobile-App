@@ -16,8 +16,8 @@ namespace Tesla.Model
     public class AuthModel : BaseModel, IAuthModel
     {
         private readonly IAuthenticationService _service = null;
-        public AuthModel(IDisplayService displayService, IApplicationInsights applicationInsights, IErrorHandlingService errorHandlingService, IAuthenticationService service)
-            : base(displayService, applicationInsights, errorHandlingService, new AuthModelState())
+        public AuthModel(IExrinContainer exrinContainer, IAuthenticationService service)
+            : base(exrinContainer, new AuthModelState())
         {
             _service = service;
 

@@ -1,0 +1,18 @@
+[ Source Control ]
+[ Requirements ] [ including appropriate insight information ] [ existing visual assets (in dimension) ]
+[ Existing API ]
+[ App Store Setup ]
+
+1. Project and Framework [ Xamarin Forms, Exrin, Exrin.Xamarin, AutoFac, HttpClient ] [ xUnit, Moq ] [ HockeyApp ]
+2. Visual Assets [ Images and Splashscreen ]
+3. Views and ViewModels [ with controls ] [ definition only ]
+4. Models [ definition only ]
+5. Services [ definition only ]
+6. Repository [ definition only ]
+7. Unit Tests and Code [ Operations of VM and M, Services, Repository ] [ Base Classes ] [ Wire Ups ] [ AAA ]
+8. UITest [ Android and iOS ]
+9. Application Insights [ UI Track ]
+10. App Tuning [ Native Http Handler ]
+
+[ Automatic Deployment ]
+

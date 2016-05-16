@@ -12,7 +12,7 @@ namespace Tesla.Tests
     /// </summary>
     public class BusinessRules
     {
-        #region PinPage
+        #region PinView
         public const int PinLength = 4;
         public const char HiddenChar = '•';
         public const string EmptyHiddenPin = "enter pin";

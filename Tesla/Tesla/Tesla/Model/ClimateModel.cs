@@ -12,8 +12,8 @@ namespace Tesla.Model
 
 		private readonly IClimateService _service;
 
-		public ClimateModel(IDisplayService displayService, IApplicationInsights applicationInsights, IErrorHandlingService errorHandlingService, IAuthModel authModel, IClimateService service)
-			: base(displayService, applicationInsights, errorHandlingService, new ClimateModelState())
+		public ClimateModel(IExrinContainer exrinContainer, IAuthModel authModel, IClimateService service)
+			: base(exrinContainer, new ClimateModelState())
 		{ _service = service; }
 
 		public async Task<bool> ChangeTemperature(double movement)

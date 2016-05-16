@@ -13,6 +13,16 @@ namespace Tesla.Tests
 {
     public class CommonService
     {
+
+        private static IExrinContainer _exrinContainer = new ExrinContainer(ApplicationInsights, DisplayService, ErrorHandlingService, NavigationService, StackRunner);
+        public static IExrinContainer ExrinContainer
+        {
+            get
+            {
+                return _exrinContainer;
+            }
+        }
+
         private static IDisplayService _displayService = new DisplayService();
         public static IDisplayService DisplayService
         {
@@ -46,6 +56,24 @@ namespace Tesla.Tests
             get
             {
                 return _errorHandlingService;
+            }
+        }
+
+        private static INavigationService _navigationService = null;
+        public static INavigationService NavigationService
+        {
+            get
+            {
+                return _navigationService;
+            }
+        }
+
+        private static IStackRunner _stackRunner = null;
+        public static IStackRunner StackRunner
+        {
+            get
+            {
+                return _stackRunner;
             }
         }
     }

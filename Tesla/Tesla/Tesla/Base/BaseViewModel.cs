@@ -15,9 +15,8 @@ namespace Tesla.Base
 {
     public class BaseViewModel : Exrin.Framework.ViewModel
     {
-        public BaseViewModel(IAuthModel authModel, IApplicationInsights applicationInsights, IDisplayService displayService, INavigationService navigationService,
-            IErrorHandlingService errorHandlingService, IStackRunner stackRunner, IVisualState visualState, [CallerFilePath] string caller = nameof(BaseViewModel))
-             : base(applicationInsights, displayService, navigationService, errorHandlingService, stackRunner, visualState, caller)
+        public BaseViewModel(IAuthModel authModel, IExrinContainer exrinContainer, IVisualState visualState, [CallerFilePath] string caller = nameof(BaseViewModel))
+             : base(exrinContainer, visualState, caller)
         { AuthModel = authModel; Init(); }
 
         protected IAuthModel AuthModel { get; set; }
