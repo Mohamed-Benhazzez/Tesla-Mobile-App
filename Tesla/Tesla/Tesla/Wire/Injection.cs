@@ -29,7 +29,7 @@ namespace Tesla.Wire
         {
             Container = _builder.Build();
         }
-        private void Register<T>(IRegistrationBuilder<T, ConcreteReflectionActivatorData, SingleRegistrationStyle> register, InstanceType type)
+        private void Register<T>(IRegistrationBuilder<T, IConcreteActivatorData, SingleRegistrationStyle> register, InstanceType type)
         {
             switch (type)
             {
@@ -56,7 +56,15 @@ namespace Tesla.Wire
             Register(_builder.RegisterType<T>().As<I>(), type);
             _registered.Add(typeof(I));
         }
-        
+
+        public void RegisterInstance<I, T>(T instance, InstanceType type) where T : class, I
+                                             where I : class
+        {
+            Register(_builder.RegisterInstance<T>(instance).As<I>(), type);
+            _registered.Add(typeof(I));
+        }
+
+
         public T Get<T>() where T : class
         {
             return Container.Resolve<T>();
