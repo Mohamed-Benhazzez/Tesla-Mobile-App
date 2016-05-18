@@ -50,7 +50,7 @@ namespace Tesla.Control
 
                 };
                 cmd.Execute(null);
-                
+             
             };
 
             var run = new RelayCommand(action);
@@ -87,17 +87,15 @@ namespace Tesla.Control
 
         private void ResetVisualState()
         {
-            var grid = this as StatusBarLabel;
-
-            grid.StatusBar.BackgroundColor = Color.FromHex("#0173C7");
-            grid.StatusBar.IsVisible = true;
-            grid.StatusBar.Opacity = 1;
-            grid.StatusBar.HorizontalOptions = LayoutOptions.Start;
+            StatusBar.BackgroundColor = Color.FromHex("#0173C7");
+            StatusBar.IsVisible = true;
+            StatusBar.Opacity = 1;
+            StatusBar.HorizontalOptions = LayoutOptions.Start;
         }
+
         public void InProgress()
         {
-            IsRunning = true;
-
+            
             var grid = this as StatusBarLabel;
 
             ResetVisualState();
@@ -121,6 +119,9 @@ namespace Tesla.Control
                 }
                 IsRunning = false;
             });
+
+            IsRunning = true;
+
         }
     }
 }

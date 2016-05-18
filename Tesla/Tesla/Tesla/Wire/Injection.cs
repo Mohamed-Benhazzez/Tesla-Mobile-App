@@ -57,10 +57,10 @@ namespace Tesla.Wire
             _registered.Add(typeof(I));
         }
 
-        public void RegisterInstance<I, T>(T instance, InstanceType type) where T : class, I
+        public void RegisterInstance<I, T>(T instance) where T : class, I
                                              where I : class
         {
-            Register(_builder.RegisterInstance<T>(instance).As<I>(), type);
+            _builder.RegisterInstance<T>(instance).As<I>().SingleInstance();
             _registered.Add(typeof(I));
         }
 

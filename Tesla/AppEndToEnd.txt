@@ -1,9 +1,9 @@
-[ Source Control ]
+[ Source Control ] [ branch ]
 [ Requirements ] [ including appropriate insight information ] [ existing visual assets (in dimension) ]
 [ Existing API ]
 [ App Store Setup ]
 
-1. Project and Framework [ Xamarin Forms, Exrin, Exrin.Xamarin, AutoFac, HttpClient ] [ xUnit, Moq ] [ HockeyApp ]
+1. Project and Framework [ Xamarin Forms, Exrin, Exrin.Xamarin, AutoFac, ModernHttpClient ] [ xUnit, Moq ] [ HockeyApp ]
 2. Visual Assets [ Images and Splashscreen ]
 3. Views and ViewModels [ with controls ] [ definition only ]
 4. Models [ definition only ]

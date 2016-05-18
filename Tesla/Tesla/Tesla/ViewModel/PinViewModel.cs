@@ -14,7 +14,6 @@ namespace Tesla.ViewModel
         {
            
         }
-
       
         public IRelayCommand KeyPressCommand
         {
@@ -26,7 +25,6 @@ namespace Tesla.ViewModel
                 });
             }
         }
-
-        
+                
     }
 }
