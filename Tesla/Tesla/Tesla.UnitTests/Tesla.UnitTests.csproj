@@ -99,9 +99,18 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\PexAssemblyInfo.cs" />
     <Compile Include="ViewModel\PinViewModel\PinVisualStateTest.cs" />
+    <Compile Include="Wire\InjectionTest.cs" />
+    <Compile Include="Wire\InsightProviderTest.cs" />
+    <Compile Include="Wire\NavigationContainerTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Model\ClimateModel\" />
+    <Folder Include="Model\ControlModel\" />
+    <Folder Include="ViewModel\ClimateViewModel\" />
+    <Folder Include="ViewModel\ControlViewModel\" />
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
