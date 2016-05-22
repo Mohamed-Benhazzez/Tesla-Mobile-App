@@ -9,9 +9,10 @@ namespace Tesla.Wire
 {
     public class InsightProvider : IInsightsProvider
     {
-        public Task<bool> Send(IInsightData data)
+        public Task<bool> Process(IInsightData data)
         {
-            return Task.FromResult(true);
+            throw new NotImplementedException();
         }
+
     }
 }

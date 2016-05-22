@@ -95,6 +95,9 @@
     <Compile Include="BusinessRules.cs" />
     <Compile Include="CommonService.cs" />
     <Compile Include="Model\AuthModel\IsAuthenticatedTest.cs" />
+    <Compile Include="Model\AuthModel\IsPinValidTest.cs" />
+    <Compile Include="Model\ClimateModel\GetTemperatureTest.cs" />
+    <Compile Include="Model\ClimateModel\SetTemperatureTest.cs" />
     <Compile Include="ViewModel\PinViewModel\PinLoginOperationTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\PexAssemblyInfo.cs" />
@@ -107,7 +110,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Model\ClimateModel\" />
     <Folder Include="Model\ControlModel\" />
     <Folder Include="ViewModel\ClimateViewModel\" />
     <Folder Include="ViewModel\ControlViewModel\" />

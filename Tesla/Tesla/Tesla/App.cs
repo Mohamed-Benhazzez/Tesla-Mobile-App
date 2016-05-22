@@ -10,6 +10,7 @@ namespace Tesla
 
         public App()
         {
+             
            new Bootstrapper().Init().Get<IStackRunner>().Run(TeslaDefinition.Stacks.Authentication);
         }
 

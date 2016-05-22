@@ -22,19 +22,13 @@ namespace Tesla.Model
 		}
 
 		public Task<double> GetTemperature()
-
-		{   // Would ideally connect to the API then update this property rather than just retrieve it.
-			return Task.FromResult((base.ModelState as IClimateModelState).Temperature);
+		{
+            return Execution.ModelExecute(new GetTemperature(ModelState as IClimateModelState));
 		}
 
-		public async Task<bool> SetTemperature(double degrees)
+		public Task<bool> SetTemperature(double degrees)
 		{
-			var result = await Execution.ModelExecute(new SetTemperature(degrees));
-
-			if (result)
-				(base.ModelState as IClimateModelState).Temperature = degrees;
-
-			return result;
+            return Execution.ModelExecute(new SetTemperature(degrees, ModelState as IClimateModelState));
 		}
 	}
 }

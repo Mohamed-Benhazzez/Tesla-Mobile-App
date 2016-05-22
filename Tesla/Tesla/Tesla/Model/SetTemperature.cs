@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TeslaDefinition.Interfaces.Model;
 
 namespace Tesla.Model
 {
@@ -12,10 +13,12 @@ namespace Tesla.Model
 	{
 
 		private readonly double _temperature = 0.0;
+        private readonly IClimateModelState _state = null;
 
-		public SetTemperature(double temperature)
+		public SetTemperature(double temperature, IClimateModelState state)
 		{
 			_temperature = temperature;
+            _state = state;
 		}
 		
 		public IOperation<bool> Operation
@@ -26,8 +29,12 @@ namespace Tesla.Model
 				{
 					Function = (token) =>
 					{
+                        var result = true; // Send to API here
 
-						return Task.FromResult(true);
+                        if (result)
+                            _state.Temperature = _temperature;
+
+                        return Task.FromResult(result);
 					}
 				};
 			}

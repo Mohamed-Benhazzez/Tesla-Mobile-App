@@ -41,7 +41,7 @@ namespace Tesla.Tests
 			}
 		}
 
-		private static IApplicationInsights _applicationInsights = new ApplicationInsights(new MemoryInsightStorage(), new DeviceInfo(), new NavigationState());
+		private static IApplicationInsights _applicationInsights = new ApplicationInsights(new DeviceInfo(), new NavigationState());
         public static IApplicationInsights ApplicationInsights
         {
             get

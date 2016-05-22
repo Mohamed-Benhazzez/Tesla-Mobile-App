@@ -60,6 +60,9 @@
     <Compile Include="Model\ControlModelState.cs">
       <DependentUpon>ControlModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\GetTemperature.cs">
+      <DependentUpon>ClimateModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\IsAuthenticated.cs">
       <DependentUpon>AuthModel.cs</DependentUpon>
     </Compile>
