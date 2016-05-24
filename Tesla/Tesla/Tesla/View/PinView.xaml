@@ -13,7 +13,7 @@
       <RowDefinition Height="Auto" />
     </Grid.RowDefinitions>
     <Image Source="Images/logo.png" VerticalOptions="Start" Grid.Row="0" />
-    <Label Text="{Binding VisualState.HiddenPin}" Grid.Row="2" TextColor="White" HorizontalTextAlignment="Center" FontSize="24" />
+    <Label Text="{Binding VisualState.Pin}" Grid.Row="2" TextColor="White" HorizontalTextAlignment="Center" FontSize="24" />
     <control:Keypad HeightRequest="212" Grid.Row="3" Command="{Binding KeyPressCommand}" />
   </Grid>
 </l:BaseView>

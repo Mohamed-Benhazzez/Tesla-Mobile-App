@@ -21,14 +21,7 @@ namespace Tesla.ViewModel.MainTabs
 			});
 		}
 
-		// TODO: not liking this wire up, see if there is a better way
-		// Convention based wire-up could be possible here
-		protected override void OnModelStatePropertyChanged(string propertyName)
-		{
-			if (propertyName == nameof(IClimateModelState.Temperature))
-			{ Temperature = ((Model as IClimateModel).ModelState as IClimateModelState).Temperature; }
-		}
-
+		
 		private IClimateModel ClimateModel
 		{
 			get

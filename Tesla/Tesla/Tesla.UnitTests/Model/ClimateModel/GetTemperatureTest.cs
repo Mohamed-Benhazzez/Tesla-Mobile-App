@@ -1,8 +1,4 @@
 ﻿using Exrin.Abstraction;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Tesla.Model;
 using TeslaDefinition.Interfaces.Model;
@@ -10,7 +6,7 @@ using Xunit;
 
 namespace Tesla.Tests.Model.ClimateModel
 {
-    class GetTemperatureTest
+    public class GetTemperatureTest
     {
         private IClimateModelState _state = null;
 
@@ -19,31 +15,21 @@ namespace Tesla.Tests.Model.ClimateModel
             var state = new Moq.Mock<IClimateModelState>();
 
             state.SetupAllProperties();
-
+            state.Object.Temperature = 24;
             _state = state.Object;
-
-
         }
-        public IOperation<bool> GetOperation(double temperature)
+
+        public IOperation<double> GetOperation()
         {
             SetupState();
-            return new SetTemperature(temperature, _state).Operation;
+            return new GetTemperature(_state).Operation;
         }
 
-        [Theory]
-        [InlineData(-1.1)]
-        [InlineData(1.1)]
-        [InlineData(24.0)]
-        [InlineData(42.6)]
-        public async Task StandardValuesTest(double temperature)
+        [Fact]
+        public async Task StandardValuesTest()
         {
-            var success = await GetOperation(temperature).Function(new System.Threading.CancellationToken());
-            Assert.Equal(true, success);
-
-            // Reflects in the model state
-            Assert.Equal(temperature, _state.Temperature);
+            var returned = await GetOperation().Function(new System.Threading.CancellationToken());
+            Assert.Equal(24.0, returned);
         }
-
-
     }
 }

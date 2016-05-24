@@ -28,9 +28,9 @@ namespace Tesla.Tests.ViewModel.PinViewModel
             parameters.Item1.AuthModelState.Pin = parameters.Item2;
 
             if (string.IsNullOrEmpty(parameters.Item2))
-                Assert.Equal(BusinessRules.EmptyHiddenPin, visualState.HiddenPin);
+                Assert.Equal(BusinessRules.EmptyHiddenPin, visualState.Pin);
             else
-                Assert.Equal(string.Empty.PadLeft(parameters.Item1.AuthModelState.Pin.Length, BusinessRules.HiddenChar), visualState.HiddenPin);
+                Assert.Equal(string.Empty.PadLeft(parameters.Item1.AuthModelState.Pin.Length, BusinessRules.HiddenChar), visualState.Pin);
         }
 
     }
