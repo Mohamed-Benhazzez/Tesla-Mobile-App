@@ -3,31 +3,50 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Tesla.ViewModel.MainTabs;
 using TeslaDefinition.Enums;
+using TeslaDefinition.Interfaces.Model;
 using Xunit;
+using Moq;
 
 namespace Tesla.Tests.ViewModel.ClimateViewModel
 {
     public class TemperatureOperationTest
     {
+		IClimateModel _model = null;
+		Mock<IClimateModel> _mock = null;
+		private void Setup()
+		{
+			if (_model != null)
+				return;
 
+			_mock = new Moq.Mock<IClimateModel>(MockBehavior.Loose);
+			_mock.Setup(x => x.ChangeTemperature(1.0));
+			_model = _mock.Object;
+		}
 
 		public IOperation GetOperation(Temperature temperature)
 		{
-			return new TemperatureOperation(_model, temperature).Operation;
+			Setup();
+			return new TemperatureOperation(_model, temperature);
 		}
 
 		[Theory]
-		[InlineData(CommandType.Flash)]
-		[InlineData(CommandType.Honk)]
-		public async Task StandardValuesTest(CommandType type)
+		//[InlineData(Temperature.Down)]
+		[InlineData(Temperature.Up)]
+		public async Task StandardValuesTest(Temperature temperature)
 		{
-			//TODO: Pass api service, check its called
+			IList<IResult> result = new List<IResult>();
+			var parameter = new object();
+			await GetOperation(temperature).Function(result, parameter, (new CancellationTokenSource()).Token);
 
-			var success = await GetOperation(type).Function(new System.Threading.CancellationToken());
-			Assert.Equal(true, success);
+			// Check that Temperature change function was called			
+			_mock.Verify(x => x.ChangeTemperature(1.0));
+
+			// Check IResult List for results
+			Assert.Equal(0, result.Count);
 
 		}
 
