@@ -102,8 +102,8 @@
     <Compile Include="Model\ClimateModel\SetTemperatureTest.cs" />
     <Compile Include="Model\ControlModel\IssueControlCommandTest.cs" />
     <Compile Include="ViewModel\ClimateViewModel\TemperatureOperationTest.cs" />
-    <Compile Include="ViewModel\ControlViewModel\FlashOperationTest.cs" />
     <Compile Include="ViewModel\ControlViewModel\HonkOperationTest.cs" />
+    <Compile Include="ViewModel\ControlViewModel\FlashOperationTest.cs" />
     <Compile Include="ViewModel\PinViewModel\PinLoginOperationTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\PexAssemblyInfo.cs" />

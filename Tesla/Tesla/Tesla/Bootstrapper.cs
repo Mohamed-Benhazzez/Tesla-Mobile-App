@@ -1,4 +1,5 @@
-﻿using Exrin.Abstraction;
+﻿using Autofac;
+using Exrin.Abstraction;
 using System.Collections.Generic;
 using System.Reflection;
 using Tesla.Model;

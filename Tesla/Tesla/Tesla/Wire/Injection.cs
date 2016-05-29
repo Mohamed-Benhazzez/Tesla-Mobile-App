@@ -13,7 +13,7 @@ namespace Tesla.Wire
 {
     public class Injection: IInjection
     {
-
+	
         private static ContainerBuilder _builder = null;
         private static IContainer Container { get; set; } = null;
        
@@ -21,8 +21,7 @@ namespace Tesla.Wire
 
         public void Init()
         {
-            _builder = new ContainerBuilder();
-            
+			_builder = new ContainerBuilder();
             _builder.RegisterInstance<IInjection>(this).SingleInstance();
         }
         public void Complete()

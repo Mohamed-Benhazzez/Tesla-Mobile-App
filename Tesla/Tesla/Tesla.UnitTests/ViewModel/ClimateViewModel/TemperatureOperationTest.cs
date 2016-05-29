@@ -13,8 +13,8 @@ using Moq;
 
 namespace Tesla.Tests.ViewModel.ClimateViewModel
 {
-    public class TemperatureOperationTest
-    {
+	public class TemperatureOperationTest
+	{
 		IClimateModel _model = null;
 		Mock<IClimateModel> _mock = null;
 		private void Setup()
@@ -23,7 +23,8 @@ namespace Tesla.Tests.ViewModel.ClimateViewModel
 				return;
 
 			_mock = new Moq.Mock<IClimateModel>(MockBehavior.Loose);
-			_mock.Setup(x => x.ChangeTemperature(1.0));
+			_mock.Setup(x => x.ChangeTemperature(1.0)).Returns(Task.FromResult(true));
+
 			_model = _mock.Object;
 		}
 
@@ -34,7 +35,7 @@ namespace Tesla.Tests.ViewModel.ClimateViewModel
 		}
 
 		[Theory]
-		//[InlineData(Temperature.Down)]
+		[InlineData(Temperature.Down)]
 		[InlineData(Temperature.Up)]
 		public async Task StandardValuesTest(Temperature temperature)
 		{
@@ -42,8 +43,15 @@ namespace Tesla.Tests.ViewModel.ClimateViewModel
 			var parameter = new object();
 			await GetOperation(temperature).Function(result, parameter, (new CancellationTokenSource()).Token);
 
-			// Check that Temperature change function was called			
-			_mock.Verify(x => x.ChangeTemperature(1.0));
+			switch (temperature)// Check that Temperature change function was called	
+			{
+				case Temperature.Down:
+					_mock.Verify(x => x.ChangeTemperature(-1.0));
+					break;
+				case Temperature.Up:
+					_mock.Verify(x => x.ChangeTemperature(1.0));
+					break;
+			}
 
 			// Check IResult List for results
 			Assert.Equal(0, result.Count);
