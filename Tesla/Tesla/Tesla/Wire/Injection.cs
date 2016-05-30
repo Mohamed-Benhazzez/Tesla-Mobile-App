@@ -15,13 +15,13 @@ namespace Tesla.Wire
     {
 	
         private static ContainerBuilder _builder = null;
-        private static IContainer Container { get; set; } = null;
-       
+        private static IContainer Container { get; set; } = null;       
         private static IList<Type> _registered = new List<Type>();
-
+				
         public void Init()
         {
 			_builder = new ContainerBuilder();
+			
             _builder.RegisterInstance<IInjection>(this).SingleInstance();
         }
         public void Complete()
@@ -66,11 +66,15 @@ namespace Tesla.Wire
 
         public T Get<T>() where T : class
         {
-            return Container.Resolve<T>();
+			if (Container == null)
+				throw new NullReferenceException($"{nameof(Container)} is null. Have you called {nameof(IInjection)}.{nameof(Init)}() and {nameof(IInjection)}.{nameof(Complete)}()?");
+			return Container.Resolve<T>();
         }
 
         public object Get(Type type)
         {
+			if (Container == null)
+				throw new NullReferenceException($"{nameof(Container)} is null. Have you called {nameof(IInjection)}.{nameof(Init)}() and {nameof(IInjection)}.{nameof(Complete)}()?");
             return Container.Resolve(type);
         }
 

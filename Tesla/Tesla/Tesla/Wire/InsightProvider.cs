@@ -10,7 +10,7 @@ namespace Tesla.Wire
     public class InsightProvider : IInsightsProvider
     {
       
-        Task IInsightsProvider.Record(IInsightData data)
+        public Task Record(IInsightData data)
         {
             throw new NotImplementedException();
         }

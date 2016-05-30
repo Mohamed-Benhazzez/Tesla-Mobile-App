@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Exrin.Abstraction;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,80 +9,81 @@ using Xunit;
 
 namespace Tesla.Tests.Wire
 {
-    public class InjectionTest
-    {
+	public class InjectionTest
+	{
+
+
+		public Injection GetInjection()
+		{
+			return new Injection();
+		}
+
+		[Fact]
+		public void InitAndComplete()
+		{
+			var injection = GetInjection();
+			injection.Init(); // Call Init - should register itself
+			injection.Complete();
+			var instance = injection.Get<IInjection>();
+
+			Assert.Equal(injection, instance);
+		}
+
+		[Fact]
+		public void RegisterInstance()
+		{
+			var injection = GetInjection();
+			injection.Init();
+
+			injection.RegisterInstance<ITestClass, TestClass>(new TestClass());
+
+			injection.Complete();
+
+			var test = injection.Get<ITestClass>();
+
+			Assert.NotNull(test);
+		}
+
+		[Fact]
+		public void RegisterInterface()
+		{
+			var injection = GetInjection();
+			injection.Init();
+
+			injection.RegisterInterface<ITestClass, TestClass>(InstanceType.SingleInstance);
+
+			injection.Complete();
+
+			var test = injection.Get<ITestClass>();
+
+			Assert.NotNull(test);
+		}
 		
+		[Fact]
+		public void IsRegistered()
+		{
+			var injection = GetInjection();
+			injection.Init();
 
-		//public Injection GetInjection()
-		//{
-		//	var mock = new Moq.Mock<ContainerBuilder>();
+			injection.RegisterInterface<ITestClass, TestClass>(InstanceType.SingleInstance);
 
-		//	mock.Setup(x=>x.RegisterInstance<IInjection>(this))
+			injection.Complete();
 
-		//	return new Injection();
-		//}
+			Assert.Equal(true, injection.IsRegistered<ITestClass>());
 
-		//[Fact]
-		//public void Init()
-		//{
-
-		//	//_builder.RegisterInstance<IInjection>(this).SingleInstance();
-		//}
-		//public void Complete()
-		//{
-		//	//Container = _builder.Build();
-		//}
-		//private void Register<T>(IRegistrationBuilder<T, IConcreteActivatorData, SingleRegistrationStyle> register, InstanceType type)
-		//{
-		//	switch (type)
-		//	{
-		//		case InstanceType.EachResolve:
-		//			register.InstancePerDependency();
-		//			break;
-		//		case InstanceType.SingleInstance:
-		//			register.SingleInstance();
-		//			break;
-		//		default:
-		//			register.InstancePerDependency();
-		//			break;
-		//	}
-		//}
-		//public void Register<T>(InstanceType type) where T : class
-		//{
-		//	Register(_builder.RegisterType<T>(), type);
-		//	_registered.Add(typeof(T));
-		//}
-
-		//public void RegisterInterface<I, T>(InstanceType type) where T : class, I
-		//									 where I : class
-		//{
-		//	Register(_builder.RegisterType<T>().As<I>(), type);
-		//	_registered.Add(typeof(I));
-		//}
-
-		//public void RegisterInstance<I, T>(T instance) where T : class, I
-		//									 where I : class
-		//{
-		//	_builder.RegisterInstance<T>(instance).As<I>().SingleInstance();
-		//	_registered.Add(typeof(I));
-		//}
-
-
-		//public T Get<T>() where T : class
-		//{
-		//	return Container.Resolve<T>();
-		//}
-
-		//public object Get(Type type)
-		//{
-		//	return Container.Resolve(type);
-		//}
-
-		//public bool IsRegistered<T>()
-		//{
-		//	return _registered.Contains(typeof(T));
-		//}
+		}
 
 
 	}
+
+	public class TestClass: ITestClass
+	{
+
+	}
+
+	public interface ITestClass
+	{
+
+	}
+	
 }
