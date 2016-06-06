@@ -1,4 +1,6 @@
-﻿using Moq;
+﻿using Exrin.Abstraction;
+using Exrin.Framework;
+using Moq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,16 +12,19 @@ using Xunit;
 
 namespace Tesla.Tests.Wire
 {
-    public class NavigationContainerTest
-    {
+	public class NavigationContainerTest
+	{
 		Mock<NavigationPage> _mock = null;
-			
+		private ContentPage _page = new ContentPage();
+		private ContentPage _page2 = new ContentPage();
+
 		public NavigationContainer GetNavigationContainer()
 		{
+			Exrin.Framework.App.Init();
+
 			if (_mock == null)
 			{
 				_mock = new Moq.Mock<NavigationPage>();
-				//_mock.Setup(x=>x.Se)
 			}
 
 			return new NavigationContainer(_mock.Object);
@@ -39,62 +44,79 @@ namespace Tesla.Tests.Wire
 			Assert.Equal(false, NavigationPage.GetHasNavigationBar(b));
 		}
 
-		//public bool CanGoBack()
-		//{
-		//	return _page.Navigation.NavigationStack.Count > 1;
-		//}
+		[Fact]
+		public async Task CanGoBack()
+		{
+			var container = GetNavigationContainer();
 
-		//public async Task PopAsync(object parameter)
-		//{
-		//	using (var releaser = await _lock.LockAsync())
-		//	{
-		//		_argQueue.Enqueue(parameter);
-		//		await _page.PopAsync();
-		//	}
-		//}
+			await container.PushAsync(_page);
 
-		//public async Task PopAsync()
-		//{
-		//	using (var releaser = await _lock.LockAsync())
-		//	{
-		//		await _page.PopAsync();
-		//	}
-		//}
+			Assert.Equal(false, container.CanGoBack());
 
-		//public async Task PushAsync(object page)
-		//{
-		//	using (var releaser = await _lock.LockAsync())
-		//	{
-		//		await ThreadHelper.RunOnUIThreadAsync(async () =>
-		//		{
-		//			var xamarinPage = page as Page;
+			await container.PushAsync(_page2);
 
-		//			if (xamarinPage == null)
-		//				throw new Exception("PushAsync can not push a non Xamarin Page");
+			Assert.Equal(true, container.CanGoBack());
 
-		//			await _page.PushAsync(xamarinPage); // Must be run on the Main Thread
-		//		});
-		//	}
-		//}
+		}
 
-		//public async Task ShowDialog(IDialogOptions dialogOptions)
-		//{
-		//	await ThreadHelper.RunOnUIThreadAsync(async () =>
-		//	{
-		//		try
-		//		{
-		//			if (ViewStatus == VisualStatus.Visible)
-		//				await _page.DisplayAlert(dialogOptions.Title, dialogOptions.Message, "OK");
-		//			else
-		//				await Task.Delay(0); //TODO: Should log to insights. Should never be calling a DisplayAlert on a non-viewable stack
-		//		}
-		//		catch (Exception ex)
-		//		{
-		//			Debug.WriteLine(ex.Message); // TODO: Change to application insights
-		//		}
-		//	});
-		//}
+		[Fact]
+		public async Task PopAsync()
+		{
+			var container = GetNavigationContainer();
 
+			await container.PushAsync(_page);
+			await container.PushAsync(_page2);
+
+			Assert.Equal(true, container.CanGoBack());
+
+			await container.PopAsync();
+
+			Assert.Equal(false, container.CanGoBack());
+
+			// No exception thrown on last pop, just silent ignore.
+			await container.PopAsync();
+
+		}
+
+		public static TheoryData<object> NullPage { get { return new TheoryData<object>() { null }; } }
+		public static TheoryData<object> ContentPage { get { return new TheoryData<object>() { new ContentPage() }; } }
+		public static TheoryData<object> NonPage { get { return new TheoryData<object>() { new object() }; } }
+
+
+		[Theory]
+		[MemberData(nameof(NullPage))]
+		[MemberData(nameof(ContentPage))]
+		[MemberData(nameof(NonPage))]
+		public async Task PushAsync(object page)
+		{
+			var container = GetNavigationContainer();
+
+			if (page == null)
+				await Assert.ThrowsAsync(typeof(Exception), async () => await container.PushAsync(page));
+			else if (page.GetType() != typeof(ContentPage))
+				await Assert.ThrowsAsync(typeof(Exception), async () => await container.PushAsync(page));
+
+		}
+
+		public static TheoryData<IDialogOptions> Dialog { get { return new TheoryData<IDialogOptions>() { new DialogOptions() { Title = "Test", Message = "Message" } }; } }
+
+		[Theory]
+		[MemberData(nameof(Dialog))]
+		public async Task ShowDialog(IDialogOptions dialogOptions)
+		{
+
+			var container = GetNavigationContainer();
+
+			container.ViewStatus = VisualStatus.Hidden;
+			await container.ShowDialog(dialogOptions);
+
+			Assert.Equal(false, dialogOptions.Result);
+
+			container.ViewStatus = VisualStatus.Visible;
+			await container.ShowDialog(dialogOptions);
+			Assert.Equal(true, dialogOptions.Result);
+
+		}
 
 	}
 }
