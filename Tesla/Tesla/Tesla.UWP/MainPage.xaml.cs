@@ -21,7 +21,7 @@ namespace Tesla.UWP
         {
             this.InitializeComponent();
 
-            LoadApplication(new Tesla.App());
+            LoadApplication(new Tesla.App(new Bootstrapper()));
         }
     }
 }

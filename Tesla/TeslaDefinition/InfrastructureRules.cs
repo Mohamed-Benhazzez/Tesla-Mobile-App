@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace TeslaDefinition
 {
-    public enum Stacks
-    {
-        Authentication = 0,
-        Main = 1,
-		Booking = 2
-    }
+	public static class InfrastructureRules
+	{
+
+		public const string MainDatabase = "tesla.db3";
+
+	}
 }

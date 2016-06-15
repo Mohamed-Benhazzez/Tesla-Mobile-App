@@ -1,3 +1,7 @@
+TODO:
+1. If Constructor Injection fails, its too quiet, make it blow up to highlight the error in DEBUG mode.
+
+
 [ Source Control ] [ branch ]
 [ Requirements ] [ including appropriate insight information ] [ existing visual assets (in dimension) ]
 [ Existing API ]

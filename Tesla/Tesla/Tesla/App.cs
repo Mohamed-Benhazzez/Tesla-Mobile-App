@@ -7,11 +7,9 @@ namespace Tesla
 {
 	public class App : Application
     {
-
-        public App()
+        public App(IPlatformBootstrapper platformBootstrapper)
         {
-             
-           new Bootstrapper().Init().Get<IStackRunner>().Run(TeslaDefinition.Stacks.Authentication);
+			new Bootstrapper(platformBootstrapper).Init().Get<IStackRunner>().Run(TeslaDefinition.Stacks.Authentication);
         }
 
         protected override void OnStart()

@@ -27,10 +27,11 @@ namespace Tesla.Stack
         
         protected override void Map()
         {
-            _navigationService.Map(nameof(Main.Main), typeof(MainView), typeof(MainViewModel));
-            _navigationService.Map(string.Empty, typeof(ControlView), typeof(ControlViewModel));
-            _navigationService.Map(string.Empty, typeof(ClimateView), typeof(ClimateViewModel));
-        }
+			base.NavigationMap(nameof(Main.Main), typeof(MainView), typeof(MainViewModel));
+			base.NavigationMap(string.Empty, typeof(ControlView), typeof(ControlViewModel)); // No key mapping for views loaded in TabView
+			base.NavigationMap(string.Empty, typeof(ClimateView), typeof(ClimateViewModel));
+			base.NavigationMap(string.Empty, typeof(ServiceView), typeof(ServiceViewModel));			
+		}
 
         protected override string NavigationStartKey
         {

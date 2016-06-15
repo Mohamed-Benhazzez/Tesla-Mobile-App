@@ -63,8 +63,14 @@ namespace Tesla.Wire
             _registered.Add(typeof(I));
         }
 
+		public void RegisterInstance<I>(I instance) where I : class
+		{
+			_builder.RegisterInstance(instance).As<I>().SingleInstance();
+			_registered.Add(typeof(I));
+		}
 
-        public T Get<T>() where T : class
+
+		public T Get<T>() where T : class
         {
 			if (Container == null)
 				throw new NullReferenceException($"{nameof(Container)} is null. Have you called {nameof(IInjection)}.{nameof(Init)}() and {nameof(IInjection)}.{nameof(Complete)}()?");
@@ -82,5 +88,7 @@ namespace Tesla.Wire
         {          
             return _registered.Contains(typeof(T));
         }
-    }
+
+		
+	}
 }

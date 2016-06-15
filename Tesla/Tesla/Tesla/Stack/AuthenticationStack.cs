@@ -19,7 +19,7 @@ namespace Tesla.Stack
 
         protected override void Map()
         {
-            _navigationService.Map(nameof(Authentication.Pin), typeof(PinView), typeof(PinViewModel));
+            base.NavigationMap(nameof(Authentication.Pin), typeof(PinView), typeof(PinViewModel));
         }
 
         protected override string NavigationStartKey

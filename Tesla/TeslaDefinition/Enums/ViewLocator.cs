@@ -15,4 +15,10 @@ namespace Tesla.Definition.ViewLocator
     {
         Main = 0
     }
+
+	public enum Booking
+	{
+		Main = 0
+	}
+
 }

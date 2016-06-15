@@ -5,11 +5,11 @@
     <MinimumVisualStudioVersion>10.0</MinimumVisualStudioVersion>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1F7B8409-F72F-479C-8A3B-3923234DAE42}</ProjectGuid>
+    <ProjectGuid>{A82EC6B6-ED6C-46A1-8481-FBC28F06E010}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TeslaDefinition</RootNamespace>
-    <AssemblyName>TeslaDefinition</AssemblyName>
+    <RootNamespace>TeslaDatabase</RootNamespace>
+    <AssemblyName>TeslaDatabase</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Profile111</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
@@ -35,29 +35,19 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Enums\CommandType.cs" />
-    <Compile Include="Enums\Temperature.cs" />
-    <Compile Include="Enums\ViewLocator.cs" />
-    <Compile Include="InfrastructureRules.cs" />
-    <Compile Include="Interfaces\Database\IDatabase.cs" />
-    <Compile Include="Interfaces\Model\IClientModelState.cs" />
-    <Compile Include="Interfaces\Model\IClimateModel.cs" />
-    <Compile Include="Interfaces\Model\IControlModel.cs" />
-    <Compile Include="Interfaces\Model\IMainModel.cs" />
-    <Compile Include="Interfaces\Model\IAuthModel.cs" />
-    <Compile Include="Interfaces\Model\IAuthModelState.cs" />
-    <Compile Include="Interfaces\Model\IServiceModel.cs" />
-    <Compile Include="Interfaces\Model\IServiceModelState.cs" />
-    <Compile Include="Interfaces\Service\IClimateService.cs" />
-    <Compile Include="Interfaces\Service\IControlService.cs" />
-    <Compile Include="Interfaces\Service\ILoginService.cs" />
-    <Compile Include="Interfaces\Service\IServiceService.cs" />
+    <Compile Include="Command.cs" />
+    <Compile Include="Database.cs" />
+    <Compile Include="Enum\ExecuteType.cs" />
+    <Compile Include="Interface\Platform\IPlatformDatabase.cs" />
     <Compile Include="Model\Booking.cs" />
     <Compile Include="Model\ServiceCentre.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Enums\Stacks.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="SQLite.Net, Version=3.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SQLite.Net.Core-PCL.3.1.1\lib\portable-win8+net45+wp8+wpa81+MonoAndroid1+MonoTouch1\SQLite.Net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Xamarin.Forms.Core, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Xamarin.Forms.2.3.0.46-pre3\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.Core.dll</HintPath>
       <Private>True</Private>
@@ -83,13 +73,9 @@
       <Project>{db58430a-de9e-477f-9fee-34e80720908e}</Project>
       <Name>Exrin.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\Exrin\Exrin\Exrin.Framework\Exrin.Framework.csproj">
-      <Project>{8947ad64-e787-4a00-9d6b-8e514133ad63}</Project>
-      <Name>Exrin.Framework</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\Exrin\Exrin\Exrin.Insights\Exrin.Insights.csproj">
-      <Project>{91cf9504-601c-4f74-b200-9300c72e409c}</Project>
-      <Name>Exrin.Insights</Name>
+    <ProjectReference Include="..\TeslaDefinition\TeslaDefinition.csproj">
+      <Project>{1F7B8409-F72F-479C-8A3B-3923234DAE42}</Project>
+      <Name>TeslaDefinition</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />

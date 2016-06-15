@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<l:BaseView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:l="clr-namespace:Tesla.Base"
+             x:Class="Tesla.View.MainTabs.ServiceView">
+
+  <Grid>
+    <Grid Opacity="0.6" Margin="0,20,0,0" BackgroundColor="#2D2D2D" VerticalOptions="FillAndExpand">
+    </Grid>
+    <Grid BackgroundColor="Transparent" Margin="0,20,0,0">
+
+      <ListView ItemsSource="{Binding VisualState.Bookings}">
+        <ListView.ItemTemplate>
+          <DataTemplate>
+            <ViewCell>
+            <Label Text="{Binding BookedUtc}" TextColor="White" />
+            </ViewCell>
+          </DataTemplate>
+        </ListView.ItemTemplate>
+      </ListView>
+
+    </Grid>
+  </Grid>
+
+</l:BaseView>

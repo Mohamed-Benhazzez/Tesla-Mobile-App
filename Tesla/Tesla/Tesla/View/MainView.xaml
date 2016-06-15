@@ -8,6 +8,7 @@
   <l:BaseTabbedView.Children>
     <t:ControlView Title="Find Car" />
     <t:ClimateView Title="Climate" />
+    <t:ServiceView Title="Service" />
   </l:BaseTabbedView.Children>
   
 </l:BaseTabbedView>
