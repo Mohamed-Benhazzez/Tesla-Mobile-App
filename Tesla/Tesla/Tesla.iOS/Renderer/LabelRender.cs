@@ -1,12 +1,13 @@
 ﻿using Foundation;
 using System.Linq;
+using Tesla.Control;
 using Tesla.Gestures;
 using Tesla.iOS.Renderer;
 using UIKit;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
 
-[assembly: ExportRenderer(typeof(Label), typeof(LabelRender))]
+[assembly: ExportRenderer(typeof(KeypadLabel), typeof(LabelRender))]
 namespace Tesla.iOS.Renderer
 {
     public class LabelRender : LabelRenderer

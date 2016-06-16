@@ -6,6 +6,12 @@ using Xamarin.Forms;
 
 namespace Tesla.Control
 {
+
+    public class KeypadLabel: Label
+    {
+
+    }
+
     public class Keypad : Grid
     {
         public Keypad()
@@ -39,25 +45,25 @@ namespace Tesla.Control
 
             for (int i = 0; i < 9; i++)
             {
-                var label = new Label() { HorizontalOptions = LayoutOptions.FillAndExpand, VerticalOptions = LayoutOptions.FillAndExpand, BackgroundColor = backgroundColor, TextColor = textColor, Text = (i + 1).ToString(), HorizontalTextAlignment = TextAlignment.Center, VerticalTextAlignment = TextAlignment.Center };
+                var label = new KeypadLabel() { HorizontalOptions = LayoutOptions.FillAndExpand, VerticalOptions = LayoutOptions.FillAndExpand, BackgroundColor = backgroundColor, TextColor = textColor, Text = (i + 1).ToString(), HorizontalTextAlignment = TextAlignment.Center, VerticalTextAlignment = TextAlignment.Center };
 
                 AttachGestures(label, i + 1);
 
                 this.Children.Add(label, i - ((i / 3) * 3), i / 3);
             }
 
-            this.Children.Add(new Label() { BackgroundColor = backgroundColor, TextColor = textColor, Text = "", HorizontalTextAlignment = TextAlignment.Center, VerticalTextAlignment = TextAlignment.Center }, 0, 3);
+            this.Children.Add(new KeypadLabel() { BackgroundColor = backgroundColor, TextColor = textColor, Text = "", HorizontalTextAlignment = TextAlignment.Center, VerticalTextAlignment = TextAlignment.Center }, 0, 3);
 
-            var zeroLabel = new Label() { BackgroundColor = backgroundColor, TextColor = textColor, Text = "0", HorizontalTextAlignment = TextAlignment.Center, VerticalTextAlignment = TextAlignment.Center };
+            var zeroLabel = new KeypadLabel() { BackgroundColor = backgroundColor, TextColor = textColor, Text = "0", HorizontalTextAlignment = TextAlignment.Center, VerticalTextAlignment = TextAlignment.Center };
             AttachGestures(zeroLabel, 0);
             this.Children.Add(zeroLabel, 1, 3);
 
-            var backLabel = new Label() { BackgroundColor = backgroundColor, TextColor = textColor, Text = BackCharacter, HorizontalTextAlignment = TextAlignment.Center, VerticalTextAlignment = TextAlignment.Center };
+            var backLabel = new KeypadLabel() { BackgroundColor = backgroundColor, TextColor = textColor, Text = BackCharacter, HorizontalTextAlignment = TextAlignment.Center, VerticalTextAlignment = TextAlignment.Center };
             AttachGestures(backLabel, BackCharacter);
             this.Children.Add(backLabel, 2, 3);
         }
 
-        private void AttachGestures(Label label, object value)
+        private void AttachGestures(KeypadLabel label, object value)
         {
             label.GestureRecognizers.Add(new PressedGestureRecognizer() { Command = PressedCommand, CommandParameter = new GestureEventArgs() { Sender = label, Value = value } });
         }
@@ -78,7 +84,7 @@ namespace Tesla.Control
                         if (Command != null)
                             Command.Execute(args.Value);
 
-                        var label = args.Sender as Label;
+                        var label = args.Sender as KeypadLabel;
                         label.BackgroundColor = Color.White;
                         label.TextColor = Color.Black;
 

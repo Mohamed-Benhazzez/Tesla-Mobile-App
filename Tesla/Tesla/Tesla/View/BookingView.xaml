@@ -6,6 +6,9 @@
             x:Class="Tesla.View.BookingView"
             BackgroundColor="#2D2D2D">
   <StackLayout Spacing="10">
+    <StackLayout.Padding>
+      <OnPlatform x:TypeArguments="Thickness" iOS="0,20,0,0" Android="0" WinPhone="0" />
+    </StackLayout.Padding>
     <Label Text="Close" BackgroundColor="#E31919">
       <Label.GestureRecognizers>
         <TapGestureRecognizer Command="{Binding CloseCommand}"></TapGestureRecognizer>

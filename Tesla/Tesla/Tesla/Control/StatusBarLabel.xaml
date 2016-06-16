@@ -7,6 +7,6 @@
     <RowDefinition Height="*" />
     <RowDefinition Height="Auto" />
   </Grid.RowDefinitions>
-  <Label x:Name="MainLabel" Grid.Row="0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" VerticalOptions="FillAndExpand" />
-  <Label x:Name="StatusBar" Grid.Row="1" HeightRequest="5" IsVisible="False" />
+  <Label x:Name="MainLabel" Grid.Row="0" VerticalTextAlignment="Center" TextColor="White" HorizontalTextAlignment="Center" VerticalOptions="FillAndExpand" />
+  <Label x:Name="StatusBar" Grid.Row="1" HeightRequest="5" IsVisible="False" TextColor="White" />
 </Grid>

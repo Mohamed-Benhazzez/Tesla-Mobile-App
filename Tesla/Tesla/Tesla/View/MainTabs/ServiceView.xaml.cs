@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Tesla.Base;
+using Tesla.ViewModel;
 using Xamarin.Forms;
 
 namespace Tesla.View.MainTabs
@@ -14,5 +15,11 @@ namespace Tesla.View.MainTabs
 		{
 			InitializeComponent();
 		}
+
+        // TODO: Change this to a behavior, keep the xaml clean.
+        protected void ItemSelected(object sender, EventArgs e)
+        {
+            ((ServiceViewModel)this.BindingContext).ViewBookingCommand.Execute(((ListView)sender).SelectedItem);
+        }
 	}
 }
