@@ -26,7 +26,7 @@ namespace Tesla.ViewModel
             {
                 return (result, parameter, token) =>
                 {
-                    result.Add(new Result() { ResultAction = ResultType.Navigation, Arguments = new NavigationArgs() { Parameter = parameter, Key = Definition.ViewLocator.Booking.Main, StackType = Stacks.Booking } });
+                    result.Add(new Result() { ResultAction = ResultType.Navigation, Arguments = new NavigationArgs() { Parameter = parameter, Key = Definition.ViewLocator.Booking.BookingMain, StackType = Stacks.Booking } });
 
                     return Task.FromResult(true);
                 };

@@ -15,7 +15,11 @@ namespace Tesla.ViewModel
 
         public Booking Booking
         {
-            get { return Get<Booking>(); }
+            get {
+            
+                var b = Get<Booking>();
+                return b;
+            }
             set { Set(value); }
         }
     }

@@ -45,7 +45,9 @@ namespace Tesla.Wire
 
 		public object View { get { return _page; } }
 
-		public bool CanGoBack()
+        public object CurrentView { get { return _page.CurrentPage; } }
+
+        public bool CanGoBack()
 		{
 			return _page.Navigation.NavigationStack.Count > 1;
 		}

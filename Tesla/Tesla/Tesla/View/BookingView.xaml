@@ -14,6 +14,6 @@
         <TapGestureRecognizer Command="{Binding CloseCommand}"></TapGestureRecognizer>
       </Label.GestureRecognizers>
     </Label>
-    <Label Text="{Binding VisualState.Booking.BookedUtc}" />
+    <Label Text="{Binding VisualState.Booking.Id}" TextColor="White" />
   </StackLayout>
 </l:BaseView>
