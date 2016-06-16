@@ -15,13 +15,13 @@
 
       <!--Commands/Proximity-->
       <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Padding="0,20,0,0">
-        <Image Source="Images/arrow_down.png" HeightRequest="36">
+        <Image Source="arrow_down.png" HeightRequest="36">
           <Image.GestureRecognizers>
             <TapGestureRecognizer Command="{Binding DownCommand}" />
           </Image.GestureRecognizers>
         </Image>
         <Label Text="{Binding VisualState.Temperature}" FontSize="20" /><!--°C-->
-        <Image Source="Images/arrow_up.png" HeightRequest="36">
+        <Image Source="arrow_up.png" HeightRequest="36">
           <Image.GestureRecognizers>
             <TapGestureRecognizer Command="{Binding UpCommand}" />
           </Image.GestureRecognizers>

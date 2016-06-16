@@ -23,7 +23,7 @@ namespace Tesla.UWP.Renderer
                 {
                     AlignmentX = AlignmentX.Center,
                     AlignmentY = AlignmentY.Center,
-                    ImageSource = new BitmapImage(new Uri("ms-appx:///Images/background.png", UriKind.Absolute)),
+                    ImageSource = new BitmapImage(new Uri("ms-appx:///background.png", UriKind.Absolute)),
                     Stretch = Stretch.None
                 };
             };

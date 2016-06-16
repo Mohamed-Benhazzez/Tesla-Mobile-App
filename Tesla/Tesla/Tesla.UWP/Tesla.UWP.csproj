@@ -113,10 +113,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\SplashScreen.scale-150.png" />
-    <Content Include="Images\arrow_down.png" />
-    <Content Include="Images\arrow_up.png" />
-    <Content Include="Images\background.png" />
-    <Content Include="Images\logo.png" />
+    <Content Include="arrow_down.png" />
+    <Content Include="arrow_up.png" />
+    <Content Include="background.png" />
+    <Content Include="logo.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />

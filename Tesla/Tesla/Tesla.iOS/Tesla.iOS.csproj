@@ -90,6 +90,10 @@
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <Compile Include="Renderer\LabelRender.cs" />
+    <BundleResource Include="Resources\arrow_down.png" />
+    <BundleResource Include="Resources\arrow_up.png" />
+    <BundleResource Include="Resources\background.png" />
+    <BundleResource Include="Resources\logo.png" />
     <None Include="Info.plist" />
     <Compile Include="Platform\Database.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
