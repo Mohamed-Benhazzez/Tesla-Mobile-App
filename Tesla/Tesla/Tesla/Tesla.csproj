@@ -82,7 +82,6 @@
       <DependentUpon>ClimateModel.cs</DependentUpon>
     </Compile>
     <Compile Include="Stack\BookingStack.cs" />
-    <Compile Include="ViewLocator.cs" />
     <Compile Include="ViewModel\BookingViewModel.cs" />
     <Compile Include="ViewModel\BookingVisualState.cs">
       <DependentUpon>BookingViewModel.cs</DependentUpon>
@@ -116,6 +115,12 @@
     </Compile>
     <Compile Include="ViewModel\MainTabs\TemperatureViewModelExecute.cs">
       <DependentUpon>ClimateViewModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\MainTabs\ViewBookingOperation.cs">
+      <DependentUpon>ViewBookingViewModelExecute.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\MainTabs\ViewBookingViewModelExecute.cs">
+      <DependentUpon>ServiceViewModel.cs</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\MainTabs\VisualState.cs">
       <DependentUpon>ControlViewModel.cs</DependentUpon>

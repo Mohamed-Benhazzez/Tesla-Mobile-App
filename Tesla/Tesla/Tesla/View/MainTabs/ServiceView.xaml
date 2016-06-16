@@ -2,6 +2,7 @@
 <l:BaseView xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:l="clr-namespace:Tesla.Base"
+             x:Name="this"
              x:Class="Tesla.View.MainTabs.ServiceView">
 
   <Grid>
@@ -9,11 +10,18 @@
     </Grid>
     <Grid BackgroundColor="Transparent" Margin="0,20,0,0">
 
-      <ListView ItemsSource="{Binding VisualState.Bookings}">
+      <ListView ItemsSource="{Binding VisualState.Bookings}" SeparatorVisibility="None">
         <ListView.ItemTemplate>
           <DataTemplate>
             <ViewCell>
-            <Label Text="{Binding BookedUtc}" TextColor="White" />
+              <StackLayout>
+                <Label Text="{Binding BookedUtc}" TextColor="White">
+                    <Label.GestureRecognizers>
+                      <TapGestureRecognizer Command="{Binding BindingContext.ViewBookingCommand, Source={x:Reference this}}" CommandParameter="{Binding Id}" />
+                    </Label.GestureRecognizers>
+                </Label>
+                <BoxView HeightRequest="1" Color="Silver" />
+              </StackLayout>
             </ViewCell>
           </DataTemplate>
         </ListView.ItemTemplate>

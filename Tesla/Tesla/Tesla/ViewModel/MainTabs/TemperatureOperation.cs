@@ -13,7 +13,6 @@ namespace Tesla.ViewModel.MainTabs
 {
 	public class TemperatureOperation : IOperation
 	{
-
 		private IClimateModel _model = null;
 		private readonly Temperature _temperature;
 
