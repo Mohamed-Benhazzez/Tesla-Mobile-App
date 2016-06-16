@@ -86,6 +86,12 @@
     <Compile Include="ViewModel\BookingVisualState.cs">
       <DependentUpon>BookingViewModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\CloseOperation.cs">
+      <DependentUpon>CloseViewModelExecute.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\CloseViewModelExecute.cs">
+      <DependentUpon>BookingViewModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewModel\KeyPress.cs">
       <DependentUpon>ViewModelExecute.cs</DependentUpon>
     </Compile>

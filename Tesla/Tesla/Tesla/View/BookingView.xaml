@@ -3,6 +3,14 @@
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
             xmlns:l="clr-namespace:Tesla.Base"
             xmlns:control="clr-namespace:Tesla.Control"
-            x:Class="Tesla.View.BookingView">
-  <Label Text="Booking" />
+            x:Class="Tesla.View.BookingView"
+            BackgroundColor="#2D2D2D">
+  <StackLayout Spacing="10">
+    <Label Text="Close" BackgroundColor="#E31919">
+      <Label.GestureRecognizers>
+        <TapGestureRecognizer Command="{Binding CloseCommand}"></TapGestureRecognizer>
+      </Label.GestureRecognizers>
+    </Label>
+    <Label Text="{Binding VisualState.Booking.BookedUtc}" />
+  </StackLayout>
 </l:BaseView>
