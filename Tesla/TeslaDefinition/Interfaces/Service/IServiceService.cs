@@ -11,7 +11,7 @@ namespace TeslaDefinition.Interfaces.Service
 	public interface IServiceService : IService
 	{
 
-		Task SaveBooking(Booking booking);
+		Task SaveBooking(Booking booking, bool newId = true);
 
 		Task<IList<Booking>> GetBookings();
 

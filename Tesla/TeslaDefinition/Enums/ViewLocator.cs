@@ -13,7 +13,8 @@ namespace Tesla.Definition.ViewLocator
 
     public enum Main
     {
-        Main = 0
+        Main = 0,
+        ServiceCentre = 1
     }
 
 	public enum Booking

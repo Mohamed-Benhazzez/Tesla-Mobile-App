@@ -26,18 +26,20 @@ namespace TeslaDatabase
 			_database = database;
 			_queueCommand = new BlockingQueue<Command>();
 
-			
-			Start();
+            // Background Init of database.
+            Init();
 
-			// Background Init of database.
-			Task.Run(Init);
-
+            Start();
+            
 		}
 
-		public async Task Init()
+		public Task Init()
 		{
-			await CreateTable<ServiceCentre>();
-			await CreateTable<Booking>();
+            // TODO: Shouldn't be as bad as this
+			Task.Run(CreateTable<ServiceCentre>);
+			Task.Run(CreateTable<Booking>);
+
+            return Task.FromResult(true);
 		}
 
 		public void Start()

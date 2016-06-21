@@ -11,22 +11,26 @@ using Xamarin.Forms;
 
 namespace Tesla.Wire
 {
-    public class Injection: IInjection
+    public class Injection : IInjection
     {
-	
+
         private static ContainerBuilder _builder = null;
-        private static IContainer Container { get; set; } = null;       
+        private static IContainer Container { get; set; } = null;
         private static IList<Type> _registered = new List<Type>();
-				
+
         public void Init()
         {
-			_builder = new ContainerBuilder();
-			
-            _builder.RegisterInstance<IInjection>(this).SingleInstance();
+            if (_builder == null)
+            {
+                _builder = new ContainerBuilder();
+
+                _builder.RegisterInstance<IInjection>(this).SingleInstance();
+            }
         }
         public void Complete()
         {
-            Container = _builder.Build();
+            if (Container == null)
+                Container = _builder.Build();
         }
         private void Register<T>(IRegistrationBuilder<T, IConcreteActivatorData, SingleRegistrationStyle> register, InstanceType type)
         {
@@ -63,32 +67,32 @@ namespace Tesla.Wire
             _registered.Add(typeof(I));
         }
 
-		public void RegisterInstance<I>(I instance) where I : class
-		{
-			_builder.RegisterInstance(instance).As<I>().SingleInstance();
-			_registered.Add(typeof(I));
-		}
-
-
-		public T Get<T>() where T : class
+        public void RegisterInstance<I>(I instance) where I : class
         {
-			if (Container == null)
-				throw new NullReferenceException($"{nameof(Container)} is null. Have you called {nameof(IInjection)}.{nameof(Init)}() and {nameof(IInjection)}.{nameof(Complete)}()?");
-			return Container.Resolve<T>();
+            _builder.RegisterInstance(instance).As<I>().SingleInstance();
+            _registered.Add(typeof(I));
+        }
+
+
+        public T Get<T>() where T : class
+        {
+            if (Container == null)
+                throw new NullReferenceException($"{nameof(Container)} is null. Have you called {nameof(IInjection)}.{nameof(Init)}() and {nameof(IInjection)}.{nameof(Complete)}()?");
+            return Container.Resolve<T>();
         }
 
         public object Get(Type type)
         {
-			if (Container == null)
-				throw new NullReferenceException($"{nameof(Container)} is null. Have you called {nameof(IInjection)}.{nameof(Init)}() and {nameof(IInjection)}.{nameof(Complete)}()?");
+            if (Container == null)
+                throw new NullReferenceException($"{nameof(Container)} is null. Have you called {nameof(IInjection)}.{nameof(Init)}() and {nameof(IInjection)}.{nameof(Complete)}()?");
             return Container.Resolve(type);
         }
 
         public bool IsRegistered<T>()
-        {          
+        {
             return _registered.Contains(typeof(T));
         }
 
-		
-	}
+
+    }
 }

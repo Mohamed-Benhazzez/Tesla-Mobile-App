@@ -13,6 +13,8 @@ namespace Tesla.ViewModel
             base(authModel, exrinContainer, new ServiceVisualState(model))
         {
 			Model = model;
+
+
 		}
 
 		// Model
