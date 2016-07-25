@@ -20,6 +20,11 @@ namespace Tesla.iOS
             return base.FinishedLaunching(application, launchOptions);
         }
 
+        public override bool ContinueUserActivity(UIApplication application, NSUserActivity userActivity, UIApplicationRestorationHandler completionHandler)
+        {
+            return base.ContinueUserActivity(application, userActivity, completionHandler);
+        }
+
         public override void OnResignActivation(UIApplication application)
         {
             // Invoked when the application is about to move from active to inactive state.

@@ -1,13 +1,8 @@
-﻿using Exrin.Abstraction;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TeslaDefinition.Interfaces.Model
+﻿namespace TeslaDefinition.Interfaces.Model
 {
+    using Exrin.Abstraction;
+    using System.Threading.Tasks;
+
     public interface IAuthModel: IBaseModel
     {
         // State

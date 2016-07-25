@@ -9,8 +9,6 @@ namespace TeslaDefinition.Interfaces.Database
 	public interface IDatabase
 	{
 
-		Task Init();
-
 		Task<int> Insert<T>(T item);
 
 		Task<int> Update<T>(T item);
