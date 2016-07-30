@@ -1,4 +1,5 @@
 ﻿using Android.App;
+using Android.Content;
 using Android.OS;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
@@ -33,9 +34,10 @@ namespace Tesla.Droid
             Exrin.Framework.App.Init();
 
             AndroidAppLinks.Init(this);
-
+            
+            var action = Intent?.Action;
             var data = Intent?.Data;
-
+            
             LoadApplication(new App(new Bootstrapper()));
 
         }

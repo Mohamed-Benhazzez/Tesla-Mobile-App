@@ -93,6 +93,9 @@ namespace Tesla.Wire
             return _registered.Contains(typeof(T));
         }
 
-
+        public T Get<T>(bool optional = false) where T : class
+        {
+            throw new NotImplementedException();
+        }
     }
 }
