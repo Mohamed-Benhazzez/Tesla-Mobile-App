@@ -1,4 +1,4 @@
-﻿using Tesla.Wire;
+﻿using Tesla.Proxy;
 using System;
 using System.Collections.Generic;
 using System.Linq;

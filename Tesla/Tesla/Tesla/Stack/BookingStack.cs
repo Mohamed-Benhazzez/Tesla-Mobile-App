@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using Tesla.Definition.ViewLocator;
 using Tesla.View;
 using Tesla.ViewModel;
-using Tesla.Wire;
+using Tesla.Proxy;
 using TeslaDefinition;
 using Xamarin.Forms;
 

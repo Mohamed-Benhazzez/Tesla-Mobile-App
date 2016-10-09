@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Tesla.Wire
+namespace Tesla.Proxy
 {
     public class InsightProvider : IInsightsProvider
     {

@@ -15,5 +15,13 @@ namespace Tesla.Base
         {
             InitializeComponent();
         }
+
+        protected override bool OnBackButtonPressed()
+        {
+            return ((IView)this).OnBackButtonPressed();
+        }
+
+        Func<bool> IView.OnBackButtonPressed
+        { get; set; }
     }
 }

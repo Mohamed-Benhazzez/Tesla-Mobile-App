@@ -82,6 +82,8 @@
       <DependentUpon>ClimateModel.cs</DependentUpon>
     </Compile>
     <Compile Include="Stack\BookingStack.cs" />
+    <Compile Include="ViewContainer\AuthenticationViewContainer.cs" />
+    <Compile Include="ViewContainer\MainViewContainer.cs" />
     <Compile Include="ViewModel\BookingViewModel.cs" />
     <Compile Include="ViewModel\BookingVisualState.cs">
       <DependentUpon>BookingViewModel.cs</DependentUpon>
@@ -154,9 +156,9 @@
     <Compile Include="View\ServiceCentreView.xaml.cs">
       <DependentUpon>ServiceCentreView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Wire\EventCommand.cs" />
-    <Compile Include="Wire\InsightProvider.cs" />
-    <Compile Include="Wire\Injection.cs" />
+    <Compile Include="Proxy\EventCommand.cs" />
+    <Compile Include="Proxy\InsightProvider.cs" />
+    <Compile Include="Proxy\Injection.cs" />
     <Compile Include="Model\MainModel.cs" />
     <Compile Include="Model\AuthModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -170,7 +172,7 @@
     <Compile Include="View\PinView.xaml.cs">
       <DependentUpon>PinView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Wire\NavigationContainer.cs" />
+    <Compile Include="Proxy\NavigationContainer.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Autofac, Version=3.5.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
@@ -287,6 +289,7 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Forms.2.3.0.46-pre3\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.3.0.46-pre3\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

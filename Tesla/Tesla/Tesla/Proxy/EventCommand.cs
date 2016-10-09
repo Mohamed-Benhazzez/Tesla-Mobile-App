@@ -9,7 +9,7 @@ using System.Windows.Input;
 using Xamarin.Forms;
 using System.Reflection;
 
-namespace Tesla.Wire
+namespace Tesla.Proxy
 {
     // DO NOT USE: COMPLETELY UNTESTED
     public class EventCommand<T> : Behavior<T> where T : BindableObject

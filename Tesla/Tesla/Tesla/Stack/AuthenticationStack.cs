@@ -1,14 +1,14 @@
-﻿using Exrin.Abstraction;
-using Exrin.Framework;
-using Tesla.View;
-using Tesla.ViewModel;
-using Tesla.Wire;
-using TeslaDefinition;
-using Xamarin.Forms;
-using Tesla.Definition.ViewLocator;
-
-namespace Tesla.Stack
+﻿namespace Tesla.Stack
 {
+    using Exrin.Abstraction;
+    using Exrin.Framework;
+    using Definition.ViewLocator;
+    using Proxy;
+    using View;
+    using ViewModel;
+    using TeslaDefinition;
+    using Xamarin.Forms;
+
     public class AuthenticationStack : BaseStack
     {
         public AuthenticationStack(INavigationService navigationService)

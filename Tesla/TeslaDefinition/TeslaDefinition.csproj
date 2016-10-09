@@ -37,6 +37,7 @@
   <ItemGroup>
     <Compile Include="Enums\CommandType.cs" />
     <Compile Include="Enums\Temperature.cs" />
+    <Compile Include="Enums\ViewContainers.cs" />
     <Compile Include="Enums\ViewLocator.cs" />
     <Compile Include="InfrastructureRules.cs" />
     <Compile Include="Interfaces\Database\IDatabase.cs" />

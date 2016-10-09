@@ -1,9 +1,8 @@
-﻿using AutoMapper;
-using Exrin.Abstraction;
+﻿using Exrin.Abstraction;
 using System.Collections.Generic;
 using System.Reflection;
 using Tesla.Mapping;
-using Tesla.Wire;
+using Tesla.Proxy;
 using TeslaDatabase;
 using TeslaDefinition.Interfaces.Database;
 using Xamarin.Forms;
@@ -18,15 +17,18 @@ namespace Tesla
         {
             if (_instance == null)
                 _instance = new Bootstrapper(platformBootstrapper);
-      
+
             return _instance;
         }
 
-        private Bootstrapper(IPlatformBootstrapper platformBootstrapper) : base(new Injection(), (newView) => { Application.Current.MainPage = newView as Page; })
+        private Bootstrapper(IPlatformBootstrapper platformBootstrapper) : base(new Injection(), (newView) =>
+        {
+            Application.Current.MainPage = newView as Page;
+        })
         {
             platformBootstrapper?.Register(_injection);
         }
-        
+
         protected override void InitCustom()
         {
             base.InitCustom();

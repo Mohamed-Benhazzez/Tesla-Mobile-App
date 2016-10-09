@@ -9,7 +9,7 @@ using Tesla.View;
 using Tesla.Definition.ViewLocator;
 using Tesla.View.MainTabs;
 using Tesla.ViewModel;
-using Tesla.Wire;
+using Tesla.Proxy;
 using TeslaDefinition;
 using Xamarin.Forms;
 

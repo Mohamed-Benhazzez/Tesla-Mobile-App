@@ -1,19 +1,13 @@
-﻿using Autofac;
-using Autofac.Builder;
-using Autofac.Core;
-using Exrin.Abstraction;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Xamarin.Forms;
-
-namespace Tesla.Wire
+﻿namespace Tesla.Proxy
 {
+    using Autofac;
+    using Autofac.Builder;
+    using Exrin.Abstraction;
+    using System;
+    using System.Collections.Generic;
+
     public class Injection : IInjection
     {
-
         private static ContainerBuilder _builder = null;
         private static IContainer Container { get; set; } = null;
         private static IList<Type> _registered = new List<Type>();
@@ -74,10 +68,15 @@ namespace Tesla.Wire
         }
 
 
-        public T Get<T>() where T : class
+        public T Get<T>(bool optional = false) where T : class
         {
             if (Container == null)
                 throw new NullReferenceException($"{nameof(Container)} is null. Have you called {nameof(IInjection)}.{nameof(Init)}() and {nameof(IInjection)}.{nameof(Complete)}()?");
+
+            if (optional)
+                if (!Container.IsRegistered<T>())
+                    return null;
+
             return Container.Resolve<T>();
         }
 
@@ -93,9 +92,5 @@ namespace Tesla.Wire
             return _registered.Contains(typeof(T));
         }
 
-        public T Get<T>(bool optional = false) where T : class
-        {
-            throw new NotImplementedException();
-        }
     }
 }
