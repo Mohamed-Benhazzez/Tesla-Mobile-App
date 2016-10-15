@@ -25,7 +25,7 @@ namespace Tesla.Stack
         protected override void Map()
         {
             base.NavigationMap(nameof(Definition.ViewLocator.Control.Main), typeof(ControlView), typeof(ControlViewModel));
-
+            base.NavigationMap(nameof(Definition.ViewLocator.Control.ControlTwo), typeof(ControlTwoView), typeof(ControlViewModel));
         }
 
         public override string NavigationStartKey

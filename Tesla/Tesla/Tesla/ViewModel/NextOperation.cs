@@ -2,22 +2,18 @@
 using Exrin.Framework;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using Tesla.Definition.ViewLocator;
 using TeslaDefinition;
-using TeslaDefinition.Enums;
-using TeslaDefinition.Interfaces.Model;
 
-namespace Tesla.ViewModel.MainTabs
+namespace Tesla.ViewModel
 {
-    public class HonkOperation : IOperation
+    public class NextOperation : IOperation
     {
-        IControlModel _model = null;
-        
-        public HonkOperation(IControlModel model)
+        public NextOperation()
         {
-            _model = model;
         }
 
         public bool ChainedRollback { get; private set; } = false;
@@ -28,8 +24,8 @@ namespace Tesla.ViewModel.MainTabs
             {
                 return async (result, parameter, token) =>
                 {
-                    await _model.IssueCommand(CommandType.Honk);
-                    result.Add(new Result() { ResultAction = ResultType.Navigation, Arguments = new NavigationArgs() { Key = Definition.ViewLocator.Control.ControlTwo, StackType = Stacks.Control } });
+                    await Task.Delay(0);
+                    result.Add(new Result() { ResultAction = ResultType.Navigation, Arguments = new NavigationArgs() { Key = Definition.ViewLocator.Climate.ClimateTwo, StackType = Stacks.Climate } });
                 };
             }
         }

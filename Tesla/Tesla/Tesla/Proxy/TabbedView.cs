@@ -7,20 +7,19 @@
 
     public class TabbedView : ITabbedView
     {
-        private readonly IStackRunner _runner;
+        public event System.EventHandler PageChanged;
         public TabbedView(TabbedPage page)
         {
           
             View = page;
             Children.CollectionChanged += Children_CollectionChanged;
-
-
+            
             page.CurrentPageChanged += Page_CurrentPageChanged;
         }
 
         private void Page_CurrentPageChanged(object sender, System.EventArgs e)
         {
-         
+            PageChanged?.Invoke(sender, e);
         }
 
         private void Children_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)

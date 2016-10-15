@@ -20,7 +20,7 @@ namespace Tesla.Stack
         protected override void Map()
         {
             base.NavigationMap(nameof(Climate.Main), typeof(ClimateView), typeof(ClimateViewModel));
-     
+            base.NavigationMap(nameof(Climate.ClimateTwo), typeof(ClimateTwoView), typeof(ClimateViewModel));
         }
 
         public override string NavigationStartKey

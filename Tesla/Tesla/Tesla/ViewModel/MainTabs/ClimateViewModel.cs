@@ -1,5 +1,6 @@
 ﻿using Exrin.Abstraction;
 using Exrin.Framework;
+using System.Collections.Generic;
 using Tesla.Base;
 using Tesla.ViewModel.MainTabs;
 using TeslaDefinition.Enums;
@@ -10,10 +11,12 @@ namespace Tesla.ViewModel
 	public class ClimateViewModel : BaseViewModel
     {
 		private readonly IClimateModel _model = null;
+        private readonly IExrinContainer _container;
         public ClimateViewModel(IAuthModel authModel, IClimateModel model, IExrinContainer exrinContainer):
             base (authModel, exrinContainer, new ClimateVisualState(model))
         {
 			_model = model;
+            _container = exrinContainer;
         }
 
 		private IClimateModel Model
@@ -35,7 +38,18 @@ namespace Tesla.ViewModel
 			}
 		}
 
-		public IRelayCommand DownCommand
+        public IRelayCommand NextCommand
+        {
+            get
+            {
+                return GetCommand(() =>
+                {
+                    return Execution.ViewModelExecute(new BaseViewModelExecute(new List<IOperation>() { new NextOperation() }));
+                });
+            }
+        }
+
+        public IRelayCommand DownCommand
 		{
 			get
 			{

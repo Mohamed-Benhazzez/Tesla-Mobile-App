@@ -24,12 +24,14 @@ namespace Tesla.Definition.ViewLocator
 
     public enum Climate
     {
-        Main = 0
+        Main = 0,
+        ClimateTwo = 1
     }
 
     public enum Control
     {
-        Main = 0
+        Main = 0,
+        ControlTwo = 1
     }
 
 }

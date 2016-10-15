@@ -27,6 +27,7 @@
             <TapGestureRecognizer Command="{Binding UpCommand}" />
           </Image.GestureRecognizers>
         </Image>
+        <Button Text="Move To Next" Command="{Binding NextCommand}" />
       </StackLayout>
 
     </Grid>
