@@ -1,18 +1,29 @@
 ﻿namespace Tesla.ViewContainer
 {
     using Exrin.Abstraction;
+    using Proxy;
     using Stack;
+    using System.Collections.Generic;
     using TeslaDefinition.Enums;
 
-    public class MainViewContainer : Exrin.Framework.ViewContainer, ISingleContainer
+    public class MainViewContainer : Exrin.Framework.ViewContainer, ITabbedContainer
     {
 
-        public MainViewContainer(MainStack stack) : base(ViewContainers.Main.ToString(), stack.Container.View)
+        public MainViewContainer(ControlStack controlStack, ClimateStack climateStack)
+            : base(ViewContainers.Main.ToString(), null) //TODO: API Change needed
         {
-            Stack = stack;
+            Children = new List<IStack>() { controlStack, climateStack };
+            var tabbed = new TabbedView(new Xamarin.Forms.TabbedPage());
+            View = tabbed.View;
+
+            foreach (var child in Children)
+            {
+                tabbed.Children.Add(child.Container.View);
+            child.StartNavigation(child.NavigationStartKey); // Needs to initialize on tabbed page to start with.
+            }
         }
 
-        public IStack Stack { get; set; }
+        public IList<IStack> Children { get; set; }
 
     }
 }

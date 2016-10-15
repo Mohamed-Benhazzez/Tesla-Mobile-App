@@ -81,7 +81,10 @@
     <Compile Include="Model\SetTemperature.cs">
       <DependentUpon>ClimateModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Proxy\TabbedView.cs" />
     <Compile Include="Stack\BookingStack.cs" />
+    <Compile Include="Stack\ClimateStack.cs" />
+    <Compile Include="Stack\ControlStack.cs" />
     <Compile Include="ViewContainer\AuthenticationViewContainer.cs" />
     <Compile Include="ViewContainer\MainViewContainer.cs" />
     <Compile Include="ViewModel\BookingViewModel.cs" />

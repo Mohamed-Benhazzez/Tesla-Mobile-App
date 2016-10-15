@@ -2,7 +2,8 @@
 <l:BaseView xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:l="clr-namespace:Tesla.Base"
-             x:Class="Tesla.View.MainTabs.ClimateView">
+             x:Class="Tesla.View.MainTabs.ClimateView"
+             Title="Climate">
 
   <Grid>
     <Grid Opacity="0.6" Margin="0,20,0,0" BackgroundColor="#2D2D2D" VerticalOptions="FillAndExpand">

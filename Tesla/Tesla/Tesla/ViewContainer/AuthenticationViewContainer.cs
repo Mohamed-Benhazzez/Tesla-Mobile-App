@@ -7,7 +7,8 @@
     public class AuthenticationViewContainer : Exrin.Framework.ViewContainer, ISingleContainer
     {
 
-        public AuthenticationViewContainer(AuthenticationStack stack) : base(ViewContainers.Authentication.ToString(), stack.Container.View)
+        public AuthenticationViewContainer(AuthenticationStack stack) 
+            : base(ViewContainers.Authentication.ToString(), stack.Container.View)
         {
             Stack = stack;
 

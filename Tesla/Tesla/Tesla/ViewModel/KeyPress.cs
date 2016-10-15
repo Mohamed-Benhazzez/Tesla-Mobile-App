@@ -1,15 +1,15 @@
-﻿using Exrin.Abstraction;
-using Exrin.Framework;
-using System;
-using System.Collections.Generic;
-using System.Threading;
-using System.Threading.Tasks;
-using Tesla.Definition.ViewLocator;
-using TeslaDefinition;
-using TeslaDefinition.Interfaces.Model;
-
-namespace Tesla.ViewModelOperation
+﻿namespace Tesla.ViewModelOperation
 {
+    using Definition.ViewLocator;
+    using Exrin.Abstraction;
+    using Exrin.Framework;
+    using System;
+    using System.Collections.Generic;
+    using System.Threading;
+    using System.Threading.Tasks;
+    using TeslaDefinition;
+    using TeslaDefinition.Interfaces.Model;
+
     public class PinLoginOperation : IOperation
     {
         IAuthModel _model = null;
@@ -52,7 +52,7 @@ namespace Tesla.ViewModelOperation
                     else if (await _model.IsAuthenticated())
                     {
                         result.ResultAction = ResultType.Navigation;
-                        result.Arguments = new NavigationArgs() { Key = Main.Main, StackType = Stacks.Main };
+                        result.Arguments = new NavigationArgs() { Key = Control.Main, StackType = Stacks.Control };
                     }                   
                     else
                     {

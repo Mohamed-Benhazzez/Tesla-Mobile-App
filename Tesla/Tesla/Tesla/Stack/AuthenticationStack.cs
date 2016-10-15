@@ -22,7 +22,7 @@
             base.NavigationMap(nameof(Authentication.Pin), typeof(PinView), typeof(PinViewModel));
         }
 
-        protected override string NavigationStartKey
+        public override string NavigationStartKey
         {
             get
             {

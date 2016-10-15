@@ -1,20 +1,15 @@
 ﻿using Exrin.Abstraction;
 using Exrin.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Tesla.Definition.ViewLocator;
+using Tesla.Proxy;
 using Tesla.View;
 using Tesla.ViewModel;
-using Tesla.Proxy;
 using TeslaDefinition;
 using Xamarin.Forms;
 
 namespace Tesla.Stack
 {
-	public class BookingStack : BaseStack
+    public class BookingStack : BaseStack
 	{
 
 		public BookingStack(INavigationService navigationService)
@@ -28,7 +23,7 @@ namespace Tesla.Stack
 			base.NavigationMap(nameof(Booking.BookingMain), typeof(BookingView), typeof(BookingViewModel));
 		}
 
-		protected override string NavigationStartKey
+		public override string NavigationStartKey
 		{
 			get
 			{

@@ -117,6 +117,12 @@ namespace Tesla.Proxy
         public Task ClearAsync()
         {
             _page = new NavigationPage();
+            return Task.FromResult(true);
+        }
+
+        public Task SilentPopAsync(int indexFromTop)
+        {
+            _page.Navigation.RemovePage(_page.Navigation.NavigationStack[_page.Navigation.NavigationStack.Count - indexFromTop - 1]);
 
             return Task.FromResult(true);
         }

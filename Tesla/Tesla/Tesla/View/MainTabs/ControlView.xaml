@@ -4,7 +4,8 @@
              xmlns:l="clr-namespace:Tesla.Base"
              xmlns:c="clr-namespace:Tesla.Control"
              x:Class="Tesla.View.MainTabs.ControlView"
-             BackgroundColor="Transparent">
+             BackgroundColor="Transparent"
+             Title="Control">
   <Grid>
     <Grid Opacity="0.6" Margin="0,20,0,0" BackgroundColor="#2D2D2D" VerticalOptions="FillAndExpand">
     </Grid>

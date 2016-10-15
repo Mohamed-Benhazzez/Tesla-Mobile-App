@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Exrin.Abstraction;
-using Xamarin.Forms;
-
-namespace Tesla.Base
+﻿namespace Tesla.Base
 {
+    using Exrin.Abstraction;
+    using System;
+    using System.Collections.Generic;
+    using Xamarin.Forms;
+
     public partial class BaseTabbedView : TabbedPage, IMultiView
     {
         public BaseTabbedView()

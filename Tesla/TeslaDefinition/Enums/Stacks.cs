@@ -10,6 +10,8 @@ namespace TeslaDefinition
     {
         Authentication = 0,
         Main = 1,
-		Booking = 2
+		Booking = 2,
+        Climate = 3,
+        Control = 4
     }
 }

@@ -22,4 +22,14 @@ namespace Tesla.Definition.ViewLocator
 		BookingMain = 0
 	}
 
+    public enum Climate
+    {
+        Main = 0
+    }
+
+    public enum Control
+    {
+        Main = 0
+    }
+
 }
