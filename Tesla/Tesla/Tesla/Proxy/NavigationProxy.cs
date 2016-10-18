@@ -42,10 +42,8 @@ namespace Tesla.Proxy
                 NavigationPage.SetHasNavigationBar(bindableObject, isVisible);
         }
 
-        public object View { get { return _page; } }
-
-        public object CurrentView { get { return _page.CurrentPage; } }
-
+        public object NativeView { get { return _page; } }
+        
         public bool CanGoBack()
         {
             return _page.Navigation.NavigationStack.Count > 1;

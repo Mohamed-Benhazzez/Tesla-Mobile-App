@@ -18,8 +18,8 @@
 
         protected override void Map()
         {
-            base.NavigationMap(nameof(Definition.ViewLocator.Control.Main), typeof(ControlView), typeof(ControlViewModel));
-            base.NavigationMap(nameof(Definition.ViewLocator.Control.ControlTwo), typeof(ControlTwoView), typeof(ControlViewModel));
+            base.NavigationMap<ControlView, ControlViewModel>(nameof(Definition.ViewLocator.Control.Main));
+            base.NavigationMap<ControlTwoView, ControlViewModel>(nameof(Definition.ViewLocator.Control.ControlTwo));
         }
 
         public override string NavigationStartKey

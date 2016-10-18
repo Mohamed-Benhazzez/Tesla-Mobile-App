@@ -10,7 +10,7 @@ namespace Tesla.Proxy
         {
             View = _mdp = masterDetailPage;
         }
-        public object DetailView
+        public object DetailNativeView
         {
             get
             {
@@ -22,7 +22,7 @@ namespace Tesla.Proxy
             }
         }
 
-        public object MasterView
+        public object MasterNativeView
         {
             get
             {

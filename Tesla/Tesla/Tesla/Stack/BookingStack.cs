@@ -20,7 +20,7 @@ namespace Tesla.Stack
 
 		protected override void Map()
 		{
-			base.NavigationMap(nameof(Booking.BookingMain), typeof(BookingView), typeof(BookingViewModel));
+			base.NavigationMap<BookingView, BookingViewModel>(nameof(Booking.BookingMain));
 		}
 
 		public override string NavigationStartKey

@@ -19,7 +19,7 @@
 
         protected override void Map()
         {
-            base.NavigationMap(nameof(Authentication.Pin), typeof(PinView), typeof(PinViewModel));
+            base.NavigationMap<PinView, PinViewModel>(nameof(Authentication.Pin));
         }
 
         public override string NavigationStartKey

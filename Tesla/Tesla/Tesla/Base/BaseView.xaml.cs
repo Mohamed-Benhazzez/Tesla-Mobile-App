@@ -1,14 +1,9 @@
-﻿using Exrin.Abstraction;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using Xamarin.Forms;
-
-namespace Tesla.Base
+﻿namespace Tesla.Base
 {
+    using Exrin.Abstraction;
+    using System;
+    using Xamarin.Forms;
+
     public partial class BaseView : ContentPage, IView
     {
         public BaseView()
@@ -21,7 +16,6 @@ namespace Tesla.Base
             return ((IView)this).OnBackButtonPressed();
         }
 
-        Func<bool> IView.OnBackButtonPressed
-        { get; set; }
+        Func<bool> IView.OnBackButtonPressed { get; set; }
     }
 }

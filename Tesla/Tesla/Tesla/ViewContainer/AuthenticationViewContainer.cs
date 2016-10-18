@@ -12,15 +12,15 @@
             : base(ViewContainers.Authentication.ToString())
         {
             var mdp = new MasterDetailProxy(new Xamarin.Forms.MasterDetailPage());
-            View = mdp.View;
+            NativeView = mdp.View;
             Proxy = mdp;
-            Detail = stack;
-            Master = bookingStack;     
+            DetailStack = stack;
+            MasterStack = bookingStack;     
         }
 
-        public IStack Detail { get; set; }
+        public IStack DetailStack { get; set; }
 
-        public IStack Master { get; set; }
+        public IStack MasterStack { get; set; }
 
         public IMasterDetailProxy Proxy { get; set; }
     }
