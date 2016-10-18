@@ -43,7 +43,7 @@ namespace Tesla.Proxy
         }
 
         public object NativeView { get { return _page; } }
-        
+
         public bool CanGoBack()
         {
             return _page.Navigation.NavigationStack.Count > 1;
@@ -51,63 +51,43 @@ namespace Tesla.Proxy
 
         public async Task PopAsync(object parameter)
         {
-            using (var releaser = await _lock.LockAsync())
-            {
-                _argQueue.Enqueue(parameter);
-                await ThreadHelper.RunOnUIThreadAsync(async () => { await _page.PopAsync(); });
-            }
+            _argQueue.Enqueue(parameter);
+            await _page.PopAsync();
         }
 
         public async Task PopAsync()
         {
-            using (var releaser = await _lock.LockAsync())
-            {
-                await ThreadHelper.RunOnUIThreadAsync(async () => { await _page.PopAsync(); });
-            }
+            await _page.PopAsync();
         }
 
         public async Task PushAsync(object page)
         {
-            using (var releaser = await _lock.LockAsync())
-            {
-                await ThreadHelper.RunOnUIThreadAsync(async () =>
-                {
-                    var xamarinPage = page as Page;
+            var xamarinPage = page as Page;
 
-                    if (xamarinPage == null)
-                        throw new Exception("PushAsync can not push a non Xamarin Page");
+            if (xamarinPage == null)
+                throw new Exception("PushAsync can not push a non Xamarin Page");
 
-                    await _page.PushAsync(xamarinPage); // Must be run on the Main Thread
-                }).ContinueWith(t =>
-                {
-                    if (t.Exception != null)
-                        throw t.Exception.InnerException;
-                });
-            }
+            await _page.PushAsync(xamarinPage);
         }
 
         public async Task ShowDialog(IDialogOptions dialogOptions)
         {
-            await ThreadHelper.RunOnUIThreadAsync(async () =>
+            try
             {
-                try
+                if (ViewStatus == VisualStatus.Visible)
                 {
-                    if (ViewStatus == VisualStatus.Visible)
-                    {
-                        await _page.DisplayAlert(dialogOptions.Title, dialogOptions.Message, "OK");
-                        dialogOptions.Result = true;
-                    }
-                    else
-                    {
-                        dialogOptions.Result = false; // TODO: Should report to insights as never should be called in prod app
-                    }
+                    await _page.DisplayAlert(dialogOptions.Title, dialogOptions.Message, "OK");
+                    dialogOptions.Result = true;
                 }
-                catch (Exception ex)
+                else
                 {
-                    Debug.WriteLine(ex.Message); // TODO: Change to application insights
+                    dialogOptions.Result = false; 
                 }
-            });
-
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
 
         }
 
@@ -120,7 +100,6 @@ namespace Tesla.Proxy
         public Task SilentPopAsync(int indexFromTop)
         {
             _page.Navigation.RemovePage(_page.Navigation.NavigationStack[_page.Navigation.NavigationStack.Count - indexFromTop - 1]);
-
             return Task.FromResult(true);
         }
     }
