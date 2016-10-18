@@ -12,8 +12,8 @@ namespace Tesla.Stack
     public class BookingStack : BaseStack
 	{
 
-		public BookingStack(INavigationService navigationService)
-	  : base(navigationService, new NavigationContainer(new NavigationPage()), Stacks.Booking)
+		public BookingStack(IViewService viewService)
+	  : base(new NavigationProxy(new NavigationPage()), viewService, Stacks.Booking)
 		{
 			ShowNavigationBar = false;			
 		}

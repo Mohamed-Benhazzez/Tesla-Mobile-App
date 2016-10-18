@@ -1,23 +1,17 @@
-﻿using Exrin.Abstraction;
-using Exrin.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Tesla.Definition.ViewLocator;
-using Tesla.Proxy;
-using Tesla.View.MainTabs;
-using Tesla.ViewModel;
-using TeslaDefinition;
-using Xamarin.Forms;
-
-namespace Tesla.Stack
+﻿namespace Tesla.Stack
 {
+    using Exrin.Abstraction;
+    using Exrin.Framework;
+    using Proxy;
+    using View.MainTabs;
+    using ViewModel;
+    using TeslaDefinition;
+    using Xamarin.Forms;
+
     public class ControlStack : BaseStack
     {
-        public ControlStack(INavigationService navigationService)
-               : base(navigationService, new NavigationContainer(new NavigationPage() { Title = "Control" }), Stacks.Control)
+        public ControlStack(IViewService viewService)
+               : base(new NavigationProxy(new NavigationPage() { Title = "Control" }), viewService, Stacks.Control)
         {
             ShowNavigationBar = false;
         }

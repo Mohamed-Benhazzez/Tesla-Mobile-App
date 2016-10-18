@@ -1,4 +1,5 @@
 ﻿using Exrin.Abstraction;
+using Exrin.Framework;
 using System;
 using System.Threading.Tasks;
 using Xamarin.Forms;
@@ -12,7 +13,7 @@ namespace Tesla
       
         public App(IPlatformBootstrapper platformBootstrapper)
         {
-            Bootstrapper.GetInstance(platformBootstrapper).Init().Get<IStackRunner>().Run(TeslaDefinition.Stacks.Authentication);
+            Bootstrapper.GetInstance(platformBootstrapper).Init().Get<INavigationService>().Navigate(new StackOptions() { StackChoice = TeslaDefinition.Stacks.Authentication });
             
             //Task.Run(async () =>
             //{

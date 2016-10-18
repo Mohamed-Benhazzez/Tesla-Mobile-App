@@ -1,9 +1,8 @@
-﻿using System;
-using Exrin.Abstraction;
+﻿using Exrin.Abstraction;
 using Exrin.Framework;
 using Tesla.Base;
-using TeslaDefinition.Interfaces.Model;
 using Tesla.ViewModel.MainTabs;
+using TeslaDefinition.Interfaces.Model;
 
 namespace Tesla.ViewModel
 {

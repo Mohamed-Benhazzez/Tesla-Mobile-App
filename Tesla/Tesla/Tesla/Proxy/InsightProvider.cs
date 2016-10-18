@@ -1,12 +1,9 @@
-﻿using Exrin.Abstraction;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Tesla.Proxy
+﻿namespace Tesla.Proxy
 {
+    using Exrin.Abstraction;
+    using System;
+    using System.Threading.Tasks;
+
     public class InsightProvider : IInsightsProvider
     {
       

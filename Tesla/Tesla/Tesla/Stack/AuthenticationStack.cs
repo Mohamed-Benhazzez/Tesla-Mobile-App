@@ -11,10 +11,10 @@
 
     public class AuthenticationStack : BaseStack
     {
-        public AuthenticationStack(INavigationService navigationService)
-            : base(navigationService, new NavigationContainer(new NavigationPage()), Stacks.Authentication)
+        public AuthenticationStack(IViewService viewService)
+            : base(new NavigationProxy(new NavigationPage()), viewService, Stacks.Authentication)
         {
-            ShowNavigationBar = false;
+            ShowNavigationBar = true;
         }
 
         protected override void Map()

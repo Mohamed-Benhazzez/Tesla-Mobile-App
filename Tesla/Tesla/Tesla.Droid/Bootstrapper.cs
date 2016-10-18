@@ -6,7 +6,7 @@ namespace Tesla.Droid
 {
     public class Bootstrapper : IPlatformBootstrapper
     {
-        public void Register(IInjection injection)
+        public void Register(IInjectionProxy injection)
         {
             injection.RegisterInterface<IPlatformDatabase, Database>(InstanceType.SingleInstance);
         }

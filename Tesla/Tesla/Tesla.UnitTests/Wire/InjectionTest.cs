@@ -13,9 +13,9 @@ namespace Tesla.Tests.Wire
 	{
 
 
-		public Injection GetInjection()
+		public InjectionProxy GetInjection()
 		{
-			return new Injection();
+			return new InjectionProxy();
 		}
 
 		[Fact]
@@ -24,7 +24,7 @@ namespace Tesla.Tests.Wire
 			var injection = GetInjection();
 			injection.Init(); // Call Init - should register itself
 			injection.Complete();
-			var instance = injection.Get<IInjection>();
+			var instance = injection.Get<IInjectionProxy>();
 
 			Assert.Equal(injection, instance);
 		}

@@ -18,7 +18,7 @@ namespace Tesla.Tests.Wire
 		private ContentPage _page = new ContentPage();
 		private ContentPage _page2 = new ContentPage();
 
-		public NavigationContainer GetNavigationContainer()
+		public NavigationProxy GetNavigationContainer()
 		{
 			Exrin.Framework.App.Init();
 
@@ -27,7 +27,7 @@ namespace Tesla.Tests.Wire
 				_mock = new Moq.Mock<NavigationPage>();
 			}
 
-			return new NavigationContainer(_mock.Object);
+			return new NavigationProxy(_mock.Object);
 		}
 
 		[Fact]

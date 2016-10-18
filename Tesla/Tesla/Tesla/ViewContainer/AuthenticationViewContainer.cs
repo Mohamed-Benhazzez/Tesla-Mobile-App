@@ -1,20 +1,27 @@
 ﻿namespace Tesla.ViewContainer
 {
-    using TeslaDefinition.Enums;
     using Exrin.Abstraction;
+    using Proxy;
     using Stack;
+    using TeslaDefinition.Enums;
 
-    public class AuthenticationViewContainer : Exrin.Framework.ViewContainer, ISingleContainer
+    public class AuthenticationViewContainer : Exrin.Framework.ViewContainer, IMasterDetailContainer
     {
-
-        public AuthenticationViewContainer(AuthenticationStack stack) 
-            : base(ViewContainers.Authentication.ToString(), stack.Container.View)
+        
+        public AuthenticationViewContainer(AuthenticationStack stack, BookingStack bookingStack) 
+            : base(ViewContainers.Authentication.ToString())
         {
-            Stack = stack;
-
+            var mdp = new MasterDetailProxy(new Xamarin.Forms.MasterDetailPage());
+            View = mdp.View;
+            Proxy = mdp;
+            Detail = stack;
+            Master = bookingStack;     
         }
 
-        public IStack Stack { get; set; }
+        public IStack Detail { get; set; }
 
+        public IStack Master { get; set; }
+
+        public IMasterDetailProxy Proxy { get; set; }
     }
 }

@@ -15,8 +15,8 @@
 //    public class MainStack: BaseStack
 //    {
 //        private IViewService _pageService = null;
-//        public MainStack(INavigationService navigationService, IViewService pageService)
-//               : base(navigationService, new NavigationContainer(new NavigationPage()), Stacks.Main)
+//        public MainStack(IViewService viewService)
+//               : base(new NavigationContainer(new NavigationPage()), viewService, Stacks.Main)
 //        {
 //            _pageService = pageService;
 //            ShowNavigationBar = false;

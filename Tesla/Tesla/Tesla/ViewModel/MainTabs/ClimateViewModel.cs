@@ -33,7 +33,7 @@ namespace Tesla.ViewModel
 			{
 				return GetCommand(() =>
 				{
-					return Execution.ViewModelExecute(new TemperatureViewModelExecute(Model, Temperature.Up));
+					return Execution.ViewModelExecute(new TemperatureOperation(Model, Temperature.Up));
 				});
 			}
 		}
@@ -55,7 +55,7 @@ namespace Tesla.ViewModel
 			{
 				return GetCommand(() =>
 				{
-					return Execution.ViewModelExecute(new TemperatureViewModelExecute(Model, Temperature.Down));
+					return Execution.ViewModelExecute(new TemperatureOperation(Model, Temperature.Down));
 				});
 			}
 		}

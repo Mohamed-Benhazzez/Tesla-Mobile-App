@@ -6,7 +6,7 @@
     using System;
     using System.Collections.Generic;
 
-    public class Injection : IInjection
+    public class InjectionProxy : IInjectionProxy
     {
         private static ContainerBuilder _builder = null;
         private static IContainer Container { get; set; } = null;
@@ -18,7 +18,7 @@
             {
                 _builder = new ContainerBuilder();
 
-                _builder.RegisterInstance<IInjection>(this).SingleInstance();
+                _builder.RegisterInstance<IInjectionProxy>(this).SingleInstance();
             }
         }
         public void Complete()
@@ -71,7 +71,7 @@
         public T Get<T>(bool optional = false) where T : class
         {
             if (Container == null)
-                throw new NullReferenceException($"{nameof(Container)} is null. Have you called {nameof(IInjection)}.{nameof(Init)}() and {nameof(IInjection)}.{nameof(Complete)}()?");
+                throw new NullReferenceException($"{nameof(Container)} is null. Have you called {nameof(IInjectionProxy)}.{nameof(Init)}() and {nameof(IInjectionProxy)}.{nameof(Complete)}()?");
 
             if (optional)
                 if (!Container.IsRegistered<T>())
@@ -83,7 +83,7 @@
         public object Get(Type type)
         {
             if (Container == null)
-                throw new NullReferenceException($"{nameof(Container)} is null. Have you called {nameof(IInjection)}.{nameof(Init)}() and {nameof(IInjection)}.{nameof(Complete)}()?");
+                throw new NullReferenceException($"{nameof(Container)} is null. Have you called {nameof(IInjectionProxy)}.{nameof(Init)}() and {nameof(IInjectionProxy)}.{nameof(Complete)}()?");
             return Container.Resolve(type);
         }
 

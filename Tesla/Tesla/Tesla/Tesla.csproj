@@ -81,6 +81,7 @@
     <Compile Include="Model\SetTemperature.cs">
       <DependentUpon>ClimateModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Proxy\MasterDetailProxy.cs" />
     <Compile Include="Proxy\TabbedView.cs" />
     <Compile Include="Stack\BookingStack.cs" />
     <Compile Include="Stack\ClimateStack.cs" />
@@ -122,9 +123,6 @@
       <DependentUpon>ServiceViewModel.cs</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\MainTabs\TemperatureOperation.cs">
-      <DependentUpon>TemperatureViewModelExecute.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ViewModel\MainTabs\TemperatureViewModelExecute.cs">
       <DependentUpon>ClimateViewModel.cs</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\MainTabs\ViewBookingOperation.cs">
@@ -168,7 +166,7 @@
     </Compile>
     <Compile Include="Proxy\EventCommand.cs" />
     <Compile Include="Proxy\InsightProvider.cs" />
-    <Compile Include="Proxy\Injection.cs" />
+    <Compile Include="Proxy\InjectionProxy.cs" />
     <Compile Include="Model\MainModel.cs" />
     <Compile Include="Model\AuthModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -182,7 +180,7 @@
     <Compile Include="View\PinView.xaml.cs">
       <DependentUpon>PinView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Proxy\NavigationContainer.cs" />
+    <Compile Include="Proxy\NavigationProxy.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Autofac, Version=3.5.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">

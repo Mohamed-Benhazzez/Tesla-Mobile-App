@@ -10,7 +10,7 @@
     {
 
         public MainViewContainer(ControlStack controlStack, ClimateStack climateStack)
-            : base(ViewContainers.Main.ToString(), null) //TODO: API Change needed
+            : base(ViewContainers.Main.ToString(), null)
         {
             Children = new List<IStack>() { controlStack, climateStack };
             var tabbed = new TabbedView(new Xamarin.Forms.TabbedPage());
@@ -18,8 +18,8 @@
 
             foreach (var child in Children)
             {
-                tabbed.Children.Add(child.Container.View);
-            child.StartNavigation(child.NavigationStartKey); // Needs to initialize on tabbed page to start with.
+                tabbed.Children.Add(child.Proxy.View);
+                child.StartNavigation(child.NavigationStartKey); // Needs to initialize on tabbed page to start with.
             }
         }
 

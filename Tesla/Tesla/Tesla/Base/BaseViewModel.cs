@@ -1,14 +1,8 @@
 ﻿using Exrin.Abstraction;
 using Exrin.Framework;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 using TeslaDefinition;
-using TeslaDefinition.Interfaces;
 using TeslaDefinition.Interfaces.Model;
 
 namespace Tesla.Base
@@ -40,7 +34,7 @@ namespace Tesla.Base
                         Exrin.Common.ThreadHelper.RunOnUIThread(async () =>
                         {
                             await _displayService.ShowDialog("Authentication", "Authentication is no longer valid. Please login again"); //TODO: Set resources, allow for localization
-                            _stackRunner.Run(Stacks.Authentication);
+                            _navigationService.Navigate(new StackOptions() { StackChoice = Stacks.Authentication });
                         });
                     }
             }

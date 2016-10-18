@@ -9,17 +9,16 @@ using Xamarin.Forms;
 
 namespace Tesla.Proxy
 {
-    public class NavigationContainer : INavigationContainer
+    public class NavigationProxy : INavigationProxy
     {
 
         private NavigationPage _page = null;
         public event EventHandler<IViewNavigationArgs> OnPopped;
         private Queue<object> _argQueue = new Queue<object>();
         private AsyncLock _lock = new AsyncLock();
-        public string CurrentViewKey { get; set; }
         public VisualStatus ViewStatus { get; set; } = VisualStatus.Unseen;
 
-        public NavigationContainer(NavigationPage page)
+        public NavigationProxy(NavigationPage page)
         {
             _page = page;
             _page.Popped += _page_Popped;

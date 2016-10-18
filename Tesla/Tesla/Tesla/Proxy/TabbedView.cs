@@ -5,7 +5,7 @@
     using System.Collections.Specialized;
     using Xamarin.Forms;
 
-    public class TabbedView : ITabbedView
+    public class TabbedView : ITabbedViewProxy
     {
         public event System.EventHandler PageChanged;
         public TabbedView(TabbedPage page)

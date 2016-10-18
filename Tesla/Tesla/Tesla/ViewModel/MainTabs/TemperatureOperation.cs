@@ -1,17 +1,14 @@
 ﻿using Exrin.Abstraction;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using TeslaDefinition.Enums;
 using TeslaDefinition.Interfaces.Model;
-using TeslaDefinition.Interfaces.Service;
 
 namespace Tesla.ViewModel.MainTabs
 {
-	public class TemperatureOperation : IOperation
+    public class TemperatureOperation : IOperation
 	{
 		private IClimateModel _model = null;
 		private readonly Temperature _temperature;

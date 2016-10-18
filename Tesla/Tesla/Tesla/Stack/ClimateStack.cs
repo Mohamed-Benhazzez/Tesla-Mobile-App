@@ -11,8 +11,8 @@ namespace Tesla.Stack
 {
     public class ClimateStack : BaseStack
     {
-        public ClimateStack(INavigationService navigationService)
-               : base(navigationService, new NavigationContainer(new NavigationPage() { Title = "Climate" }), Stacks.Climate)
+        public ClimateStack(IViewService viewService)
+               : base(new NavigationProxy(new NavigationPage() { Title = "Climate" }), viewService, Stacks.Climate)
         {
             ShowNavigationBar = false;
         }
