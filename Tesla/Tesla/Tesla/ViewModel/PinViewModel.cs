@@ -3,6 +3,7 @@ using Exrin.Framework;
 using Tesla.Base;
 using Tesla.Control;
 using Tesla.ViewModelExecute;
+using Tesla.ViewModelOperation;
 using TeslaDefinition.Interfaces.Model;
 
 namespace Tesla.ViewModel
@@ -21,7 +22,7 @@ namespace Tesla.ViewModel
             {
                 return GetCommand(() =>
                 {
-                    return Execution.ViewModelExecute(new PinLoginViewModelExecute(base.AuthModel, Keypad.BackCharacter));
+                    return Execution.ViewModelExecute(new PinLoginOperation(base.AuthModel, Keypad.BackCharacter));
                 });
             }
         }
