@@ -60,19 +60,19 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Exrin.Abstraction, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Exrin.1.0.1\lib\netstandard1.1\Exrin.Abstraction.dll</HintPath>
+      <HintPath>..\..\packages\Exrin.1.0.3\lib\netstandard1.1\Exrin.Abstraction.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Exrin.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Exrin.1.0.1\lib\netstandard1.1\Exrin.Common.dll</HintPath>
+      <HintPath>..\..\packages\Exrin.1.0.3\lib\netstandard1.1\Exrin.Common.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Exrin.Framework, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Exrin.1.0.1\lib\netstandard1.1\Exrin.Framework.dll</HintPath>
+      <HintPath>..\..\packages\Exrin.1.0.3\lib\netstandard1.1\Exrin.Framework.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Exrin.Insights, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Exrin.1.0.1\lib\netstandard1.1\Exrin.Insights.dll</HintPath>
+      <HintPath>..\..\packages\Exrin.1.0.3\lib\netstandard1.1\Exrin.Insights.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="FormsViewGroup, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">

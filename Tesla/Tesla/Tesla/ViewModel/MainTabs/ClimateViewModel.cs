@@ -44,7 +44,7 @@ namespace Tesla.ViewModel
             {
                 return GetCommand(() =>
                 {
-                    return Execution.ViewModelExecute(new BaseViewModelExecute(new List<IOperation>() { new NextOperation() }));
+                    return Execution.ViewModelExecute(new NextOperation());
                 });
             }
         }
