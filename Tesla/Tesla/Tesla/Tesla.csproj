@@ -162,6 +162,9 @@
     <Compile Include="View\MainTabs\ServiceView.xaml.cs">
       <DependentUpon>ServiceView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\UWPPinView.xaml.cs">
+      <DependentUpon>UWPPinView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ServiceCentreView.xaml.cs">
       <DependentUpon>ServiceCentreView.xaml</DependentUpon>
     </Compile>
@@ -271,6 +274,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="project.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="View\UWPPinView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

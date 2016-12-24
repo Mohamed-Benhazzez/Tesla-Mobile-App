@@ -1,6 +1,7 @@
 ﻿using Android.App;
 using Android.Content;
 using Android.OS;
+using Exrin.Framework;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 using Xamarin.Forms.Platform.Android.AppLinks;
@@ -31,7 +32,7 @@ namespace Tesla.Droid
             base.OnCreate(bundle);
 
             Forms.Init(this, bundle);
-            Exrin.Framework.App.Init();
+            Exrin.Framework.App.Init(new PlatformOptions() { Platform = Device.OS.ToString() });
 
             AndroidAppLinks.Init(this);
             

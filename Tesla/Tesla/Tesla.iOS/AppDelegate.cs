@@ -1,4 +1,5 @@
-﻿using Foundation;
+﻿using Exrin.Framework;
+using Foundation;
 using UIKit;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
@@ -14,7 +15,7 @@ namespace Tesla.iOS
         public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
         {
             Forms.Init();
-            Exrin.Framework.App.Init();
+            Exrin.Framework.App.Init(new PlatformOptions() { Platform = Device.OS.ToString() });
             LoadApplication(new App(new Bootstrapper()));
 
             return base.FinishedLaunching(application, launchOptions);

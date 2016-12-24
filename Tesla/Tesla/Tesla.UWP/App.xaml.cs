@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Exrin.Framework;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -60,7 +61,7 @@ namespace Tesla.UWP
                 rootFrame.NavigationFailed += OnNavigationFailed;
 
                 Xamarin.Forms.Forms.Init(e);
-                Exrin.Framework.App.Init();
+                Exrin.Framework.App.Init(new PlatformOptions() { Platform = Xamarin.Forms.Device.OS.ToString() });
 
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {
