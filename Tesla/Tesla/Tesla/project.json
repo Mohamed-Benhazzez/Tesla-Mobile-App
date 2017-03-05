@@ -3,7 +3,7 @@
   "dependencies": {
     "Autofac": "4.2.0",
     "AutoMapper": "5.1.1",
-    "Exrin": "1.0.4-beta2",
+    "Exrin": "1.0.6-beta9",
     "NETStandard.Library": "1.6.0",
     "Xamarin.Forms": "2.3.3.175"
   },

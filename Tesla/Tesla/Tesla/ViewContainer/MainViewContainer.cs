@@ -13,15 +13,16 @@
             : base(ViewContainers.Main.ToString(), null)
         {
             Children = new List<IStack>() { controlStack, climateStack };
-            var tabbed = new TabbedView(new Xamarin.Forms.TabbedPage());
+            var tabbedPage = new Xamarin.Forms.TabbedPage();
+            var tabbed = new TabbedView(tabbedPage);
             NativeView = tabbed.View;
 
             foreach (var child in Children)
             {
                 tabbed.Children.Add(child.Proxy.NativeView);
-                child.StartNavigation(child.NavigationStartKey); // Needs to initialize on tabbed page to start with.
             }
         }
+
 
         public IList<IStack> Children { get; set; }
 
