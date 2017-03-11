@@ -15,7 +15,7 @@ namespace Tesla.iOS
         public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
         {
             Forms.Init();
-            Exrin.Framework.App.Init(new PlatformOptions() { Platform = Device.OS.ToString() });
+            Exrin.Framework.App.Init(new PlatformOptions() { Platform = Device.RuntimePlatform });
             LoadApplication(new App(new Bootstrapper()));
 
             return base.FinishedLaunching(application, launchOptions);

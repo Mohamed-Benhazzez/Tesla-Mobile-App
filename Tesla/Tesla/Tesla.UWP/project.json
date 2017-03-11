@@ -1,9 +1,9 @@
 ﻿{
   "dependencies": {
-    "Exrin": "1.0.6-beta9",
+    "Exrin": "1.1.1",
     "Microsoft.NETCore.UniversalWindowsPlatform": "5.1.0",
     "SQLite.Net-PCL": "3.1.1",
-    "Xamarin.Forms": "2.3.3.175"
+    "Xamarin.Forms": "2.3.4.212-pre4"
   },
   "frameworks": {
     "uap10.0": {}

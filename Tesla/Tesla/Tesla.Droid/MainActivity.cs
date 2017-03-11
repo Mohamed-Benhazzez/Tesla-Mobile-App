@@ -32,7 +32,7 @@ namespace Tesla.Droid
             base.OnCreate(bundle);
 
             Forms.Init(this, bundle);
-            Exrin.Framework.App.Init(new PlatformOptions() { Platform = Device.OS.ToString() });
+            Exrin.Framework.App.Init(new PlatformOptions() { Platform = Device.RuntimePlatform });
 
             AndroidAppLinks.Init(this);
             

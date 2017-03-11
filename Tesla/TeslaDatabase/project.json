@@ -3,10 +3,10 @@
   "dependencies": {
     "NETStandard.Library": "1.6.0",
     "SQLite.Net.Core-PCL": "3.1.1",
-    "Xamarin.Forms": "2.3.3.175"
+    "Xamarin.Forms": "2.3.4.212-pre4"
   },
   "frameworks": {
-    "netstandard1.1": {
+    "netstandard1.3": {
       "imports": "portable-net45+win8+wpa81"
     }
   }
