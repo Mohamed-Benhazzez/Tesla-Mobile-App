@@ -1,7 +1,5 @@
 ﻿using Exrin.Abstraction;
 using Exrin.Framework;
-using System;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 

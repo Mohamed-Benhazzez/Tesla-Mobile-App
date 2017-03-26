@@ -8,7 +8,7 @@ using Xamarin.Forms.Platform.Android.AppLinks;
 
 namespace Tesla.Droid
 {
-    [Activity(Label = "Tesla", MainLauncher = true, Theme = "@style/main", Icon = "@drawable/icon")]
+    [Activity(Label = "Tesla", MainLauncher = true, Theme = "@style/main", Icon = "@drawable/icon", LaunchMode = Android.Content.PM.LaunchMode.SingleTop)]
     [IntentFilter(new[] { Android.Content.Intent.ActionView },
      Categories = new[]
      {

@@ -20,7 +20,6 @@
         protected override void Map()
         {
             base.NavigationMap<PinView, PinViewModel>(nameof(Authentication.Pin));
-            base.NavigationMap<UWPPinView, PinViewModel>(nameof(Authentication.Pin), new MapOptions() { Platform = Device.OS.ToString() });
         }
 
         public override string NavigationStartKey

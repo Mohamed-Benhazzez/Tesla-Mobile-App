@@ -21,10 +21,7 @@ namespace Tesla
             return _instance;
         }
 
-        private Bootstrapper(IPlatformBootstrapper platformBootstrapper) : base(new InjectionProxy(), (newView) =>
-        {
-            Application.Current.MainPage = newView as Page;
-        })
+        private Bootstrapper(IPlatformBootstrapper platformBootstrapper) : base(new InjectionProxy(), (view) => Application.Current.MainPage = view as Page, () => { return Application.Current.MainPage; })
         {
             platformBootstrapper?.Register(_injection);
         }
