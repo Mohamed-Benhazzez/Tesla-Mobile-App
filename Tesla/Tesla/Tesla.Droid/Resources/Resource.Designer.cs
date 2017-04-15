@@ -147,7 +147,6 @@ namespace Tesla.Droid
 			global::Xamarin.Forms.Platform.Android.AppLinks.Resource.Styleable.SignInButton_buttonSize = global::Tesla.Droid.Resource.Styleable.SignInButton_buttonSize;
 			global::Xamarin.Forms.Platform.Android.AppLinks.Resource.Styleable.SignInButton_colorScheme = global::Tesla.Droid.Resource.Styleable.SignInButton_colorScheme;
 			global::Xamarin.Forms.Platform.Android.AppLinks.Resource.Styleable.SignInButton_scopeUris = global::Tesla.Droid.Resource.Styleable.SignInButton_scopeUris;
-			global::Xamarin.Forms.Platform.Android.Resource.Attribute.actionBarSize = global::Tesla.Droid.Resource.Attribute.actionBarSize;
 		}
 		
 		public partial class Animation
